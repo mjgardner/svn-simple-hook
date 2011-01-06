@@ -1,7 +1,9 @@
+## no critic (NamingConventions::Capitalization)
 package GSI::Content::Cmd::Command::check_lock;
 
 # ABSTRACT: Subversion pre-commit hook for lock-to-author content
 
+use English '-no_match_vars';
 use Moose;
 use MooseX::Has::Sugar;
 use namespace::autoclean;
