@@ -10,6 +10,7 @@ use namespace::autoclean;
 
 extends 'MooseX::App::Cmd::Command';
 with 'GSI::Automerge::SchemaConnection';
+with 'SVN::Simple::Hook::PreCommit';
 
 =method execute
 
@@ -49,5 +50,5 @@ In your repository's F<hooks/pre-commit> file:
     ORACLE_HOME=/usr/app/oracle
     export ORACLE_HOME
 
-    content_svn_hook check_lock -r "$REPOS" -t "$TXN" || exit 1
+    perl -MGSI::Content::Cmd -e 'GSI::Content::Cmd->run()' check_lock -r "$REPOS" -t "$TXN" || exit 1
     exit 0
