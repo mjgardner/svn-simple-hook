@@ -1,13 +1,25 @@
 #!perl
 
 use English '-no_match_vars';
-use Test::More tests => 2;
+use Readonly;
+use Test::More;
 use Test::Moose;
-use GSI::Content::Cmd::Command::check_lock;
+use App::Cmd::Tester;
 
-isa_ok( 'GSI::Content::Cmd::Command::check_lock',
-    'MooseX::App::Cmd::Command' );
-does_ok(
-    'GSI::Content::Cmd::Command::check_lock',
-    'GSI::Automerge::SchemaConnection',
+our $CLASS;
+BEGIN {
+    Readonly our $CLASS => 'GSI::Content::Cmd::Command::check_lock';
+    eval "require $CLASS; $CLASS->import();";
+}
+Readonly my @ROLES => qw(
+    SVN::Simple::Hook::PreCommit
+    GSI::Automerge::SchemaConnection
 );
+Readonly my @ATTRS => qw(
+    messages
+);
+
+plan tests => 1 + @ROLES + @ATTRS;
+isa_ok( $CLASS, 'MooseX::App::Cmd::Command' );
+does_ok( $CLASS, $ARG ) for @ROLES;
+has_attribute_ok( $CLASS, $ARG ) for @ATTRS;
