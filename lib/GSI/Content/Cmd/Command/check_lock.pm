@@ -19,6 +19,41 @@ with 'SVN::Simple::Hook::PreCommit' => { -version => 0.110100 };
 Readonly my $SVN_BRANCH => 'SVN_LTA_SUPPORT';
 Readonly my $DEFAULT_LTA_ID => 3;    # default lock status ID for new branches
 
+has _component => ( ro, lazy_build, isa => 'DBIx::Class::Row' );
+
+sub _build__component {    ## no critic (ProhibitUnusedPrivateSubroutines)
+    my $self   = shift;
+    my $path   = $self->repository->path();
+    my $schema = $self->automerge();
+    my $rs     = $schema->resultset('ScmComponent');
+    my $component;
+
+    try {
+        my $guard = $schema->txn_scope_guard();
+        my @COMPONENT_REPO
+            = ( { component_name => $path }, { key => 'scm_component_uk1' },
+            );
+
+        $component = $rs->find(@COMPONENT_REPO);
+        if ( !defined $component ) {
+            $component = $rs->find_or_create(@COMPONENT_REPO);
+            $schema->resultset('Branch')->create(
+                {   branch_name            => $SVN_BRANCH,
+                    component_id           => $component->component_id(),
+                    default_lock_status_id => $DEFAULT_LTA_ID,
+                }
+            ) or croak "no branch record for $path";
+        }
+
+        $guard->commit();
+    }
+    catch {
+        croak "database transaction aborted: $EVAL_ERROR";
+    };
+
+    return $component;
+}
+
 =method execute
 
 Runs the subcommand.
@@ -28,33 +63,12 @@ Runs the subcommand.
 sub execute {
     my ( $self, $opt, $args ) = @ARG;
 
-    my $schema = $self->automerge();
-    my $repos  = $self->repository();
-
-    try {
-        my @COMPONENT_REPO = (
-            { component_name => $repos->path() },
-            { key            => 'scm_component_uk1' },
-        );
-        my $guard = $schema->txn_scope_guard();
-
-        my $component_rs = $schema->resultset('ScmComponent');
-        my $component    = $component_rs->find(@COMPONENT_REPO);
-        if ( !defined $component ) {
-            $component = $component_rs->find_or_create(@COMPONENT_REPO);
-            $schema->resultset('Branch')->create(
-                {   branch_name            => $SVN_BRANCH,
-                    component_id           => $component->component_id(),
-                    default_lock_status_id => $DEFAULT_LTA_ID,
-                }
-            ) or croak 'no branch record for ', $repos->path();
-        }
-
-        $guard->commit();
-    }
-    catch {
-        croak "database transaction aborted: $EVAL_ERROR";
-    };
+    my %change_info = %{ $self->root->paths_changed() };
+    my $branch      = $self->automerge->resultset('Branch')->search(
+        {   component_id => $self->component->component_id(),
+            branch_name  => $SVN_BRANCH,
+        },
+    );
 
     return;
 }
