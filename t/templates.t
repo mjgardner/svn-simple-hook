@@ -1,16 +1,12 @@
 #!perl
 
-use Readonly;
-Readonly my $ROLE => 'GSI::Content::Config';
-
 package My::Class;
 use Moose;
-with $ROLE;
+with 'GSI::Content::Config';
 
 package main;
 use English '-no_match_vars';
-use Readonly;
-use Test::Most;
+use Test::More;
 
 my @MESSAGE_TYPES = qw(contact lock author warning);
 plan tests => scalar @MESSAGE_TYPES;
