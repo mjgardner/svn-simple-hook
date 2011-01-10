@@ -6,20 +6,13 @@ package GSI::Content::Cmd::Command::check_lock;
 use English '-no_match_vars';
 use Moose;
 use MooseX::Has::Sugar;
-use GSI::Content::Cmd::Command::check_lock::Types 'LockMessages';
+use Readonly;
 use namespace::autoclean;
 
 extends 'MooseX::App::Cmd::Command';
 with 'GSI::Automerge::SchemaConnection';
-with 'SVN::Simple::Hook::PreCommit';
-
-has messages => (
-    rw,
-    isa     => LockMessages,
-    default => sub {
-        GSI::Content::Cmd::Command::check_lock::Types::make_default();
-    },
-);
+with 'GSI::Content::Config';
+with 'SVN::Simple::Hook::PreCommit' => { -version => 0.110100 };
 
 =method execute
 
