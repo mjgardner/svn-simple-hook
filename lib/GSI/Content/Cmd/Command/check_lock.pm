@@ -31,8 +31,7 @@ sub _build__component {    ## no critic (ProhibitUnusedPrivateSubroutines)
     try {
         my $guard = $schema->txn_scope_guard();
         my @COMPONENT_REPO
-            = ( { component_name => $path }, { key => 'scm_component_uk1' },
-            );
+            = ( { component_name => $path }, { key => 'scm_component_uk1' } );
 
         $component = $rs->find(@COMPONENT_REPO);
         if ( !defined $component ) {
@@ -47,9 +46,7 @@ sub _build__component {    ## no critic (ProhibitUnusedPrivateSubroutines)
 
         $guard->commit();
     }
-    catch {
-        croak "database transaction aborted: $EVAL_ERROR";
-    };
+    catch { croak "database transaction aborted: $ARG" };
 
     return $component;
 }
