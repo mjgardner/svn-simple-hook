@@ -2,40 +2,60 @@ package GSI::Content::Config;
 
 # ABSTRACT: GSI content configuration role
 
-use strict;
 use English '-no_match_vars';
-use Moose::Role;
+use Moose;
 use MooseX::Has::Sugar;
+use MooseX::Types::Moose qw(Int Str);
+use MooseX::Types::Path::Class 'Dir';
+use Path::Class;
 use Readonly;
 use GSI::Content::Config::Template;
 use GSI::Content::Config::Types 'Messages';
+with 'MooseX::SimpleConfig';
+with 'MooseX::Getopt';
 
-Readonly my $MESSAGES_DIR => 'conf/messages';
+has svn_branch => (
+    ro, required,
+    isa           => Str,
+    traits        => ['Getopt'],
+    default       => 'SVN_LTA_SUPPORT',
+    documentation => 'Branch name to associate with Subversion locked files',
+);
 
-=attr messages
+has default_lock_id => (
+    ro, required,
+    isa           => Int,
+    traits        => ['Getopt'],
+    default       => 3,
+    documentation => 'Default lock status ID for new branches',
+);
 
-L<Messages|GSI::Content::Config::Types/Messages>
-containing an error or warning a user might receive on commit.
+has messages_dir => (
+    ro, required, coerce,
+    isa           => Dir,
+    traits        => ['Getopt'],
+    default       => sub { dir('conf/messages') },
+    documentation => 'Directory containing error message templates',
+);
 
-=cut
-
-has messages => (
-    rw,
+has _messages => (
+    rw, required, lazy_build,
     isa     => Messages,
     traits  => ['Hash'],
     handles => { message => 'accessor' },
-    builder => '_build_messages',
 );
 
-sub _build_messages {    ## no critic (ProhibitUnusedPrivateSubroutines)
-    return { map { $ARG => _make_template($ARG) }
+sub _build__messages {
+    return { map { $ARG => $ARG[0]->_make_template($ARG) }
             @GSI::Content::Config::Types::MESSAGE_TYPES };
 }
 
 sub _make_template {
+    my ( $self, $template ) = @ARG;
     return GSI::Content::Config::Template->new(
-        TYPE   => 'FILE',
-        SOURCE => "$MESSAGES_DIR/$ARG[0].tmpl",
+        TYPE => 'FILE',
+        SOURCE =>
+            file( $self->messages_dir(), "$template.tmpl" )->stringify(),
     );
 }
 

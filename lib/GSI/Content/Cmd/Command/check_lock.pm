@@ -7,24 +7,81 @@ use Carp;
 use English '-no_match_vars';
 use Moose;
 use MooseX::Has::Sugar;
+use MooseX::Types::Moose qw(Int Str);
+use MooseX::Types::Path::Class 'Dir';
+use Path::Class;
 use Readonly;
 use Try::Tiny;
+use GSI::Automerge::Schema::Configured;
+use GSI::Content::Config::Template;
+use GSI::Content::Config::Types 'Messages';
 use namespace::autoclean;
-
 extends 'MooseX::App::Cmd::Command';
-with 'GSI::Automerge::SchemaConnection';
-with 'GSI::Content::Config';
 with 'SVN::Simple::Hook::PreCommit' => { -version => 0.110100 };
+with 'MooseX::SimpleConfig';
+with 'MooseX::Getopt';
 
-Readonly my $SVN_BRANCH => 'SVN_LTA_SUPPORT';
-Readonly my $DEFAULT_LTA_ID => 3;    # default lock status ID for new branches
+has '+configfile' => ( default => 'conf/config.ini' );
+
+has svn_branch => (
+    ro, required,
+    isa           => Str,
+    traits        => ['Getopt'],
+    default       => 'SVN_LTA_SUPPORT',
+    documentation => 'Branch name to associate with Subversion locked files',
+);
+
+has default_lock_id => (
+    ro, required,
+    isa           => Int,
+    traits        => ['Getopt'],
+    default       => 3,
+    documentation => 'Default lock status ID for new branches',
+);
+
+has messages_dir => (
+    ro, required, coerce,
+    isa           => Dir,
+    traits        => ['Getopt'],
+    default       => sub { dir('conf/messages') },
+    documentation => 'Directory containing error message templates',
+);
+
+has _messages => (
+    rw, required, lazy_build,
+    isa     => Messages,
+    traits  => ['Hash'],
+    handles => { message => 'accessor' },
+);
+
+sub _build__messages {
+    return { map { $ARG => $ARG[0]->_make_template($ARG) }
+            @GSI::Content::Config::Types::MESSAGE_TYPES };
+}
+
+sub _make_template {
+    my ( $self, $template ) = @ARG;
+    return GSI::Content::Config::Template->new(
+        TYPE => 'FILE',
+        SOURCE =>
+            file( $self->messages_dir(), "$template.tmpl" )->stringify(),
+    );
+}
+
+has schema => ( ro, required, lazy,
+    isa     => 'GSI::Automerge::Schema::Configured',
+    default => sub {
+        GSI::Automerge::Schema::Configured->new_with_config(
+            configfile => $ARG[0]->configfile() );
+    },
+);
 
 has _component => ( ro, lazy_build, isa => 'DBIx::Class::Row' );
 
 sub _build__component {    ## no critic (ProhibitUnusedPrivateSubroutines)
     my $self   = shift;
     my $path   = $self->repository->path();
-    my $schema = $self->automerge();
+    my $schema = $self->schema();
     my $rs     = $schema->resultset('ScmComponent');
     my $component;
 
@@ -37,9 +94,9 @@ sub _build__component {    ## no critic (ProhibitUnusedPrivateSubroutines)
         if ( !defined $component ) {
             $component = $rs->find_or_create(@COMPONENT_REPO);
             $schema->resultset('Branch')->create(
-                {   branch_name            => $SVN_BRANCH,
+                {   branch_name            => $self->svn_branch(),
                     component_id           => $component->component_id(),
-                    default_lock_status_id => $DEFAULT_LTA_ID,
+                    default_lock_status_id => $self->default_lock_id(),
                 }
             ) or croak "no branch record for $path";
         }
@@ -63,7 +120,7 @@ sub execute {
     my %change_info = %{ $self->root->paths_changed() };
     my $branch      = $self->automerge->resultset('Branch')->search(
         {   component_id => $self->component->component_id(),
-            branch_name  => $SVN_BRANCH,
+            branch_name  => $self->svn_branch(),
         },
     );
 
