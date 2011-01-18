@@ -54,7 +54,7 @@ has _messages => (
     handles => { message => 'accessor' },
 );
 
-sub _build__messages {
+sub _build__messages {    ## no critic (ProhibitUnusedPrivateSubroutines)
     return { map { $ARG => $ARG[0]->_make_template($ARG) }
             @GSI::Content::Config::Types::MESSAGE_TYPES };
 }

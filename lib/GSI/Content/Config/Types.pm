@@ -55,8 +55,7 @@ __END__
 
 =head1 DESCRIPTION
 
-This module defines subtypes used by
-L<GSI::Content::Config|GSI::Content::Config>.
+This module defines subtypes used by L<GSI::Content|GSI::Content> commands.
 
 =head1 SYNOPSIS
 
