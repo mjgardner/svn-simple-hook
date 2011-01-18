@@ -51,7 +51,7 @@ while ( my ( $attr_name, $options_ref ) = each %ATTR ) {
 }
 
 for ( grep { $ARG->does('Getopt') } $CLASS->meta->get_all_attributes() ) {
-    ok( $ARG->has_documentation(), $ARG->name . ' has documentation' );
+    ok( $ARG->has_documentation(), $ARG->name() . ' has documentation' );
     $tests++;
 }
 
