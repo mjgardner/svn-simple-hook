@@ -11,7 +11,7 @@ use MooseX::Types::Moose qw(Int Str);
 use MooseX::Types::Path::Class 'Dir';
 use Path::Class;
 use Readonly;
-use Try::Tiny;
+use TryCatch;
 use GSI::Automerge::Schema::Configured;
 use GSI::Content::Config::Template;
 use GSI::Content::Config::Types 'Messages';
@@ -103,7 +103,7 @@ sub _build__component {    ## no critic (ProhibitUnusedPrivateSubroutines)
 
         $guard->commit();
     }
-    catch { croak "database transaction aborted: $ARG" };
+    catch { croak "database transaction aborted: $EVAL_ERROR" };
 
     return $component;
 }
@@ -127,7 +127,7 @@ sub execute {
     return;
 }
 
-__PACKAGE__->meta->make_immutable;
+__PACKAGE__->meta->make_immutable();
 
 1;
 
