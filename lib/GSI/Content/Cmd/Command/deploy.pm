@@ -3,7 +3,6 @@ package GSI::Content::Cmd::Command::deploy;
 
 # ABSTRACT: deploy content from Subversion and post-process it
 
-use Carp;
 use English '-no_match_vars';
 use Moose;
 use MooseX::Has::Sugar;
@@ -16,30 +15,13 @@ use namespace::autoclean;
 extends 'MooseX::App::Cmd::Command';
 with 'MooseX::SimpleConfig';
 with 'MooseX::Getopt';
+with 'SVN::Simple::Client::AsRole';
 
 has '+configfile' => ( default => 'conf/config.ini' );
 
 for (qw(MooseX::Types::URI::Uri SVN::Simple::Client::Types::SvnUri)) {
     MooseX::Getopt::OptionTypeMap->add_option_type_to_map( $ARG => '=s' );
 }
-
-Readonly my @CLIENT_ATTRS => qw(username password url working_copy);
-
-for (@CLIENT_ATTRS) {
-    my $attr = SVN::Simple::Client->meta->get_attribute($ARG);
-    has $ARG => ( ro, required,
-        isa           => $attr->type_constraint,
-        coerce        => $attr->should_coerce,
-        documentation => "$attr for SVN::Simple::Client",
-    );
-}
-
-has _svn => ( ro, required, lazy,
-    isa     => 'SVN::Simple::Client',
-    default => sub {
-        SVN::Simple::Client->new( map { $ARG => shift->$ARG } @CLIENT_ATTRS );
-    },
-);
 
 =method execute
 
