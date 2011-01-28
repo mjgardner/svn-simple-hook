@@ -22,8 +22,10 @@ __PACKAGE__->table("merge_job");
 =head2 job_id
 
   data_type: 'numeric'
+  is_auto_increment: 1
   is_nullable: 0
   original: {data_type => "number"}
+  sequence: 'm_jobs_sequence1'
   size: 126
 
 =head2 from_branch
@@ -109,8 +111,10 @@ __PACKAGE__->add_columns(
   "job_id",
   {
     data_type => "numeric",
+    is_auto_increment => 1,
     is_nullable => 0,
     original => { data_type => "number" },
+    sequence => "m_jobs_sequence1",
     size => 126,
   },
   "from_branch",
@@ -295,9 +299,9 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2010-09-23 09:58:41
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:+iDAA74sCZs1eV77IOdDUA
+# Created by DBIx::Class::Schema::Loader v0.07005 @ 2011-01-28 17:11:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:4KZOUHF0EvWuBtT0EpDuMA
 
 
-# You can replace this text with custom content, and it will be preserved on regeneration
+# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

@@ -22,7 +22,9 @@ __PACKAGE__->table("activity_log");
 =head2 log_id
 
   data_type: 'varchar2'
+  is_auto_increment: 1
   is_nullable: 0
+  sequence: 'activity_log_seq'
   size: 20
 
 =head2 log_entity_name
@@ -59,7 +61,13 @@ __PACKAGE__->table("activity_log");
 
 __PACKAGE__->add_columns(
   "log_id",
-  { data_type => "varchar2", is_nullable => 0, size => 20 },
+  {
+    data_type => "varchar2",
+    is_auto_increment => 1,
+    is_nullable => 0,
+    sequence => "activity_log_seq",
+    size => 20,
+  },
   "log_entity_name",
   { data_type => "varchar2", is_nullable => 1, size => 55 },
   "log_entity_type",
@@ -78,9 +86,9 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("log_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2010-09-23 09:58:41
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:HzHHDOVpLRMaIDKQuyj9wA
+# Created by DBIx::Class::Schema::Loader v0.07005 @ 2011-01-28 17:11:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:qd6rGveqg5IvQNcSrZ0MDg
 
 
-# You can replace this text with custom content, and it will be preserved on regeneration
+# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

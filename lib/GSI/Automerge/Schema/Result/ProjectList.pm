@@ -22,8 +22,10 @@ __PACKAGE__->table("project_list");
 =head2 project_id
 
   data_type: 'numeric'
+  is_auto_increment: 1
   is_nullable: 0
   original: {data_type => "number"}
+  sequence: 'project_id_sequence'
   size: [11,0]
 
 =head2 project_name
@@ -105,8 +107,10 @@ __PACKAGE__->add_columns(
   "project_id",
   {
     data_type => "numeric",
+    is_auto_increment => 1,
     is_nullable => 0,
     original => { data_type => "number" },
+    sequence => "project_id_sequence",
     size => [11, 0],
   },
   "project_name",
@@ -180,9 +184,9 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2010-10-08 12:54:21
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:D79DCM7NdURAQm6yGg6Dew
+# Created by DBIx::Class::Schema::Loader v0.07005 @ 2011-01-28 17:11:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:bGRTPSh98BIeId8Kg4oMeg
 
 
-# You can replace this text with custom content, and it will be preserved on regeneration
+# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

@@ -1,7 +1,8 @@
-package GSI::Automerge::Types;
+package GSI::Automerge::Connection::Types;
 
 # ABSTRACT: Moose type library for GSI::Automerge
 
+use strict;
 use DBI;
 use English '-no_match_vars';
 use MooseX::Types -declare => ['DSN'];
@@ -24,6 +25,6 @@ Type library for Moose classes used by L<GSI::Automerge|GSI::Automerge>
     package My::Class;
     
     use Moose;
-    use GSI::Automerge::Types 'DSN';
+    use GSI::Automerge::Connection::Types 'DSN';
     
     has dsn => ( isa => DSN );

@@ -21,9 +21,12 @@ __PACKAGE__->table("scm_file");
 
 =head2 file_id
 
+  data_type: 'numeric'
   is_auto_increment: 1
   is_nullable: 0
+  original: {data_type => "number"}
   sequence: 'file_id_sequence'
+  size: [11,0]
 
 =head2 component_id
 
@@ -102,9 +105,12 @@ __PACKAGE__->table("scm_file");
 __PACKAGE__->add_columns(
   "file_id",
   {
+    data_type => "numeric",
     is_auto_increment => 1,
     is_nullable => 0,
+    original => { data_type => "number" },
     sequence => "file_id_sequence",
+    size => [11, 0],
   },
   "component_id",
   {
@@ -286,9 +292,9 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2010-10-08 12:54:21
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:LFsZZphw07mZZk4GyjsRvA
+# Created by DBIx::Class::Schema::Loader v0.07005 @ 2011-01-28 17:11:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:S9xSXAdqPecq6vQ+FLlxfg
 
 
-# You can replace this text with custom content, and it will be preserved on regeneration
+# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

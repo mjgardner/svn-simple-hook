@@ -16,7 +16,7 @@ Readonly my %ATTR => (
 );
 
 BEGIN {
-    Readonly our $CLASS => 'GSI::Automerge::Schema::Configured';
+    Readonly our $CLASS => 'GSI::Automerge::Connection::Schema';
     eval "require $CLASS; $CLASS->import();";
 }
 

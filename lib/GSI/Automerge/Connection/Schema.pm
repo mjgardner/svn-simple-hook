@@ -1,4 +1,4 @@
-package GSI::Automerge::Schema::Configured;
+package GSI::Automerge::Connection::Schema;
 
 # ABSTRACT: Generates connections to automerge schema
 
@@ -7,7 +7,7 @@ use English '-no_match_vars';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose 'Str';
-use GSI::Automerge::Types 'DSN';
+use GSI::Automerge::Connection::Types 'DSN';
 use GSI::Automerge::Schema;
 use namespace::autoclean;
 with 'MooseX::SimpleConfig';
@@ -122,9 +122,9 @@ L<datetime_setup|DBIx::Class::Storage::DBI/datetime_setup>.
 
 =head1 SYNOPSIS
 
-    use GSI::Automerge::Schema::Configured;
+    use GSI::Automerge::Connection::Schema;
 
-    my $schema = GSI::Automerge::Schema::Configured->new(
+    my $schema = GSI::Automerge::Connection::Schema->new(
         configfile => 'config.ini',
     );
     my $rs = $schema->resultset('SvnUserPerm')->search(

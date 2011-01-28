@@ -22,13 +22,18 @@ __PACKAGE__->table("logs");
 =head2 log_id
 
   data_type: 'numeric'
+  is_auto_increment: 1
   is_nullable: 0
   original: {data_type => "number"}
+  sequence: 'log_id_sequence'
   size: 126
 
 =head2 log_timestamp
 
+  data_type: 'timestamp with local time zone'
   is_auto_increment: 1
+  is_nullable: 1
+  size: 0
 
 =head2 user_name
 
@@ -66,12 +71,19 @@ __PACKAGE__->add_columns(
   "log_id",
   {
     data_type => "numeric",
+    is_auto_increment => 1,
     is_nullable => 0,
     original => { data_type => "number" },
+    sequence => "log_id_sequence",
     size => 126,
   },
   "log_timestamp",
-  { is_auto_increment => 1 },
+  {
+    data_type => "timestamp with local time zone",
+    is_auto_increment => 1,
+    is_nullable => 1,
+    size => 0,
+  },
   "user_name",
   { data_type => "varchar2", is_nullable => 1, size => 50 },
   "foreign_id",
@@ -91,9 +103,9 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("log_id");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2010-12-06 13:03:35
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:E4G05clx2Zbk9MGoK0CrsQ
+# Created by DBIx::Class::Schema::Loader v0.07005 @ 2011-01-28 17:11:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:MQLdzXxZt4gdDKi+Dic1kQ
 
 
-# You can replace this text with custom content, and it will be preserved on regeneration
+# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

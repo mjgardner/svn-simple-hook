@@ -22,8 +22,10 @@ __PACKAGE__->table("job_status_cd");
 =head2 job_status_id
 
   data_type: 'numeric'
+  is_auto_increment: 1
   is_nullable: 0
   original: {data_type => "number"}
+  sequence: 'job_status_seq'
   size: 126
 
 =head2 job_status_value
@@ -44,8 +46,10 @@ __PACKAGE__->add_columns(
   "job_status_id",
   {
     data_type => "numeric",
+    is_auto_increment => 1,
     is_nullable => 0,
     original => { data_type => "number" },
+    sequence => "job_status_seq",
     size => 126,
   },
   "job_status_value",
@@ -88,9 +92,9 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2010-09-23 09:58:41
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:7/tcHSjaFZtSCsFLtG+kcw
+# Created by DBIx::Class::Schema::Loader v0.07005 @ 2011-01-28 17:11:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:L3W6QSLmOfsBxTkxUGVA6w
 
 
-# You can replace this text with custom content, and it will be preserved on regeneration
+# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

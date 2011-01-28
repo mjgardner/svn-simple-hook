@@ -12,12 +12,12 @@ use MooseX::Types::Path::Class 'Dir';
 use Path::Class;
 use Readonly;
 use TryCatch;
-use GSI::Automerge::Schema::Configured;
+use GSI::Automerge::Connection::Schema;
 use GSI::Content::Config::Template;
 use GSI::Content::Config::Types 'Messages';
 use namespace::autoclean;
 extends 'MooseX::App::Cmd::Command';
-with 'SVN::Simple::Hook::PreCommit' => { -version => 0.110100 };
+with 'SVN::Simple::Hook::PreCommit';
 with 'MooseX::SimpleConfig';
 with 'MooseX::Getopt';
 
@@ -69,9 +69,9 @@ sub _make_template {
 }
 
 has schema => ( ro, required, lazy,
-    isa     => 'GSI::Automerge::Schema::Configured',
+    isa     => 'GSI::Automerge::Connection::Schema',
     default => sub {
-        GSI::Automerge::Schema::Configured->new_with_config(
+        GSI::Automerge::Connection::Schema->new_with_config(
             configfile => $ARG[0]->configfile() );
     },
 );

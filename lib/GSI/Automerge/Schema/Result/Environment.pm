@@ -21,9 +21,12 @@ __PACKAGE__->table("environment");
 
 =head2 environment_id
 
+  data_type: 'numeric'
   is_auto_increment: 1
   is_nullable: 0
+  original: {data_type => "number"}
   sequence: 'environment_id_sequence'
+  size: 126
 
 =head2 environment_name
 
@@ -71,9 +74,12 @@ __PACKAGE__->table("environment");
 __PACKAGE__->add_columns(
   "environment_id",
   {
+    data_type => "numeric",
     is_auto_increment => 1,
     is_nullable => 0,
+    original => { data_type => "number" },
     sequence => "environment_id_sequence",
+    size => 126,
   },
   "environment_name",
   { data_type => "varchar2", is_nullable => 1, size => 4000 },
@@ -145,9 +151,9 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2010-12-06 13:03:35
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:ORg5E7Gr61tbP0qBUJ9ovA
+# Created by DBIx::Class::Schema::Loader v0.07005 @ 2011-01-28 17:11:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:rxZLzJ84FduOLoZVw9l5Cw
 
 
-# You can replace this text with custom content, and it will be preserved on regeneration
+# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

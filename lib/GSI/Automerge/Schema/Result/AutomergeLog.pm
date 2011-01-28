@@ -22,8 +22,10 @@ __PACKAGE__->table("automerge_log");
 =head2 log_id
 
   data_type: 'numeric'
+  is_auto_increment: 1
   is_nullable: 0
   original: {data_type => "number"}
+  sequence: 'automerge_log_seq'
   size: [11,0]
 
 =head2 merge_job_id
@@ -89,8 +91,10 @@ __PACKAGE__->add_columns(
   "log_id",
   {
     data_type => "numeric",
+    is_auto_increment => 1,
     is_nullable => 0,
     original => { data_type => "number" },
+    sequence => "automerge_log_seq",
     size => [11, 0],
   },
   "merge_job_id",
@@ -244,9 +248,9 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2010-09-23 09:58:41
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:i8azpfCa3/vT94/ONcyjZg
+# Created by DBIx::Class::Schema::Loader v0.07005 @ 2011-01-28 17:11:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:F3N5QjtWILreeloczvnvng
 
 
-# You can replace this text with custom content, and it will be preserved on regeneration
+# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

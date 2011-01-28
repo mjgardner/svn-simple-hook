@@ -39,8 +39,12 @@ __PACKAGE__->table("user_login");
 
 =head2 id
 
+  data_type: 'numeric'
   is_auto_increment: 1
+  is_nullable: 0
+  original: {data_type => "number"}
   sequence: 'user_login_seq'
+  size: 126
 
 =cut
 
@@ -52,13 +56,20 @@ __PACKAGE__->add_columns(
   "user_type",
   { data_type => "varchar2", is_nullable => 1, size => 20 },
   "id",
-  { is_auto_increment => 1, sequence => "user_login_seq" },
+  {
+    data_type => "numeric",
+    is_auto_increment => 1,
+    is_nullable => 0,
+    original => { data_type => "number" },
+    sequence => "user_login_seq",
+    size => 126,
+  },
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07002 @ 2010-10-08 12:54:22
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:MrOw2wLTZbuWhghS2D4Fjg
+# Created by DBIx::Class::Schema::Loader v0.07005 @ 2011-01-28 17:11:19
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:FjuvAU67Lci0XgYKPV6TGQ
 
 
-# You can replace this text with custom content, and it will be preserved on regeneration
+# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

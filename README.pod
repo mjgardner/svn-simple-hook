@@ -1,0 +1,30 @@
+=pod
+
+=for :stopwords Mark Gardner GSI Commerce configfile
+
+=head1 NAME
+
+GSI::Content::Cmd - application class for running content commands
+
+=head1 VERSION
+
+version 0.110280
+
+=head1 SYNOPSIS
+
+    use GSI::Content::Cmd;
+    GSI::Content::Cmd->run();
+
+=head1 DESCRIPTION
+
+Command line script used for content locking, deployment and unlocking
+
+=head1 AUTHOR
+
+Mark Gardner <gardnerm@gsicommerce.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by GSI Commerce.  No
+license is granted to other entities.
+

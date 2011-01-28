@@ -22,7 +22,7 @@ Readonly my %ATTR => (
     default_lock_id => { isa => Int, default => 3 },
     messages_dir    => { isa => Dir, default => dir('conf/messages') },
     _messages       => { isa => Messages },
-    schema => { isa => 'GSI::Automerge::Schema::Configured' },
+    schema => { isa => 'GSI::Automerge::Connection::Schema' },
 );
 Readonly my @CMD_ATTRS => qw(svn_branch default_lock_id messages_dir);
 Readonly my @ROLES     => qw(

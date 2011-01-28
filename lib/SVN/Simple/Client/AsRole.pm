@@ -226,6 +226,24 @@ sub _svn_try {
     return @out;
 }
 
-__PACKAGE__->meta->make_immutable;
-
 1;
+
+__END__
+
+=head1 DESCRIPTION
+
+Role for Moose-based Subversion clients
+
+=head1 SYNOPSIS
+
+    package My::Class;
+    
+    use Moose;
+    with 'SVN::Simple::Client::AsRole';
+
+    my $svn = SVN::Simple::Client->new(
+        username     => 'mjg',
+        password     => 'MYPASSWORD',
+        working_copy => './checkout',
+        url          => 'http://sample.com/svn/repo/trunk',
+    );
