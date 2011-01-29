@@ -1,7 +1,7 @@
 ## no critic (NamingConventions::Capitalization)
 package GSI::Content::Cmd::Command::deploy;
 
-# ABSTRACT: deploy content from Subversion and post-process it
+# ABSTRACT: deploy and post-process content from SVN
 
 use English '-no_match_vars';
 use Moose;
@@ -37,7 +37,7 @@ sub execute {
     return;
 }
 
-__PACKAGE__->meta->make_immutable;
+__PACKAGE__->meta->make_immutable();
 
 1;
 

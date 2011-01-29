@@ -44,7 +44,7 @@ http(s):// URI.
 
 subtype SvnUri, as Uri, where { $ARG->scheme() =~ /\A (?:file | https?) \z/ },
     message {'Invalid Subversion URI'};
-SvnUri->coercion( Uri->coercion );
+SvnUri->coercion( Uri->coercion() );
 
 =head2 Revision and its subtypes
 

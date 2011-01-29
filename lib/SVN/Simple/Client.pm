@@ -6,7 +6,7 @@ use Moose;
 use namespace::autoclean;
 with 'SVN::Simple::Client::AsRole';
 
-__PACKAGE__->meta->make_immutable;
+__PACKAGE__->meta->make_immutable();
 
 1;
 

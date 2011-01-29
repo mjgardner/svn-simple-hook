@@ -191,17 +191,18 @@ then a new checkout is made.
 sub update_or_checkout {
     my $self = shift;
 
-    my $ctx = $self->context;
-    my $wc  = $self->working_copy->stringify;
+    my $ctx = $self->context();
+    my $wc  = $self->working_copy->stringify();
     my ( $e, @out );
     try {
-        @out = _svn_try( sub { $ctx->update( $wc, $self->revision, 1 ) } );
+        @out = _svn_try( sub { $ctx->update( $wc, $self->revision(), 1 ) } );
     }
     catch(
-        SvnError $e where { $ARG->apr_err == $SVN::Error::WC_NOT_DIRECTORY } )
-        {
+        SvnError $e where { $ARG->apr_err() == $SVN::Error::WC_NOT_DIRECTORY }
+        ) {
         $e->clear();
-            $ctx->checkout( $self->url->as_string, $wc, $self->revision, 1 );
+            $ctx->checkout( $self->url->as_string(),
+            $wc, $self->revision(), 1 );
         } catch( SvnError $e ) {
         $e->clear();
             ## no critic (ProhibitCallsToUnexportedSubs)

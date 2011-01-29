@@ -1,7 +1,7 @@
 ## no critic (NamingConventions::Capitalization)
 package GSI::Content::Cmd::Command::check_lock;
 
-# ABSTRACT: Subversion pre-commit hook for lock-to-author content
+# ABSTRACT: SVN pre-commit hook for LTA content
 
 use Carp;
 use English '-no_match_vars';
@@ -153,5 +153,6 @@ In your repository's F<hooks/pre-commit> file:
     ORACLE_HOME=/usr/app/oracle
     export ORACLE_HOME
 
-    perl -MGSI::Content::Cmd -e 'GSI::Content::Cmd->run()' check_lock -r "$REPOS" -t "$TXN" || exit 1
+    perl -MGSI::Content::Cmd -e 'GSI::Content::Cmd->run()' \
+        check_lock -r "$REPOS" -t "$TXN" || exit 1
     exit 0

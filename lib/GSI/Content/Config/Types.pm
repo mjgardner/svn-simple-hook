@@ -47,7 +47,7 @@ subtype Messages,    ## no critic (ProhibitCallsToUndeclaredSubs)
     where { @MESSAGE_TYPES ~~ %{$ARG} },
     message {"hash keys must be @MESSAGE_TYPES"};
 
-__PACKAGE__->meta->make_immutable;
+__PACKAGE__->meta->make_immutable();
 
 1;
 

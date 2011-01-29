@@ -88,5 +88,7 @@ that are more human-readable, albeit abbreviated.
     my $ctx = SVN::Client->new;
     $SVN::Error::handler = undef;   # handle our own errors
 
-    my @out = $ctx->cat(\*STDOUT, 'http://sample.com/svn/repo/hello.txt', 'PREV');
-    print $ERROR_NAME{ $out[0]->apr_err }, "\n";    # prints name of error constant
+    my @out = $ctx->cat(\*STDOUT,
+        'http://sample.com/svn/repo/hello.txt', 'PREV');
+    # prints name of error constant
+    print $ERROR_NAME{ $out[0]->apr_err }, "\n";
