@@ -9,7 +9,7 @@ use English '-no_match_vars';
 use Log::Log4perl ':easy';
 use Moose::Role;
 use MooseX::Has::Sugar;
-use MooseX::Types::Moose qw(ArrayRef CodeRef Object Ref Str);
+use MooseX::Types::Moose qw(ArrayRef CodeRef Maybe Object Ref Str);
 use MooseX::Types::Path::Class 'Dir';
 use MooseX::Types::URI 'Uri';
 use Readonly;
@@ -25,15 +25,21 @@ BEGIN { Log::Log4perl->easy_init() }
 
 =attr username
 
-User name required to connect to the Subversion repository.
+User name for connection to the Subversion repository.
 
 =attr password
 
-Password required to connect to the Subversion repository.
+Password for connection to the Subversion repository.
 
 =cut
 
-has [qw(username password)] => ( rw, required, isa => Str );
+for my $attr (qw(username password)) {
+    has $attr => ( rw,
+        isa       => Str,
+        predicate => "has_$attr",
+        trigger   => sub { $ARG[0]->context->auth( $ARG[0]->auth_baton() ) },
+    );
+}
 
 =attr url
 
@@ -61,16 +67,17 @@ notification.
 
 =cut
 
-has context => ( ro, required, lazy,
+has context => ( ro, required, lazy_build,
     isa      => 'SVN::Client',
     init_arg => undef,
-    default  => sub {
-        SVN::Client->new(
-            auth   => $ARG[0]->auth_baton,
-            notify => $ARG[0]->notify_callback,
-        );
-    },
 );
+
+sub _build_context {    ## no critic (ProhibitUnusedPrivateSubroutines)
+    my $self = shift;
+    my %params = ( notify => $self->notify_callback() );
+    if ( $self->has_username() ) { $params{auth} = $self->auth_baton() }
+    return SVN::Client->new(%params);
+}
 
 =attr auth_baton
 
