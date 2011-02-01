@@ -7,6 +7,7 @@ use English '-no_match_vars';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose qw(ArrayRef HashRef);
+use MooseX::Types::Path::Class 'File';
 use MooseX::Types::URI 'Uri';
 use Readonly;
 use Regexp::DefaultFlags;
@@ -28,26 +29,6 @@ for (qw(MooseX::Types::URI::Uri SVN::Simple::Client::Types::SvnUri)) {
     MooseX::Getopt::OptionTypeMap->add_option_type_to_map( $ARG => '=s' );
 }
 
-has bundles => ( rw, isa => HashRef [ArrayRef] );
-
-has _twig => ( ro, lazy_build, isa => 'XML::Twig', init_arg => undef );
-
-sub _build__twig {    ## no critic (ProhibitUnusedPrivateSubroutines)
-    my $self = shift;
-
-    return XML::Twig->new(
-        twig_handlers => {
-            ## no critic (RequireInterpolationOfMetachars)
-            '/project/filelist/file[@name]' => sub {
-                push @{ $self->bundles->{ $ARG->parent->att('id') } },
-                    $ARG->att('name');
-                return;
-            },
-            '/target/concat/filelist[@refid]' => sub { return; },
-        }
-    );
-}
-
 =method execute
 
 Runs the subcommand.
@@ -56,24 +37,39 @@ Runs the subcommand.
 
 sub execute {
     my ( $self, $opt, $args ) = @ARG;
-
     $self->update_or_checkout();
-    $self->working_copy->recurse( callback => _make_xml_finder() );
+    $self->working_copy->recurse(
+        callback => $self->_make_ant_finder_callback() );
     return;
 }
 
-sub _make_xml_finder {
+sub _make_ant_finder_callback {
     my $self = shift;
-
     return sub {
         my $path = shift;
-        return if $path->is_dir();
-
+        return if $path->is_dir() or $path !~ / [.]xml \z/i;
         my @dir_list = $path->dir->dir_list();
         return if 'CVS' ~~ @dir_list or '.svn' ~~ @dir_list;
-        return if $path !~ / [.]xml \z/;
 
-        $self->_twig->parsefile("$path");
+        XML::Twig->nparse(
+            twig_handlers => {
+                ## no critic (RequireInterpolationOfMetachars)
+                '/project/target[@name="minify"]' =>
+                    $self->_make_ant_runner_callback($path),
+            },
+            "$path",
+        );
+        return;
+    };
+}
+
+sub _make_ant_runner_callback {
+    my ( $self, $file ) = @ARG;
+    return sub {
+        my ( $twig, $element ) = @ARG;
+
+        say "$file is an ant file";
+        return;
     };
 }
 
@@ -93,4 +89,4 @@ __END__
 
     perl -MGSI::Content::Cmd -e 'GSI::Content::Cmd->run()' deploy \
         --working_copy /path/to/dir
-        --svn_url http://sample.com/svn/repo/trunk
+        --url http://sample.com/svn/repo/trunk
