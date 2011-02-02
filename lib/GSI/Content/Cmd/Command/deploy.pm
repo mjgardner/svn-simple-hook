@@ -17,6 +17,7 @@ use SVN::Simple::Client;
 use SVN::Simple::Client::Types 'SvnUri';
 use TryCatch;
 use XML::Twig;
+use GSI::Content::Cmd::Command::minify;
 use namespace::autoclean;
 extends 'MooseX::App::Cmd::Command';
 with 'MooseX::SimpleConfig';
@@ -38,39 +39,14 @@ Runs the subcommand.
 sub execute {
     my ( $self, $opt, $args ) = @ARG;
     $self->update_or_checkout();
-    $self->working_copy->recurse(
-        callback => $self->_make_ant_finder_callback() );
+
+    my $minifier = GSI::Content::Cmd::Command::minify->new_with_config(
+        configfile   => $self->configfile(),
+        working_copy => $self->working_copy(),
+    );
+    $minifier->execute( $opt, $args );
+
     return;
-}
-
-sub _make_ant_finder_callback {
-    my $self = shift;
-    return sub {
-        my $path = shift;
-        return if $path->is_dir() or $path !~ / [.]xml \z/i;
-        my @dir_list = $path->dir->dir_list();
-        return if 'CVS' ~~ @dir_list or '.svn' ~~ @dir_list;
-
-        XML::Twig->nparse(
-            twig_handlers => {
-                ## no critic (RequireInterpolationOfMetachars)
-                '/project/target[@name="minify"]' =>
-                    $self->_make_ant_runner_callback($path),
-            },
-            "$path",
-        );
-        return;
-    };
-}
-
-sub _make_ant_runner_callback {
-    my ( $self, $file ) = @ARG;
-    return sub {
-        my ( $twig, $element ) = @ARG;
-
-        say "$file is an ant file";
-        return;
-    };
 }
 
 __PACKAGE__->meta->make_immutable();

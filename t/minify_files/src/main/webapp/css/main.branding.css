@@ -1,0 +1,112 @@
+/* Main Tags */
+
+body.popup  {
+	background: #fff;
+	color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+	font-size: 11px;
+}
+
+body {
+	background: #07090b url(/images/body-bg.png) repeat-x left top;
+	color: #333;
+    font-family: Helvetica, Arial, sans-serif;
+	font-size: 11px;
+}
+
+p, td, h1, h2, h3, h4, h5, h6, li, input, select, th, td {
+	line-height: 1.2;
+}
+
+a { color: #748db5; text-decoration: none; }
+a:hover { color: #036; cursor: pointer; }
+.go { background: url(/images/blue-arrow-bg.png) no-repeat right center; padding-right: 5px; font-weight: normal; }
+.more-colors { text-indent: -9999px; width: 102px; height: 26px; background: url(/images/more-colors-bg.png) no-repeat left top; display: block; }
+.clear-history { display: inline-block; background: url(/images/clear-history-bg.png) no-repeat left top; padding: 1px 0 0 18px; height: 15px; font-size: 12px; line-height: 1.2;}
+.clear-history:hover { background-position: left -23px; color: #903; }
+.see-more { background: url(/images/blue-arrow-back-bg.png) no-repeat left center; padding-left: 10px; display: block; }
+.forgot { float: right; font-size: 11px; display: inline; vertical-align: top; line-height: 1.2; }
+.required { color: #9f1731; padding-right: 3px; }
+.description, .note { color: #666; }
+.print { font-size: 14px; display: inline-block; background: url(/images/print-page-icon.png) no-repeat left center; margin-top:10px; padding-left: 25px; float: right; font-family: Helvetica, Arial; height: 15px; font-weight: normal; }
+p.error, div.error, span.error, .fieldErrorMessages { color: #8b2136; font-weight: bold; }
+p.error2 { margin: 0 0 0 10px; }
+input.fieldError, select.fieldError {border: solid 1px #8b2136 !important}
+div.error {padding-bottom: 10px;}
+.vcard { line-height: 1.6; }
+
+p, ul, ol { padding-bottom: 15px; }
+
+ol { list-style: decimal inside; }
+
+li, th, td { margin-bottom: 0; }
+h1, h2 { font-size: 28px; color: #748db5; padding-bottom: 15px; }
+h3 { font-size: 20px; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+h6 { font-size: 11px; }
+
+.important { font-weight: bold; }
+.emphasis { font-style: italic; }
+.unimportant { font-weight: normal; }
+.promo { color: #9F1731; font-weight: bold; }
+
+.field { overflow: hidden; margin-bottom: 15px; }
+
+
+/* hides */
+body.checkout #sidebar .panel legend, form.standard legend, .credit-cards input.radio, #credit-card-info label.expiry-date, form#promoCodeCommand legend  { display: none !important; }
+
+/* buttons */
+input.submit, input.button, button, .button { height: 20px; text-indent: -9999px; display: block; cursor: pointer; background: url(/images/button-sprite.png) no-repeat left top; }
+
+input.text, input.fielderror, input.fieldError, textarea { background-color: white; border: 1px solid #ccc; -moz-border-radius-topleft: 11px; -moz-border-radius-bottomleft: 11px; -webkit-border-top-left-radius: 11px; -webkit-border-bottom-left-radius: 11px; height: 17px; padding: 3px 0 0 10px; width:300px; position: relative; right: -10px; display: block; }
+
+input.redeem, button.redeem { width: 70px; }
+input.sign-in { background-position: left -96px; width: 65px; }
+input.checkout { background-position: left -324px; width: 128px; }
+input.create { background-position: left -1000px; width: 59px; }
+.return-to-shopping { background-position: left -980px; width: 130px; }
+button.update, input.update { background-position: left -551px; width: 70px; }
+input.proceed-to-checkout-lg { background-position: left -1020px; width: 158px; height: 27px; }
+input.track-order { background-position: left -128px; width: 87px; }
+input.add-to-cart { background-position: left -841px; width: 149px; height: 28px; }
+input.qty { width: 20px; height: 18px; display: block; background-color: #FFF; background-image: url(/images/qty-field-bg.png); background-repeat: no-repeat; padding: 4px; -moz-border-radius: 0; -webkit-border-radius: 0; border-radius: 0; border: none; text-align: center; right: 0; }
+input.add-new-card, button.add-new-card { background-position: left -1055px; width: 125px; height: 22px; margin: 12px 0 12px 0; }
+input.continue { background-position: left -330px; width: 75px; }
+input.helpContinue { margin:12px 0 0 0; background-position: left -356px; width: 75px; }
+.return-to-order-history { background-position: left -1168px; width: 152px; }
+
+/* checkout: addressbook */
+input.save-add-another { background-position: left -1190px; width: 177px; margin-left: 190px; }
+input.use-different { background-position: left -1215px; width: 51px; margin-left: 186px; margin-right: 9px; float: left; }
+input.save-and-continue { background-position: left -617px; width: 111px; float: left; }
+
+/* tables */
+table.shipping, table.summary { margin-bottom: 0; }
+table { margin-bottom: 15px; display: block; margin-left: -20px; color: #58595b; }
+th { font-weight: bold; padding: 0 0 10px 20px; border-bottom: 1px solid #e6e7e8; }
+th.last { width: auto !important; padding-right: 0; text-align: right; }
+th.qty { width: 20px; }
+th.description { width: 280px; }
+th.availability { width: 120px; }
+th.availability, th.price, th.total { width: 40px; }
+tbody tr.last td { border-bottom: 0; padding-bottom: 0; }
+tbody td { padding: 10px 20px 0 20px; border-bottom: 1px solid #e6e7e8; }
+tbody td.last { padding-right: 0; }
+td.total { font-weight: bold; }
+
+/* help desk : contact */
+#contactForm tbody td, #contactCustomerServiceForm tbody td { border:none; }
+input.contactCSR { border: 1px solid #ccc; font-size: 1.2em; }
+textarea.contactCSR { border: 1px solid #ccc; font-size: 1.2em; -moz-border-radius:0; background-color:white; display:block; height:80px; padding:0; position:relative; right:0; width:400px; }
+
+.preferred { font-weight: normal; font-style: oblique; color: #748DB5; margin: 0; padding: 0; }
+.noPad { float:left; margin:0; padding: 0; }
+.topPad { float:left; margin: 12px 0 0 0; padding: 0; }
+
+.cc-secured-info-wrap { clear: both; float:left; margin: 14px 30% 0 30%; }
+.cc-secured-link-container { float: left; }
+.cc-secured-info-visa { float:left; padding: 6px 2px 0 2px; }
+.cc-secured-info-mc { float: left; padding: 0 2px 0 2px; }
+

@@ -1,0 +1,24 @@
+.template_12 {
+    margin: auto;
+    position: relative;
+    width: 90%;
+}
+h1 {
+    margin-bottom: 10px;
+}
+dl {
+    font-size: 1.2em;
+}
+dt {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+dd {
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+.close {
+    position: absolute;
+    right: 20px;
+    top: 40px;
+}

@@ -7,7 +7,8 @@ use English '-no_match_vars';
 use IPC::System::Simple 'runx';
 use Moose;
 use MooseX::Has::Sugar;
-use MooseX::Types::Path::Class 'File';
+use MooseX::Types::Moose 'Str';
+use MooseX::Types::Path::Class qw(Dir File);
 use Path::Class;
 use Regexp::DefaultFlags;
 ## no critic (RequireDotMatchAnything, RequireExtendedFormatting)
@@ -75,13 +76,14 @@ sub _make_ant_finder_callback {
         my @dir_list = $path->dir->dir_list();
         return if 'CVS' ~~ @dir_list or '.svn' ~~ @dir_list;
         return
-            if !XML::LibXML->load_xml( location => "$path" )->exists(
-                    '/project/target/java[contains(@jar,"yuicompressor")]'
-                        . qq{/../../target[@name="$target"]}
-            );
+            if !XML::LibXML->load_xml( location => "$path" )
+            ->exists( '/project/target/java[@jar="${yuicompressor.jar}"]'
+                . '/../../target[@name="'
+                . $target
+                . '"]' );
 
         runx(
-            ant => "-Dyuicompressor.jar=$YUICOMPRESSOR",
+            ant => '-Dyuicompressor.jar=' . $self->yuicompressor(),
             -f  => "$path",
             $target,
         );

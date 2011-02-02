@@ -1,0 +1,108 @@
+input.text, input.fielderror, input.fieldError, textarea { padding: 3px 0 0 10px; }
+
+#giftCertPage #content fieldset #gift-amount span.note {
+    position: absolute;
+}
+
+/* Credit Card Enhancement Feature */
+#cc-img-selection { display:inline;	 }
+#cc-img-selection label { margin:-3px 0px 0px 0px; }
+.credit-card-list { margin:0px;display:inline; }
+#creditCardPaymentMethod.expirationMonth { margin-left:-3px; }
+ul#payMethods dd label#ccNum { margin-top:2px; }
+
+.cms { position: static; }
+
+#ins1 .submit { zoom: 1; display: block; }
+
+#error ul li { display: list-item; vertical-align: middle; }
+#error ul li.last { position: relative; }
+#error ul li fieldset { position: absolute; display: block; width: 255px; }
+
+/* ------------------------------------------------------
+Fix Position Relative Bug in IE (add a higher z-index than conflicting element to parent element)
+------------------------------------------------------ */
+#nav-category { z-index: 150; zoom: 1; }
+
+/* ------------------------------------------------------
+Enable hasLayout
+------------------------------------------------------ */
+#content, #nav-category .sub-cats li, div.content, .product-controls a, .aside, #main-content, .cms, body.family-category h1, body.family-category #products, #recent-history, form.filter, .ptooltip, .ptooltip.show, .ptooltip .tt-wrap, .ptooltip .tt-wrap .tt-inner, .ptooltip .bottomcap, .ptooltip .topcap, .ptooltip .tt-close, .ptooltip.right .tt-wrap, .ptooltip.right .tt-wrap .tt-inner, .ptooltip.right .bottomcap, .ptooltip.right .topcap { zoom: 1; }
+
+#prd-bottom-extend.left { width: 255px; margin-left: -3px; }
+#wishlist #list { margin-bottom: 15px; padding-bottom: 0; }
+#wishlist #list input.move-to-cart, #wishlist #list input.remove-from-wishlist, #wishlist #list input.update-quantity {text-align: left;}
+
+/* ------------------------------------------------------
+Undo hasLayout
+------------------------------------------------------ */
+body#sub-category #content, body#top-category #content { zoom: normal !important; }
+
+/* ------------------------------------------------------
+Enable Inline-Block in IE (Must have hasLayout On)
+------------------------------------------------------ */
+#products .more-colors, #products .colors li, #products .show-inline-block, ul#sitemap-nav li, .footer-links, .account .info-section, #addToCartForm .swatches li, #follow-us, .family-category .pages li, #account-login #shopping-bar li, .clear-history, #address .address-verification-submit .checkout, #address .address-verification-submit #address-sugg-enter-diff-bott, #order-details .buttons li { display: inline !important; zoom: 1; }
+
+form.filter fieldset { padding-bottom: 10px; }
+#follow-us h2 { font-size: 0; line-height: 0; }
+
+/* My Account */
+#account-address-book #save, #account-edit-email #continue, #account-change-password #continue {float: left;}
+.cart #content input.proceed-to-checkout-lg {float: right; margin-left: 450px;}
+.cart td.description {padding-bottom: 10px;}
+body.account #content label { padding-top: 4px; }
+
+/* Store Locator */
+#store-locator #content {padding-top: 75px;}
+#store-locator .fB2 {line-height: 50px; margin-top: -18px;}
+#store-locator .miles {margin-right: 3px;}
+#store-locator #fldLocation { padding-top: 3px; height: 14px; }
+#store-locator #searchBtn { top: -3; }
+
+/* Search */
+.did-you-mean #re-search legend {margin-left: -8px}
+
+/* Recent history */
+.clear-history { height: 18px; background-position: 0 2px; }
+.clear-history:hover { background-position: 0 -21px; }
+
+/* Checkout */
+#address #billingAddress-state label.county-default-label, #address #shippingAddress-state label.county-default-label { width: 169px; }
+.cost-summary dd, .cost-summary dt { display: inline; }
+
+/* Error page */
+.error #re-search li { vertical-align: middle; }
+
+/* Curved Corners */
+#sign-up-box { background: url(/images/header-email-curve-ie.png) no-repeat left top; }
+#search-box { background: #fff url(/images/header-search-curve-ie.png) no-repeat left top; }
+#re-search #search-box { background: url(/images/promo-code-curve-ie.png) no-repeat left top; padding-top: 2px; border: 0; height: 18px !important; }
+#promoCode { background: url(/images/promo-code-curve-ie.png) no-repeat left top; padding-top: 2px; border: 0; height: 18px !important; width: 140px !important; }
+#store-locator #fldLocation { background: url(/images/promo-code-curve-ie.png) no-repeat left top; padding-top: 4px; padding-bottom: 1px; border: 0; height: 18px !important; }
+
+#sub-info dl#tabset dt, #sub-info dl#tabset dt a { background: url(/images/prd-tab-rounded-corners-sprite-ie.png) no-repeat left -34px; border: 0px; }
+#sub-info dl#tabset dt a { background-position: right -102px; width: 117px; }
+#sub-info dl#tabset dt.activeController, #sub-info dl#tabset dt.activeController a { background: url(/images/prd-tab-rounded-corners-sprite-ie.png) no-repeat left top; border: 0px; }
+#sub-info dl#tabset dt.activeController a { background-position: right -68px; }
+
+/* Email signup */
+#sign-up-success { line-height: 1.2; }
+
+/* Print Icon position */
+.print { margin-top: -37px; }
+
+/* Build The Look */
+#buildthelook .buy-look #checkout-prod-list li .include { margin: 5px 0; }
+#buildthelook .buy-look #checkout-prod-list li .include input { vertical-align: middle; }
+#next-tabset { background-position: right 5px; }
+#prev-tabset { background-position: left 5px; }
+
+/* Family */
+#family .filter label { position: relative; top: 3px; }
+
+/* Product Email */
+.email-a-friend .right-single-angle-quote { font-size: 1.3em; line-height: 1em; display: inline-block; margin-top: -2px; }
+.email-a-friend .recaptcha-legend ul { list-style-position: inside; }
+.email-a-friend .recaptcha-legend li { vertical-align: baseline; }
+
+#products .colors ul { padding-bottom: 10px; }

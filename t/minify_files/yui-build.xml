@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<project name="yui-build">
+
+    <property name="concat.dir" value="${basedir}/target/yui/concat"/>
+    <property name="mincat.dir" value="${basedir}/target/yui/mincat"/>
+    <property name="min.js.dir" value="${mincat.dir}/js/min"/>
+    <property name="min.css.dir" value="${mincat.dir}/css/min"/>
+
+    <filelist id="site.css.files" dir="${basedir}/src/main/webapp">
+        <file name="css/reset.css"/>
+        <file name="css/main.branding.css"/>
+        <file name="css/main.css"/>
+        <file name="images/resources/helvetica-neue-condensed.css"/>
+        <file name="css/helvetica-neue-condensed.css"/>
+        <file name="css/esmc.css"/>
+    </filelist>
+
+    <filelist id="site.js.files" dir="${basedir}/src/main/webapp">
+        <file name="js/df/Df.js"/>
+        <file name="js/df/Df.Navigation.js"/>
+        <file name="js/df/Df.Tip.js"/>
+        <file name="js/df/Df.Combo.js"/>
+        <file name="js/df/Df.ClassAnimate.js"/>
+        <file name="js/lib/ess.Product.js"/>
+        <file name="js/df/Df.Slider.js"/>
+        <file name="js/df/Df.EmbeddedZoom.js"/>
+        <file name="js/ess.product.js"/>
+        <file name="js/ess.js"/>
+        <file name="js/ess.popup.js"/>
+        <file name="js/ess.emailSignup.js"/>
+        <file name="js/cufon.js"/>
+        <file name="js/document.supportsFont.js"/>
+        <file name="images/resources/helvetica-neue-condensed.js"/>
+        <file name="css/helvetica-neue-condensed.js"/>
+        <file name="js/peac.category.product-hover.js"/>
+        <file name="js/peac.colordrawer.js"/>
+        <file name="js/ess.family.js"/>
+        <file name="js/zparse.js"/>
+        <file name="js/implementation.js"/>
+        <file name="js/df/store/Store.js"/>
+        <file name="js/peac.product.esmc.impl.js"/>
+    </filelist>
+
+    <filelist id="site.head.js.files" dir="${basedir}/src/main/webapp">
+        <file name="js/prototype.js"/>
+        <file name="js/ess.swatches.js"/>
+    </filelist>
+
+    <filelist id="checkout.js.files" dir="${basedir}/src/main/webapp">
+        <file name="js/df/Df.js"/>
+        <file name="js/df/Df.Tip.js"/>
+        <file name="js/df/Df.ClassAnimate.js"/>
+        <file name="js/ess.js"/>
+        <file name="js/ess.popup.js"/>
+        <file name="js/cufon.js"/>
+        <file name="js/document.supportsFont.js"/>
+        <file name="images/resources/helvetica-neue-condensed.js"/>
+        <file name="css/helvetica-neue-condensed.js"/>
+        <file name="js/zparse.js"/>
+        <file name="js/implementation.js"/>
+        <file name="js/ess.checkout.js"/>
+        <file name="js/ess.checkout.tipHelper.js"/>
+        <file name="js/ess.addressTemplate.js"/>
+        <file name="js/ess.addresssuggestions.js"/>
+        <file name="js/AddressBook.js"/>
+    </filelist>
+
+    <filelist id="analytics.js.files" dir="${basedir}/src/main/webapp">
+        <file name="js/analytics/omniture-h-20-3.js"/>
+        <file name="js/df/Df.Analytics.js"/>
+        <file name="js/analytics/ess_analytics.js"/>
+    </filelist>
+
+    <target name="init">
+        <mkdir dir="${min.js.dir}"/>
+        <mkdir dir="${min.css.dir}"/>
+    </target>
+
+    <target name="concat-files">
+        <concat destfile="${concat.dir}/site.css" fixlastline="yes">
+            <filelist refid="site.css.files"/>
+        </concat>
+        <concat destfile="${concat.dir}/site.js" fixlastline="yes">
+            <filelist refid="site.js.files"/>
+        </concat>
+        <concat destfile="${concat.dir}/site-head.js" fixlastline="yes">
+            <filelist refid="site.head.js.files"/>
+        </concat>
+        <concat destfile="${concat.dir}/checkout.js" fixlastline="yes">
+            <filelist refid="checkout.js.files"/>
+        </concat>
+        <concat destfile="${concat.dir}/analytics.js" fixlastline="yes">
+            <filelist refid="analytics.js.files"/>
+        </concat>
+    </target>
+
+    <target name="compress-files" depends="concat-files">
+        <java jar="${yuicompressor.jar}" fork="true" classpath="${compile_classpath}">
+            <arg line="--type css"/>
+            <arg line="--charset utf-8"/>
+            <arg value="${concat.dir}/site.css"/>
+            <arg line="-o ${min.css.dir}/site.css"/>
+        </java>
+        <java jar="${yuicompressor.jar}" fork="true" classpath="${compile_classpath}">
+            <arg line="--type js"/>
+            <arg line="--charset utf-8"/>
+            <arg value="${concat.dir}/site.js"/>
+            <arg line="-o ${min.js.dir}/site.js"/>
+        </java>
+        <java jar="${yuicompressor.jar}" fork="true" classpath="${compile_classpath}">
+            <arg line="--type js"/>
+            <arg line="--charset utf-8"/>
+            <arg value="${concat.dir}/site-head.js"/>
+            <arg line="-o ${min.js.dir}/site-head.js"/>
+        </java>
+        <java jar="${yuicompressor.jar}" fork="true" classpath="${compile_classpath}">
+            <arg line="--type js"/>
+            <arg line="--charset utf-8"/>
+            <arg value="${concat.dir}/checkout.js"/>
+            <arg line="-o ${min.js.dir}/checkout.js"/>
+        </java>
+        <java jar="${yuicompressor.jar}" fork="true" classpath="${compile_classpath}">
+            <arg line="--type js"/>
+            <arg line="--charset utf-8"/>
+            <arg value="${concat.dir}/analytics.js"/>
+            <arg line="-o ${min.js.dir}/analytics.js"/>
+        </java>
+    </target>
+
+    <target name="minify" depends="init,compress-files"/>
+
+</project>
+

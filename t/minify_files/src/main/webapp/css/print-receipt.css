@@ -1,0 +1,26 @@
+* {float:none !important;}
+#checkout {}
+#checkout #support {display:none;}
+#container {background: none;width:auto;margin:0;}
+#progress {display:none;}
+#checkoutContent .pageCopy {width:100%}
+.pageContainer {width:auto;}
+#header #util {display:none;}
+body {background: #FFFFFF;}
+.pageFrame {background:none;}
+.pageFrame .wrapper {margin:0;}
+#checkout #main {background:none;width:100%;overflow:visible;}
+fieldset {background: none;}
+fieldset h2 {background:none;}
+#checkout {background:none;width:auto;}
+.pageCopy a.print {display:none;}
+.tooltipWrapper, a {display: none;}
+#header {display:block;background:none;height:auto;}
+#header a.checkoutHdrLINK {position: static;text-indent:0;margin:0 10px 0 0;height:auto;font-size:14px;width:auto;text-align:right;}
+#oasx13,#logo {float:right}
+button {display:none;}
+#footer2 {display:none;}
+a.contShop {display:none;}
+a.print {display: none;}
+#main th, #main td {padding: 5px 8px 5px 2px;}
+#main th.availability {width:28%;}

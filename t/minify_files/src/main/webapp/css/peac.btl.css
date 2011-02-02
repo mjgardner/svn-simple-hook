@@ -1,0 +1,484 @@
+/* CSS for Peacocks Build The Look */
+
+/* Construct
+ * --------------------- */
+#buildthelook #main-content {
+	position: relative;
+	margin-left: -4px;
+	padding-bottom: 50px;
+	width: 980px;
+	}
+	
+#buildthelook #content {
+	background-position: 6px top;
+	padding: 0 4px !important;
+	}
+	
+#buildthelook .aside .inner {
+	padding: 15px 0 15px 10px;
+	}
+	
+#buildthelook .aside.right .top-cap {
+	background: url(/images/right-aside-top-bg-noshadow.png) no-repeat right top;
+	height: 5px;
+	}
+#buildthelook .aside.right .inner {
+	padding: 0 6px 0 0;
+	}
+
+#buildthelook #content h1 {
+	padding: 20px 0 0 20px;
+	}
+	
+	
+/* Sidebar
+ * ---------------------- */
+#buildthelook #prodbar {
+	margin-top: 10px;
+	width: 140px;
+	}
+	
+#buildthelook #prodbar .side-heading {
+	text-transform: uppercase;
+	font-size: 1.4em;
+	font-family: "HelveticaNeue Condensed", sans-serif;
+	letter-spacing: 2px;
+	margin-left: 14px;
+	}
+	
+#buildthelook #prodbar #selected-prods,
+#buildthelook #prodbar #past-prods {
+	width: 128px;
+	margin: 5px 0 0 0px;
+	}
+
+#buildthelook #prodbar #past-prods {
+	margin-top: 0;
+	padding-bottom: 0;
+	}
+	
+#buildthelook #prodbar #selected-prods li,
+#buildthelook #prodbar #past-prods li {
+	position: relative;
+	padding-bottom: 10px;
+	}
+	
+#buildthelook #prodbar #selected-prods li.placeholder .placeholder-img,
+#buildthelook #prodbar #past-prods li.placeholder .placeholder-img{
+	width: 50px;
+	height: 50px;
+	background: #eee;
+	border: 1px solid #eee;
+	margin: 0 0 0 39px;
+	}
+	
+#buildthelook #prodbar #selected-prods li .selected-prod-img,
+#buildthelook #prodbar #past-prods li .past-prod-img {
+	height: 50px;
+	width: 50px;
+	margin: 0 0 0 39px;
+	border: 1px solid #777;
+	}
+	
+#buildthelook #prodbar #selected-prods li a.selected-prod-link,
+#buildthelook #prodbar #past-prods li a.past-prod-link {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	height: 50px;
+	width: 128px;
+	}
+#buildthelook #prodbar #selected-prods li a.selected-prod-link:hover {
+	background: transparent url(/images/buildthelook/btn-remove.png) center no-repeat;
+	}
+#buildthelook #prodbar #past-prods li a.past-prod-link:hover {
+	background: transparent url(/images/buildthelook/history-btn-add-back.png) center no-repeat;
+	}
+	
+#buildthelook #history .slider-top-cap {
+	height: 9px;
+	background: transparent url(/images/buildthelook/history-slider-bg-top.png) center no-repeat;
+	margin-bottom: 4px;
+	}
+#buildthelook #history .slider-bottom-cap {
+	position: relative;
+	top: -6px;
+	height: 9px;
+	background: transparent url(/images/buildthelook/history-slider-bg-bottom.png) center no-repeat;
+	}
+	
+#buildthelook #history .prevBase,
+#buildthelook #history .nextBase {
+	background: transparent url(/images/buildthelook/btn-up-active.png) top left no-repeat;
+	height: 21px;
+	width: 21px;
+	margin: 4px 0 6px 54px;
+	cursor: pointer;
+	}
+#buildthelook #history .nextBase {
+	background-image: url(/images/buildthelook/btn-down-active.png);
+	margin-top: 0;
+	}
+#buildthelook #history .prevDisable,
+#buildthelook #history .prevOff {
+	background-image: url(/images/buildthelook/btn-up-inactive.png);
+	cursor: default;
+	}
+#buildthelook #history .nextDisable,
+#buildthelook #history .nextOff {
+	background-image: url(/images/buildthelook/btn-down-inactive.png);
+	cursor: default;
+	}
+	
+#buildthelook #history .mask {
+	overflow:hidden;
+	position:relative;
+	width:128px;
+	height:248px;
+	}
+
+#buildthelook #history .mask .slider {
+	position:absolute;
+	top:0;
+	left:0;
+	}
+
+#buildthelook #side-toolbar {
+	overflow: hidden;
+	float: left;
+	width: 140px;
+	}
+	
+#buildthelook #start-over {
+	display: block;
+	float: left;
+	width: 70px;
+	height: 12px;
+	margin: 0 0 0 38px;
+	background: transparent url(/images/buildthelook/btn-reset.png) center 3px no-repeat;
+	text-align: center;
+	padding: 45px 0 5px 0;
+	font-weight: bold;
+	}
+
+
+/* Category tabs
+ * ------------------------- */
+#buildthelook #catnav {
+    background: url("/images/buildthelook/tab-inactive-bg.png") repeat-x 0 0;
+	float: right;
+	overflow: hidden;
+	margin: -30px 10px 0 0;
+	clear: both;
+	height: 28px;
+	width: 555px;
+	}
+	
+#buildthelook #catnav li {
+	float: left;
+	background: url(/images/buildthelook/tab-inactive-bg.png) repeat-x;
+	}
+	
+#buildthelook #catnav li a {
+	display: block;
+	float: left;
+	padding: 14px 2px 0 26px;
+	font-size: 1.3em;
+	height: 19px;
+	background: url(/images/buildthelook/tab-div-inactive.png) top left no-repeat;
+	color: #777;
+	cursor: pointer;
+	}
+
+#buildthelook #catnav li a:hover { color: #f19f1e; }
+
+#buildthelook #catnav li.first a {
+	padding-left: 16px;
+	background-image: url(/images/buildthelook/tab-first-inactive.png); 
+	background-position: top left;
+	background-repeat: no-repeat;
+	}
+#buildthelook #catnav li.last a {
+	padding-right: 22px;
+	}
+
+#buildthelook #catnav li.selected {
+	background: url(/images/buildthelook/tab-active-bg.png) repeat-x;
+	}
+#buildthelook #catnav li.selected a {
+	background-image: url(/images/buildthelook/tab-central-active.png);
+	padding-left: 16px;
+	}
+#buildthelook #catnav li.selfirst a {
+	background-image: url(/images/buildthelook/tab-first-active.png);
+	}
+#buildthelook #catnav li.selafter a {
+	background-image: url(/images/buildthelook/tab-div-active.png);
+	}
+#buildthelook #catnav li.selbefore a {
+	padding-right: 12px;
+	}
+
+/* Styles to show and hide tabs */
+.show-tabset1 .tabset1, .show-tabset2 .tabset2, .show-tabset3 .tabset3 { display: block; }
+.show-tabset1 .tabset2, .show-tabset1 .tabset3, .show-tabset2 .tabset1, .show-tabset2 .tabset3, .show-tabset3 .tabset1, .show-tabset3 .tabset2 {display: none; } 
+#next-tabset, #prev-tabset { display: none; position: absolute; z-index: 500; }
+#next-tabset, #prev-tabset { right: 23px; top: -13px; background-image: url("/images/li-bg.png"); background-repeat: no-repeat; background-position: right 3px; padding: 0 5px 0 0; }
+#prev-tabset { background-image: url("/images/prev-arrow.png"); background-position: left 3px; padding: 0 0 0 7px; }
+
+/* Model Column
+ * -------------------- */	
+#buildthelook #model-col {
+	float: left;
+	width: 285px;
+	}
+	
+#buildthelook #model-col #model {
+	height: 705px;
+	width: 285px;
+	margin-top: 40px;
+	position: relative;
+	}
+
+#buildthelook #model-col .male-model {
+	background: url(/images/buildthelook/base-model-m.jpg) top left no-repeat;
+	}
+#buildthelook #model-col .girl-model {
+	background: url(/images/buildthelook/base-model-girl.jpg) top left no-repeat;
+	}
+#buildthelook #model-col .boy-model {
+	background: url(/images/buildthelook/base-model-boy.jpg) top left no-repeat;
+	}	
+#buildthelook #model-col .baby-model {
+	background: url(/images/buildthelook/base-model-baby.jpg) top left no-repeat;
+	}
+#buildthelook #model-col .female-model,
+#buildthelook #model-col .unknown-model {
+	background: url(/images/buildthelook/base-model-f.jpg) top left no-repeat;
+	}
+#buildthelook #model-col #model div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 705px;
+	width: 285px;
+	background-position: top left;
+	background-repeat: no-repeat;
+	}
+	
+#buildthelook #model-col #total {
+	text-align: center;
+	font-size: 1.8em;
+	color: #333;
+	}
+#buildthelook #model-col #total-val {
+	font-weight: bold;
+	}
+	
+#buildthelook #model-col #buy-button {
+	display: block;
+	height: 29px;
+	width: 150px;
+	background: url(/images/buildthelook/btn-buy-look.png) top left no-repeat;
+	margin: 0 auto;
+	}
+	
+#buildthelook #model-col a.buybtn-disabled {
+	background: url(/images/buildthelook/btn-buy-look-disabled.png) top left no-repeat !important;
+	cursor: default;
+	}
+
+/* Product listing block
+ * ------------------------ */
+#buildthelook #prod-pages {
+	width: 555px;
+	}
+	
+#buildthelook #prod-pages .inner {
+	overflow: hidden;
+	}
+	
+#buildthelook #prod-pages .pagination {
+	float: right;
+	clear: both;
+	margin-right: 6px;
+	height: 18px;
+	}
+#buildthelook #prod-pages .pagination li {
+	float: left;
+	margin-left: 4px;
+	padding: 3px 2px 2px 2px;
+	font-size: 1.1em;
+	cursor: pointer;
+	color: #748db5;
+	}
+#buildthelook #prod-pages .pagination li.selected {
+	cursor: default;
+	color: #000;
+	}
+	
+#buildthelook #prod-pages .pagination li.next-page {
+	margin-left: 7px;
+	padding-right: 10px;
+	background: transparent url(/images/buildthelook/blue-arrow.gif) no-repeat right center;
+	}
+#buildthelook #prod-pages .pagination li.next-page-disabled {
+	color: #bbb;
+	background: transparent url(/images/buildthelook/grey-arrow.gif) no-repeat right center;
+	cursor: default;
+	}
+	
+#buildthelook #prod-pages .pagination li.prev-page {
+	margin-right: 2px;
+	padding-left: 10px;
+	background: transparent url(/images/buildthelook/blue-arrow-left.gif) no-repeat left center;
+	}
+#buildthelook #prod-pages .pagination li.prev-page-disabled {
+	color: #bbb;
+	background: transparent url(/images/buildthelook/grey-arrow-left.gif) no-repeat left center;
+	cursor: default;
+	}
+	
+#buildthelook #prod-pages #prod-list {
+	float: right;
+	clear: both;
+	width: 554px;
+	}
+	
+#buildthelook #prod-pages #prod-list li {
+	float: left;
+	width: 184px;
+	border-bottom: 1px solid #eee;
+	border-right: 1px solid #eee;
+	padding: 0 0 20px 0;
+	}
+#buildthelook #prod-pages #prod-list li.row-last {
+	border-bottom: none;
+	}
+#buildthelook #prod-pages #prod-list li.col-last {
+	border-right: none;
+	}
+	
+#buildthelook #prod-pages #prod-list li span {
+	display: block;
+	}
+	
+#buildthelook #prod-pages #prod-list li .prod-img {
+	height: 275px;
+	width: 184px;
+	background-position: 2px 10px;
+	background-repeat: no-repeat;
+	}
+	
+#buildthelook #prod-pages #prod-list li .prod-img a,
+#buildthelook #prod-pages #prod-list li .prod-img .label-box {
+	display: block;
+	height: 100%;
+	width: 100%;
+	}
+	
+#buildthelook #prod-pages #prod-list li.selected .prod-img .label-box {
+	background: transparent url(/images/buildthelook/in-your-look.gif) top left no-repeat;
+	}
+	
+#buildthelook #prod-pages #prod-list li .prod-img a.prod-img-link:hover {
+	background: transparent url(/images/buildthelook/prod-btn-add.png) center no-repeat;
+	}
+#buildthelook #prod-pages #prod-list li.selected .prod-img a.prod-img-link:hover {
+	background: transparent url(/images/buildthelook/prod-btn-remove.png) center no-repeat;
+	}
+	
+#buildthelook #prod-list .prod-title {
+	font-size: 1.2em;
+	display: block;
+	margin: 8px 8px 0 10px;
+	}
+	
+#buildthelook #prod-list .promo,
+#buildthelook #prod-list .price,
+#buildthelook #prod-list .prod-details {
+	display: block;
+	margin-top: 14px;
+	margin-left: 10px;
+	}
+
+#buildthelook #prod-list .price {
+	font-size: 1.1em;
+	}
+#buildthelook #prod-list .was-price {
+	color: #999;
+	}
+	
+#buildthelook .ptooltip { background: url(/images/tooltip/tt-left-bottomcap.png) no-repeat left bottom; padding-bottom: 14px; position: absolute; width: 212px; overflow: hidden; z-index: 5000; }
+#buildthelook .ptooltip .topcap { background: url(/images/tooltip/tt-left-topcap.png) no-repeat left top; height: 37px; width: 212px; }
+#buildthelook .ptooltip .tt-close { background: url(/images/tooltip/tt-close.png) no-repeat left top; width: 5px; height: 5px; margin: 0; position: absolute; top: 27px; right: 34px; text-indent: -9999px; }
+#buildthelook .ptooltip .tt-wrap { background: url(/images/tooltip/tt-left-bg.png) repeat-y left top; width: 166px; padding: 10px 15px 10px 11px; display: block; float: left; min-height: 95px; height:auto !important; height: 95px; }
+#buildthelook .ptooltip .detail-arrow { background: url(/images/tooltip/tt-left-arrow.png) no-repeat left bottom; width: 20px; display: block; float: left; position: relative; left: -5px; }
+#buildthelook .ptooltip .detail-title { font-weight: bold; }
+#buildthelook .ptooltip .detail-desc { line-height: 1.3em; }
+
+/* Buy Look modal window
+ * ---------------------- */
+#buildthelook .modal-dimmer { display: none; position: fixed; top:0; left:0; width: 100%; height: 100%;  z-index: 5000; background-color: #000;  -moz-opacity: 0.7; opacity: .70; filter: alpha(opacity=70); }
+#buildthelook .buy-look { display: none; position: absolute; top: 370px; left: 50%; z-index: 5001; width: 796px; margin: 0 0 0 -398px; background: url(/images/buildthelook/atc-bottomcap.png) no-repeat left bottom; padding-bottom: 53px; }
+#buildthelook .buy-look .top-cap { background: url(/images/buildthelook/atc-topcap.png) no-repeat left top; width: 796px; height: 9px; position: relative; }
+#buildthelook .buy-look #checkout-close { background: url(/images/buildthelook/atc-closebtn.png) no-repeat left top; width: 29px; height: 29px; position: absolute; top: 0; right: -29px; text-indent: -9999px; }
+#buildthelook .buy-look .inner { background: #000; width: 776px; padding: 10px; }
+#buildthelook .buy-look h2 { font-family: "HelveticaNeue Condensed", sans-serif; color: #fff; font-size: 24px; letter-spacing: 2px; padding: 2px 0 4px 20px; font-weight: normal; }
+#buildthelook .buy-look #checkout-prod-list { background: #fff; padding: 10px 10px 0 10px; }
+#buildthelook .buy-look #checkout-prod-list p { padding: 0; }
+#buildthelook .buy-look #checkout-prod-list li { padding: 5px 5px 10px 10px; border-bottom: 1px solid #aaa; overflow: hidden; }
+	
+#buildthelook .buy-look #checkout-prod-list li .prod-img,
+#buildthelook .buy-look #checkout-prod-list li .prod-name,
+#buildthelook .buy-look #checkout-prod-list li .color,
+#buildthelook .buy-look #checkout-prod-list li .size-box,
+#buildthelook .buy-look #checkout-prod-list li .size,
+#buildthelook .buy-look #checkout-prod-list li .size-select,
+#buildthelook .buy-look #checkout-prod-list li .price,
+#buildthelook .buy-look #checkout-prod-list li .include,
+#buildthelook .buy-look #checkout-cancel,
+#buildthelook .buy-look #checkout-total,
+#buildthelook .buy-look #checkout-add-to-cart,
+#buildthelook .buy-look #checkout-submit-box,
+#buildthelook .buy-look li p.prod-added { display: block; float: left; overflow: hidden; }
+	
+#buildthelook .buy-look #checkout-prod-list li .prod-img { height: 50px; width: 50px; border: 1px solid #000; margin-top: 5px; }
+#buildthelook .buy-look #checkout-prod-list li .prod-name { width: 130px; margin: 5px 40px 0 10px; font-weight: bold; height: 52px; }
+#buildthelook .buy-look .prod-detail-fields { overflow: hidden; height: 28px; }
+#buildthelook .buy-look #checkout-prod-list li .color { width: 136px; margin: 5px 10px 0 0; }
+#buildthelook .buy-look #checkout-prod-list li .color .color-val,
+#buildthelook .buy-look #checkout-total-val { font-weight: bold; }
+#buildthelook .buy-look #checkout-prod-list li .size-box { width: 140px; }
+#buildthelook .buy-look #checkout-prod-list li .size { margin: 5px 5px 0 0; }
+#buildthelook .buy-look #checkout-prod-list li .size-select { width: 90px; margin-top: 2px; }
+#buildthelook .buy-look #checkout-prod-list li .price { margin: 5px 5px 0 0; width: 85px; }
+#buildthelook .buy-look #checkout-prod-list li .include { margin: 5px; }
+#buildthelook .buy-look #checkout-prod-list li .include input { margin: 0 10px 0 0; }
+#buildthelook .buy-look li .prod-added { display: none !important; }
+#buildthelook .buy-look li.added .prod-added { display: block !important; background: transparent url(/images/buildthelook/icon-basket.gif) left center no-repeat; padding: 2px 0 0 26px; margin: 3px 0 0 2px; color: #68a; }
+#buildthelook .buy-look li.added .include { display: none !important; }
+#buildthelook .buy-look li .prod-error-msg { display: none !important; }
+#buildthelook .buy-look li.error .prod-error-msg { display: block !important; color: #e00; font-weight: bold; text-align: right; }
+#buildthelook .buy-look #buy-footer { overflow: hidden; background-color: white; padding: 20px 10px; }
+#buildthelook .buy-look #checkout-cancel { font-size: 1.2em; padding-right: 18px; background: transparent url(/images/buildthelook/atc-closeicon.gif) right center no-repeat; display: inline-block; vertical-align: middle; }
+#buildthelook .buy-look #checkout-submit-box { float: right; }
+#buildthelook .buy-look #checkout-total { font-size: 20px; margin-right: 10px; width: 240px; text-align: right; padding-bottom: 0; }
+#buildthelook .buy-look #checkout-add-to-cart { height: 27px; width: 150px; background: transparent url(/images/buildthelook/atc-addtobasket.png); text-indent: -9999px; }
+#buildthelook .buy-look #checkout-prod-list .excluded { background-color: #eee; }
+#buildthelook .buy-look #checkout-submit-box a.disabled { cursor: default; background: url(/images/buildthelook/atc-addtobasket-disabled.png) left top no-repeat; }
+
+
+/* Templates
+ * ---------------------- */
+#buildthelook #prod-template,
+#buildthelook #cat-template,
+#buildthelook #checkout-prod-template,
+#buildthelook #prod-detail-template,
+#buildthelook #buy-look-template,
+#buildthelook #page-previous-template,
+#buildthelook #page-next-template,
+#buildthelook #placeholder-template {
+	display: none;
+	}

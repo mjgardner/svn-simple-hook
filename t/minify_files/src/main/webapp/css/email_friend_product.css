@@ -1,0 +1,42 @@
+/* CSS Document */
+.textarea {
+	font-family: Verdana, arial, Tahoma;
+	font-size: 9px;
+	color: #7B7B7B;
+	background-image:url(/images/textarea_bg.gif);
+	background-repeat:repeat;
+	/*background-attachment:fixed;*/
+	background-position:bottom;
+	border: 1px solid #cccccc;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	height:75px;
+	overflow:auto;
+}
+
+.subheadmed {
+color:#333333;
+font-family:arial,helvetica;
+font-size:15px;
+font-weight:bold;
+}
+
+BODY {font-size : 11px; font-family : arial, helvetica;}
+TD {font-size : 11px; font-family : arial, helvetica;}
+.box {border-width:2px; border-color:#cccccc; border-style:inset; font-size:11px;}
+.ebutton {font-size : 12px; font-family : arial, helvetica; font-weight:bold;}
+.subheadmed {
+color:#333333;
+font-family:arial,helvetica;
+font-size:15px;
+font-weight:bold;
+}
+pagelink {
+color:#0066CC;
+font-size:11px;
+}
+.pagelink:hover {
+color:#0066CC;
+}

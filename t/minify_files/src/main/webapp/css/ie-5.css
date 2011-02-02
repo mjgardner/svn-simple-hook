@@ -1,0 +1,4 @@
+/* Workarounds for the IE 5* browser. For IE6-specific rules see ie-6.css */
+.thrColFixHdr #sidebar1 { width: 180px; }
+.thrColFixHdr #sidebar2 { width: 190px; }
+/* the above proprietary zoom property gives IE the hasLayout it needs to avoid several bugs */
