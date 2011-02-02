@@ -1,5 +1,4 @@
-## no critic (NamingConventions::Capitalization)
-package GSI::Content::Cmd::Command::check_lock;
+package GSI::Content::Cmd::Command::Check;
 
 # ABSTRACT: SVN pre-commit hook for LTA content
 

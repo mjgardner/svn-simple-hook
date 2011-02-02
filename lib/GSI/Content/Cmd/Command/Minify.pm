@@ -1,5 +1,4 @@
-## no critic (NamingConventions::Capitalization)
-package GSI::Content::Cmd::Command::minify;
+package GSI::Content::Cmd::Command::Minify;
 
 # ABSTRACT: minify a working copy using its Ant scripts
 
@@ -10,6 +9,7 @@ use MooseX::Has::Sugar;
 use MooseX::Types::Moose 'Str';
 use MooseX::Types::Path::Class qw(Dir File);
 use Path::Class;
+use Readonly;
 use Regexp::DefaultFlags;
 ## no critic (RequireDotMatchAnything, RequireExtendedFormatting)
 ## no critic (RequireLineBoundaryMatching)
@@ -48,7 +48,9 @@ has yuicompressor => ( ro, required, coerce,
     isa     => File,
     default => sub {
         file(
-            '/usr/local/tools/maven_repo/external_free/yuicompressor/yuicompressor/2.4.2/yuicompressor-2.4.2.jar'
+            '/usr/local/tools/maven_repo/external_free',
+            'yuicompressor/yuicompressor/2.4.2',
+            'yuicompressor-2.4.2.jar',
         );
     },
     documentation => 'full path to the yuicompressor JAR',
@@ -70,21 +72,21 @@ sub execute {
 sub _make_ant_finder_callback {
     my $self   = shift;
     my $target = $self->ant_target();
+    ## no critic (RequireInterpolationOfMetachars)
+    Readonly my $XPATH => '/project/target/java[@jar="${yuicompressor.jar}"]'
+        . '/../../target[@name="'
+        . $target . '"]';
+
     return sub {
         my $path = shift;
         return if $path->is_dir() or $path !~ / [.]xml \z/i;
         my @dir_list = $path->dir->dir_list();
         return if 'CVS' ~~ @dir_list or '.svn' ~~ @dir_list;
         return
-            if !XML::LibXML->load_xml( location => "$path" )
-            ->exists( '/project/target/java[@jar="${yuicompressor.jar}"]'
-                . '/../../target[@name="'
-                . $target
-                . '"]' );
-
+            if !XML::LibXML->load_xml( location => "$path" )->exists($XPATH);
         runx(
-            ant => '-Dyuicompressor.jar=' . $self->yuicompressor(),
-            -f  => "$path",
+            ant  => '-Dyuicompressor.jar=' . $self->yuicompressor(),
+            '-f' => "$path",
             $target,
         );
         return;

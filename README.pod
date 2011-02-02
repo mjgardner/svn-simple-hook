@@ -1,6 +1,6 @@
 =pod
 
-=for :stopwords Mark Gardner GSI Commerce pre subcommand LTA SvnUri
+=for :stopwords Mark Gardner GSI Commerce pre subcommand LTA SvnUri minify yuicompressor
 
 =head1 NAME
 
@@ -8,7 +8,7 @@ GSI::Content::Cmd - application class for running content commands
 
 =head1 VERSION
 
-version 0.110320
+version 0.110330
 
 =head1 SYNOPSIS
 

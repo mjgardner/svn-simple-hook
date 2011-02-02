@@ -3,7 +3,7 @@
 use English '-no_match_vars';
 use Readonly;
 use MooseX::Types::Moose qw(Int Str);
-use MooseX::Types::Path::Class 'Dir';
+use MooseX::Types::Path::Class qw(Dir File);
 use Path::Class;
 use Test::More;
 use Test::Moose;
@@ -13,8 +13,8 @@ use GSI::Content::Config::Types 'Messages';
 Readonly our $CLASS => 'GSI::Content::Cmd';
 
 Readonly my %CMD => (
-    deploy     => { roles => ['SVN::Simple::Client::AsRole'] },
-    check_lock => {
+    Deploy => { roles => ['SVN::Simple::Client::AsRole'] },
+    Check  => {
         roles => ['SVN::Simple::Hook::PreCommit'],
         attrs => {
             svn_branch      => { isa => Str, default => 'SVN_LTA_SUPPORT' },
@@ -22,6 +22,20 @@ Readonly my %CMD => (
             messages_dir => { isa => Dir, default => dir('conf/messages') },
             _messages => { isa => Messages },
             schema    => { isa => 'GSI::Automerge::Connection::Schema' },
+        },
+    },
+    Minify => {
+        attrs => {
+            working_copy => { isa => Dir },
+            ant_target   => { isa => Str, default => 'minify' },
+            yuicompressor => {
+                isa     => File,
+                default => file(
+                    '/usr/local/tools/maven_repo/external_free',
+                    'yuicompressor/yuicompressor/2.4.2',
+                    'yuicompressor-2.4.2.jar',
+                ),
+            },
         },
     },
 );
@@ -35,11 +49,15 @@ while ( my ( $command, $check_ref ) = each %CMD ) {
     my $meta = $cmd_class->meta();
 
     isa_ok( $cmd_class, 'MooseX::App::Cmd::Command', $command );
-    $tests++;
+    can_ok( $cmd_class, 'execute' );
+    $tests += 2;
 
-    does_ok( $cmd_class, $ARG, "$command does $ARG" )
-        for @{ $check_ref->{roles} }, qw(MooseX::SimpleConfig MooseX::Getopt);
-    $tests += 2 + @{ $check_ref->{roles} };
+    my @roles = qw(MooseX::SimpleConfig MooseX::Getopt);
+    if ( exists $check_ref->{roles} ) {
+        push @roles, @{ $check_ref->{roles} };
+    }
+    does_ok( $cmd_class, $ARG, "$command does $ARG" ) for @roles;
+    $tests += @roles;
 
     next if !exists $check_ref->{attrs};
     while ( my ( $attr_name, $options_ref ) = each %{ $check_ref->{attrs} } )

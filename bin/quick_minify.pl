@@ -1,5 +1,8 @@
 #!perl
 
+# PODNAME: quick_minify
+# ABSTRACT: run an Ant minify task using yuicompressor
+
 use Modern::Perl;
 use IPC::System::Simple 'runx';
 use Path::Class;
@@ -18,9 +21,10 @@ sub ant_finder_callback {
     my @dir_list = $path->dir->dir_list();
     return if 'CVS' ~~ @dir_list or '.svn' ~~ @dir_list;
     return
-        if !XML::LibXML->load_xml( location => "$path" )
-        ->exists( '/project/target/java[contains(@jar,"yuicompressor")]'
-            . '/../../target[@name="minify"]' );
+        if !XML::LibXML->load_xml( location => "$path" )->exists(
+                      '/project/target/java[contains(@jar,"yuicompressor")]'
+                    . '/../../target[@name="minify"]'
+        );
     runx(
         ant => "-Dyuicompressor.jar=$YUICOMPRESSOR",
         -f  => "$path",

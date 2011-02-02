@@ -1,23 +1,14 @@
-## no critic (NamingConventions::Capitalization)
-package GSI::Content::Cmd::Command::deploy;
+package GSI::Content::Cmd::Command::Deploy;
 
 # ABSTRACT: deploy and post-process content from SVN
 
 use English '-no_match_vars';
 use Moose;
 use MooseX::Has::Sugar;
-use MooseX::Types::Moose qw(ArrayRef HashRef);
-use MooseX::Types::Path::Class 'File';
 use MooseX::Types::URI 'Uri';
-use Readonly;
-use Regexp::DefaultFlags;
-## no critic (RequireDotMatchAnything, RequireExtendedFormatting)
-## no critic (RequireLineBoundaryMatching)
 use SVN::Simple::Client;
 use SVN::Simple::Client::Types 'SvnUri';
-use TryCatch;
-use XML::Twig;
-use GSI::Content::Cmd::Command::minify;
+use GSI::Content::Cmd::Command::Minify;
 use namespace::autoclean;
 extends 'MooseX::App::Cmd::Command';
 with 'MooseX::SimpleConfig';
@@ -40,7 +31,7 @@ sub execute {
     my ( $self, $opt, $args ) = @ARG;
     $self->update_or_checkout();
 
-    my $minifier = GSI::Content::Cmd::Command::minify->new_with_config(
+    my $minifier = GSI::Content::Cmd::Command::Minify->new_with_config(
         configfile   => $self->configfile(),
         working_copy => $self->working_copy(),
     );
