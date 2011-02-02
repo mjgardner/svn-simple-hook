@@ -25,7 +25,7 @@ has '+configfile' => ( default => 'conf/config.ini' );
 =cut
 
 has working_copy => ( rw, required, coerce,
-    isa => Dir,
+    isa           => Dir,
     documentation => 'directory containing content to be minified',
 );
 
@@ -34,8 +34,8 @@ has working_copy => ( rw, required, coerce,
 =cut
 
 has ant_target => ( ro, required,
-    isa => Str,
-    default => 'minify',
+    isa           => Str,
+    default       => 'minify',
     documentation => 'name of the ant target used to run the minify tasks',
 );
 
@@ -43,9 +43,13 @@ has ant_target => ( ro, required,
 
 =cut
 
-has yuicompressor => (ro, required, coerce,
-    isa => File,
-    default => sub {file('/usr/local/tools/maven_repo/external_free/yuicompressor/yuicompressor/2.4.2/yuicompressor-2.4.2.jar')},
+has yuicompressor => ( ro, required, coerce,
+    isa     => File,
+    default => sub {
+        file(
+            '/usr/local/tools/maven_repo/external_free/yuicompressor/yuicompressor/2.4.2/yuicompressor-2.4.2.jar'
+        );
+    },
     documentation => 'full path to the yuicompressor JAR',
 );
 
@@ -57,12 +61,13 @@ Runs the subcommand.
 
 sub execute {
     my ( $self, $opt, $args ) = @ARG;
-    $self->working_copy->recurse( callback => $self->_make_ant_finder_callback() );
+    $self->working_copy->recurse(
+        callback => $self->_make_ant_finder_callback() );
     return;
 }
 
 sub _make_ant_finder_callback {
-    my $self = shift;
+    my $self   = shift;
     my $target = $self->ant_target();
     return sub {
         my $path = shift;
@@ -70,10 +75,11 @@ sub _make_ant_finder_callback {
         my @dir_list = $path->dir->dir_list();
         return if 'CVS' ~~ @dir_list or '.svn' ~~ @dir_list;
         return
-            if !XML::LibXML->load_xml( location => "$path" )
-            ->exists( '/project/target/java[contains(@jar,"yuicompressor")]'
-                . qq{/../../target[@name="$target"]} );
-                
+            if !XML::LibXML->load_xml( location => "$path" )->exists(
+                    '/project/target/java[contains(@jar,"yuicompressor")]'
+                        . qq{/../../target[@name="$target"]}
+            );
+
         runx(
             ant => "-Dyuicompressor.jar=$YUICOMPRESSOR",
             -f  => "$path",
