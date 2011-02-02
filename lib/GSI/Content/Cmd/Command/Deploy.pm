@@ -29,14 +29,13 @@ Runs the subcommand.
 
 sub execute {
     my ( $self, $opt, $args ) = @ARG;
+
     $self->update_or_checkout();
 
     my $minifier = GSI::Content::Cmd::Command::Minify->new_with_config(
-        configfile   => $self->configfile(),
-        working_copy => $self->working_copy(),
-    );
-    $minifier->execute( $opt, $args );
+        map { $ARG => $self->$ARG } qw(app configfile working_copy) );
 
+    $minifier->execute( $opt, $args );
     return;
 }
 

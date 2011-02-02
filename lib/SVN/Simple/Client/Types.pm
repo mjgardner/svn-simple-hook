@@ -48,15 +48,6 @@ SvnUri->coercion( Uri->coercion() );
 
 =head2 Revision and its subtypes
 
-A C<Revision> is a valid Subversion revision identifier, incorporating the
-following subtypes:
-
-=cut
-
-subtype Revision, as RevisionNumber | RevisionEnum | RevisionDate, where {
-    is_RevisionNumber($ARG) or is_RevisionEnum($ARG) or is_RevisionDate($ARG);
-}, message {'Invalid Subversion revision'};
-
 =over
 
 =item RevisionNumber
@@ -74,7 +65,7 @@ in Subversion: C<HEAD>, C<BASE>, C<COMMITTED>, C<PREV>, C<WORKING>.
 
 =cut
 
-enum RevisionEnum, qw(HEAD BASE COMMITTED PREV WORKING);
+enum RevisionEnum, [qw(HEAD BASE COMMITTED PREV WORKING)];
 
 =item RevisionDate
 
@@ -91,7 +82,18 @@ subtype RevisionDate, as Str, where {
 
 =back
 
+A C<Revision> is a valid Subversion revision identifier, incorporating the
+following subtypes:
+
 =cut
+
+subtype Revision, as Str, where {
+    is_RevisionNumber($ARG) or is_RevisionEnum($ARG) or is_RevisionDate($ARG);
+}, message {'Invalid Subversion revision'};
+
+for my $type ( RevisionNumber, RevisionEnum, RevisionDate ) {
+    coerce Revision, from $type, via {"$ARG"};
+}
 
 1;
 

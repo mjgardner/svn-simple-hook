@@ -185,7 +185,7 @@ Defaults to C<HEAD>.
 
 =cut
 
-has revision => ( rw, required, isa => Revision, default => 'HEAD' );
+has revision => ( rw, required, coerce, isa => Revision, default => 'HEAD' );
 
 =method update_or_checkout
 
