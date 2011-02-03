@@ -1,0 +1,7 @@
+#!perl
+
+# PODNAME: srm_content
+# ABSTRACT: manipulate SRM/V10 webstore content
+
+use GSI::SRM::Content::Cmd;
+GSI::SRM::Content::Cmd->run();
