@@ -3,6 +3,7 @@ package GSI::SRM::Content::Role::Minify;
 # ABSTRACT: role for minifying SRM content
 
 use strict;
+use Carp;
 use English '-no_match_vars';
 use IPC::System::Simple 'runx';
 use Moose::Role;
@@ -14,6 +15,7 @@ use Readonly;
 use Regexp::DefaultFlags;
 ## no critic (RequireDotMatchAnything, RequireExtendedFormatting)
 ## no critic (RequireLineBoundaryMatching)
+use TryCatch;
 use XML::LibXML;
 use namespace::autoclean;
 
@@ -85,8 +87,19 @@ sub _make_ant_finder_callback {
         return if $path->is_dir() or $path !~ / [.]xml \z/i;
         my @dir_list = $path->dir->dir_list();
         return if 'CVS' ~~ @dir_list or '.svn' ~~ @dir_list;
-        return
-            if !XML::LibXML->load_xml( location => "$path" )->exists($XPATH);
+
+        # look for matching XML files but only carp if parse error
+        my $err;
+        try {
+            return
+                if !XML::LibXML->load_xml( location => "$path" )
+                    ->exists($XPATH);
+        }
+        catch($err) {
+            carp $err;
+            return;
+        };
+
         runx(
             ant  => '-Dyuicompressor.jar=' . $self->yuicompressor(),
             '-f' => "$path",
