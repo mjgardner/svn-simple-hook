@@ -1,0 +1,112 @@
+package GSI::SRM::Content::Role::Minify;
+
+# ABSTRACT: role for minifying SRM content
+
+use strict;
+use English '-no_match_vars';
+use IPC::System::Simple 'runx';
+use Moose::Role;
+use MooseX::Has::Sugar;
+use MooseX::Types::Moose 'Str';
+use MooseX::Types::Path::Class qw(Dir File);
+use Path::Class;
+use Readonly;
+use Regexp::DefaultFlags;
+## no critic (RequireDotMatchAnything, RequireExtendedFormatting)
+## no critic (RequireLineBoundaryMatching)
+use XML::LibXML;
+use namespace::autoclean;
+
+=attr working_copy
+
+Directory containing content to be minified
+
+=cut
+
+has working_copy => ( rw, required, coerce,
+    isa           => Dir,
+    documentation => 'directory containing content to be minified',
+);
+
+=attr ant_target
+
+Name of the Ant target used to run the minify tasks
+
+=cut
+
+has ant_target => ( ro, required,
+    isa           => Str,
+    default       => 'minify',
+    documentation => 'name of the Ant target used to run the minify tasks',
+);
+
+=attr yuicompressor
+
+Full path to the yuicompressor JAR file
+
+=cut
+
+has yuicompressor => ( ro, required, coerce,
+    isa           => File,
+    documentation => 'full path to the yuicompressor JAR file',
+    default       => sub {
+        file(
+            '/usr/local/tools/maven_repo/external_free',
+            'yuicompressor/yuicompressor/2.4.2',
+            'yuicompressor-2.4.2.jar',
+        );
+    },
+);
+
+=method minify
+
+Looks for Ant build XML files in L</working_copy> and then runs C<ant>
+with the L</yuicompressor> on them to minify any content they describe.
+
+=cut
+
+sub minify {
+    my $self = shift;
+    $self->working_copy->recurse(
+        callback => $self->_make_ant_finder_callback() );
+    return;
+}
+
+sub _make_ant_finder_callback {
+    my $self   = shift;
+    my $target = $self->ant_target();
+    ## no critic (RequireInterpolationOfMetachars)
+    Readonly my $XPATH => '/project/target/java[@jar="${yuicompressor.jar}"]'
+        . '/../../target[@name="'
+        . $target . '"]';
+
+    return sub {
+        my $path = shift;
+        return if $path->is_dir() or $path !~ / [.]xml \z/i;
+        my @dir_list = $path->dir->dir_list();
+        return if 'CVS' ~~ @dir_list or '.svn' ~~ @dir_list;
+        return
+            if !XML::LibXML->load_xml( location => "$path" )->exists($XPATH);
+        runx(
+            ant  => '-Dyuicompressor.jar=' . $self->yuicompressor(),
+            '-f' => "$path",
+            $target,
+        );
+        return;
+    };
+}
+
+1;
+
+__END__
+
+=head1 DESCRIPTION
+
+This role gives L<Moose|Moose> classes the ability to minify CSS and
+JavaScript content using the YUI Compressor and Ant.
+
+=head1 SYNOPSIS
+
+    package My::Minifier;
+    use Moose;
+    with 'GSI::SRM::Content::Role::Minify';

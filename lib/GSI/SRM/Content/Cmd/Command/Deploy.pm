@@ -4,16 +4,14 @@ package GSI::SRM::Content::Cmd::Command::Deploy;
 
 use English '-no_match_vars';
 use Moose;
-use MooseX::Has::Sugar;
 use MooseX::Types::URI 'Uri';
-use SVN::Simple::Client;
 use SVN::Simple::Client::Types 'SvnUri';
-use GSI::SRM::Content::Cmd::Command::Minify;
 use namespace::autoclean;
 extends 'MooseX::App::Cmd::Command';
 with 'MooseX::SimpleConfig';
 with 'MooseX::Getopt';
 with 'SVN::Simple::Client::AsRole';
+with 'GSI::SRM::Content::Role::Minify';
 
 has '+logger' => ( traits => ['NoGetopt'] );
 
@@ -34,13 +32,8 @@ Runs the subcommand.
 
 sub execute {
     my ( $self, $opt, $args ) = @ARG;
-
     $self->update_or_checkout();
-
-    my $minifier = GSI::SRM::Content::Cmd::Command::Minify->new_with_config(
-        map { $ARG => $self->$ARG } qw(app configfile working_copy) );
-
-    $minifier->execute( $opt, $args );
+    $self->minify();
     return;
 }
 
@@ -52,6 +45,9 @@ __END__
 
 =head1 DESCRIPTION
 
+Command to deploy a Subversion repository and then minify it using
+L<GSI::SRM::Content::Role::Minify|GSI::SRM::Content::Role::Minify>.
+
 =head1 SYNOPSIS
 
 =for test_synopsis 1;
@@ -59,5 +55,5 @@ __END__
 =for test_synopsis __END__
 
     perl -MGSI::SRM::Content::Cmd -e 'GSI::SRM::Content::Cmd->run()' deploy \
-        --working_copy /path/to/dir
+        --working_copy /path/to/dir \
         --url http://sample.com/svn/repo/trunk
