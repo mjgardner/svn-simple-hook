@@ -1,4 +1,4 @@
-package GSI::Content::Config::Template;
+package GSI::SRM::Content::Config::Template;
 
 # ABSTRACT: Subclass to fill in package for fill_in
 
@@ -40,9 +40,9 @@ templates.
 
 =head1 SYNOPSIS
 
-    use GSI::Content::Config::Template;
+    use GSI::SRM::Content::Config::Template;
     
-    my $template = GSI::Content::Config::Template->new(
+    my $template = GSI::SRM::Content::Config::Template->new(
         TYPE   => 'FILE',
         SOURCE => 'foo.tmpl',
     );

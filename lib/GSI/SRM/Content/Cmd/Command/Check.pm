@@ -1,4 +1,4 @@
-package GSI::Content::Cmd::Command::Check;
+package GSI::SRM::Content::Cmd::Command::Check;
 
 # ABSTRACT: SVN pre-commit hook for LTA content
 
@@ -12,8 +12,8 @@ use Path::Class;
 use Readonly;
 use TryCatch;
 use GSI::Automerge::Connection::Schema;
-use GSI::Content::Config::Template;
-use GSI::Content::Config::Types 'Messages';
+use GSI::SRM::Content::Config::Template;
+use GSI::SRM::Content::Config::Types 'Messages';
 use namespace::autoclean;
 extends 'MooseX::App::Cmd::Command';
 with 'SVN::Simple::Hook::PreCommit';
@@ -55,12 +55,12 @@ has _messages => (
 
 sub _build__messages {    ## no critic (ProhibitUnusedPrivateSubroutines)
     return { map { $ARG => $ARG[0]->_make_template($ARG) }
-            @GSI::Content::Config::Types::MESSAGE_TYPES };
+            @GSI::SRM::Content::Config::Types::MESSAGE_TYPES };
 }
 
 sub _make_template {
     my ( $self, $template ) = @ARG;
-    return GSI::Content::Config::Template->new(
+    return GSI::SRM::Content::Config::Template->new(
         TYPE => 'FILE',
         SOURCE =>
             file( $self->messages_dir(), "$template.tmpl" )->stringify(),
@@ -152,6 +152,6 @@ In your repository's F<hooks/pre-commit> file:
     ORACLE_HOME=/usr/app/oracle
     export ORACLE_HOME
 
-    perl -MGSI::Content::Cmd -e 'GSI::Content::Cmd->run()' \
+    perl -MGSI::SRM::Content::Cmd -e 'GSI::SRM::Content::Cmd->run()' \
         check_lock -r "$REPOS" -t "$TXN" || exit 1
     exit 0

@@ -1,4 +1,4 @@
-package GSI::Content::Config::Types;
+package GSI::SRM::Content::Config::Types;
 
 # ABSTRACT: Moose type library for GSI content configuration
 
@@ -43,7 +43,7 @@ set.
 =cut
 
 subtype Messages,    ## no critic (ProhibitCallsToUndeclaredSubs)
-    as HashRef ['GSI::Content::Config::Template'],
+    as HashRef ['GSI::SRM::Content::Config::Template'],
     where { @MESSAGE_TYPES ~~ %{$ARG} },
     message {"hash keys must be @MESSAGE_TYPES"};
 
@@ -55,14 +55,14 @@ __END__
 
 =head1 DESCRIPTION
 
-This module defines subtypes used by L<GSI::Content|GSI::Content> commands.
+This module defines subtypes used by L<GSI::SRM::Content|GSI::SRM::Content> commands.
 
 =head1 SYNOPSIS
 
     package MyClass;
     
     use Moose;
-    use GSI::Content::Config::Types 'Messages';
+    use GSI::SRM::Content::Config::Types 'Messages';
 
     has messages => (
         is  => 'rw',

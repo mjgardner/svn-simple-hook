@@ -9,7 +9,7 @@ use Readonly;
 our $CLASS;
 
 BEGIN {
-    Readonly our $CLASS => 'GSI::Content::Cmd';
+    Readonly our $CLASS => 'GSI::SRM::Content::Cmd';
     eval "require $CLASS; $CLASS->import();";
 }
 

@@ -4,16 +4,16 @@
 
 =head1 NAME
 
-GSI::Content::Cmd - application class for running content commands
+GSI::SRM::Content::Cmd - application class for running content commands
 
 =head1 VERSION
 
-version 0.110330
+version 0.110340
 
 =head1 SYNOPSIS
 
-    use GSI::Content::Cmd;
-    GSI::Content::Cmd->run();
+    use GSI::SRM::Content::Cmd;
+    GSI::SRM::Content::Cmd->run();
 
 =head1 DESCRIPTION
 

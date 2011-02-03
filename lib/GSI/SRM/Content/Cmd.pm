@@ -1,4 +1,4 @@
-package GSI::Content::Cmd;
+package GSI::SRM::Content::Cmd;
 
 # ABSTRACT: application class for running content commands
 
@@ -17,5 +17,5 @@ Command line script used for content locking, deployment and unlocking
 
 =head1 SYNOPSIS
 
-    use GSI::Content::Cmd;
-    GSI::Content::Cmd->run();
+    use GSI::SRM::Content::Cmd;
+    GSI::SRM::Content::Cmd->run();

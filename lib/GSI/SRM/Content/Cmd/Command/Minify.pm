@@ -1,4 +1,4 @@
-package GSI::Content::Cmd::Command::Minify;
+package GSI::SRM::Content::Cmd::Command::Minify;
 
 # ABSTRACT: minify a working copy using its Ant scripts
 
@@ -107,5 +107,5 @@ __END__
 
 =for test_synopsis __END__
 
-    perl -MGSI::Content::Cmd -e 'GSI::Content::Cmd->run()' minify \
+    perl -MGSI::SRM::Content::Cmd -e 'GSI::SRM::Content::Cmd->run()' minify \
         --working_copy /path/to/dir

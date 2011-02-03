@@ -7,10 +7,10 @@ use MooseX::Types::Path::Class qw(Dir File);
 use Path::Class;
 use Test::More;
 use Test::Moose;
-use GSI::Content::Cmd;
-use GSI::Content::Config::Types 'Messages';
+use GSI::SRM::Content::Cmd;
+use GSI::SRM::Content::Config::Types 'Messages';
 
-Readonly our $CLASS => 'GSI::Content::Cmd';
+Readonly our $CLASS => 'GSI::SRM::Content::Cmd';
 
 Readonly my %CMD => (
     Deploy => { roles => ['SVN::Simple::Client::AsRole'] },
