@@ -19,6 +19,7 @@ use SVN::Simple::Client::Types qw(Revision SvnError SvnUri);
 use TryCatch;
 use URI;
 use namespace::autoclean;
+with 'MooseX::Getopt';
 with 'MooseX::Log::Log4perl';
 
 BEGIN { Log::Log4perl->easy_init() }
@@ -35,9 +36,10 @@ Password for connection to the Subversion repository.
 
 for my $attr (qw(username password)) {
     has $attr => ( rw,
-        isa       => Str,
-        predicate => "has_$attr",
-        trigger   => sub { $ARG[0]->context->auth( $ARG[0]->auth_baton() ) },
+        isa           => Str,
+        predicate     => "has_$attr",
+        documentation => 'authentication for the Subversion repository',
+        trigger => sub { $ARG[0]->context->auth( $ARG[0]->auth_baton() ) },
     );
 }
 
@@ -48,13 +50,19 @@ L<SvnUri|SVN::Simple::Client::Types/SvnUri>.
 
 =cut
 
-has url => ( rw, required, coerce, isa => SvnUri );
+has url => ( rw, required, coerce,
+    isa           => SvnUri,
+    documentation => 'location of the Subversion repository',
+);
 
 =attr working_copy
 
 =cut
 
-has working_copy => ( rw, required, coerce, isa => Dir );
+has working_copy => ( rw, required, coerce,
+    isa           => Dir,
+    documentation => 'directory for checkouts/updates',
+);
 
 =attr context
 
@@ -70,6 +78,7 @@ notification.
 has context => ( ro, required, lazy_build,
     isa      => 'SVN::Client',
     init_arg => undef,
+    traits   => ['NoGetopt'],
 );
 
 sub _build_context {    ## no critic (ProhibitUnusedPrivateSubroutines)
@@ -95,6 +104,7 @@ L<simple username/password prompt|SVN::Client/SVN::Client::get_simple_prompt_pro
 
 has auth_baton => ( rw, lazy_build,
     isa => ArrayRef [Object],
+    traits  => ['NoGetopt'],
     trigger => sub { $ARG[0]->context->auth( $ARG[1] ) },
 );
 
@@ -127,6 +137,7 @@ Defaults to logging each change at the INFO level via L</logger>.
 
 has notify_callback => ( rw, lazy_build,
     isa     => CodeRef,
+    traits  => ['NoGetopt'],
     trigger => sub { $ARG[0]->context->notify( $ARG[1] ) },
 );
 
@@ -157,9 +168,10 @@ Sets the log message for any commits to the repository.
 =cut
 
 has commit_log => ( rw,
-    isa      => Str,
-    init_arg => undef,
-    trigger  => sub {
+    isa           => Str,
+    init_arg      => undef,
+    documentation => 'log message to use for any commits',
+    trigger       => sub {
         my $message = "@ARG[1..$#ARG]";
         $ARG[0]->context->log_msg( sub { ${ $ARG[0] } = $message } );
     },
@@ -185,7 +197,11 @@ Defaults to C<HEAD>.
 
 =cut
 
-has revision => ( rw, required, coerce, isa => Revision, default => 'HEAD' );
+has revision => ( rw, required, coerce,
+    isa           => Revision,
+    default       => 'HEAD',
+    documentation => 'revision in the Subversion repository',
+);
 
 =method update_or_checkout
 

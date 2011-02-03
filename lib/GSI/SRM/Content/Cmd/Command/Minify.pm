@@ -19,7 +19,10 @@ extends 'MooseX::App::Cmd::Command';
 with 'MooseX::SimpleConfig';
 with 'MooseX::Getopt';
 
-has '+configfile' => ( default => 'conf/config.ini' );
+has '+configfile' => (
+    default       => 'conf/config.ini',
+    documentation => 'INI configuration file to set options',
+);
 
 =attr working_copy
 

@@ -15,7 +15,12 @@ with 'MooseX::SimpleConfig';
 with 'MooseX::Getopt';
 with 'SVN::Simple::Client::AsRole';
 
-has '+configfile' => ( default => 'conf/config.ini' );
+has '+logger' => ( traits => ['NoGetopt'] );
+
+has '+configfile' => (
+    default       => 'conf/config.ini',
+    documentation => 'INI configuration file to set options',
+);
 
 for (qw(MooseX::Types::URI::Uri SVN::Simple::Client::Types::SvnUri)) {
     MooseX::Getopt::OptionTypeMap->add_option_type_to_map( $ARG => '=s' );
