@@ -246,7 +246,9 @@ sub _svn_try {
     }
 
     ## no critic (ProhibitCallsToUnexportedSubs)
-    croak $out[0] if SVN::Error::is_error( $out[0] );
+    if ( SVN::Error::is_error( $out[0] ) ) {
+        SVN::Error::croak_on_error(@out);
+    }
     return @out;
 }
 
@@ -261,7 +263,7 @@ Role for Moose-based Subversion clients
 =head1 SYNOPSIS
 
     package My::Class;
-    
+
     use Moose;
     with 'SVN::Simple::Client::AsRole';
 
