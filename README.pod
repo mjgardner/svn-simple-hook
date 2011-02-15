@@ -8,7 +8,7 @@ GSI::SRM::Content::Cmd - application class for running content commands
 
 =head1 VERSION
 
-version 0.110350
+version 0.110460
 
 =head1 SYNOPSIS
 
@@ -18,6 +18,8 @@ version 0.110350
 =head1 DESCRIPTION
 
 Command line script used for content locking, deployment and unlocking
+
+=encoding utf8
 
 =head1 AUTHOR
 

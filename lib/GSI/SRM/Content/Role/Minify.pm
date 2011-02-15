@@ -63,7 +63,7 @@ has yuicompressor => ( ro, required, coerce,
 =method minify
 
 Looks for Ant build XML files in L</working_copy> and then runs C<ant>
-with the L</yuicompressor> on them to minify any content they describe.
+with L</yuicompressor> on them to minify any content they describe.
 
 =cut
 
@@ -79,8 +79,7 @@ sub _make_ant_finder_callback {
     my $target = $self->ant_target();
     ## no critic (RequireInterpolationOfMetachars)
     Readonly my $XPATH => '/project/target/java[@jar="${yuicompressor.jar}"]'
-        . '/../../target[@name="'
-        . $target . '"]';
+        . qq{/../../target[\@name="$target"]};
 
     return sub {
         my $path = shift;
@@ -97,7 +96,7 @@ sub _make_ant_finder_callback {
         }
         catch($err) {
             carp $err;
-            return;
+                return;
         };
 
         runx(
