@@ -16,7 +16,8 @@ use MooseX::Types -declare => [
 use MooseX::Types::Moose qw(Int Str);
 use MooseX::Types::URI 'Uri';
 use Regexp::DefaultFlags;
-## no critic (RequireDotMatchAnything, RequireExtendedFormatting, RequireLineBoundaryMatching)
+## no critic (RequireDotMatchAnything, RequireExtendedFormatting)
+## no critic (RequireLineBoundaryMatching)
 use Readonly;
 use SVN::Client;
 use SVN::Simple::Client::Constants ':all';

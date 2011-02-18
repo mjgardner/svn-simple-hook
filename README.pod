@@ -8,7 +8,7 @@ GSI::SRM::Content::Cmd - application class for running content commands
 
 =head1 VERSION
 
-version 0.110460
+version 0.110470
 
 =head1 SYNOPSIS
 
