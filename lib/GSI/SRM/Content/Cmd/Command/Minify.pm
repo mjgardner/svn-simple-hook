@@ -21,7 +21,7 @@ Runs the subcommand.
 
 =cut
 
-sub execute { $ARG[0]->minify() }
+sub execute { $ARG[0]->minify(); return }
 
 __PACKAGE__->meta->make_immutable();
 
