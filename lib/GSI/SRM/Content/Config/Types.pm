@@ -60,7 +60,7 @@ This module defines subtypes used by L<GSI::SRM::Content|GSI::SRM::Content> comm
 =head1 SYNOPSIS
 
     package MyClass;
-    
+
     use Moose;
     use GSI::SRM::Content::Config::Types 'Messages';
 
