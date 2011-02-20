@@ -11,7 +11,7 @@ use namespace::autoclean;
 
 Readonly our @MESSAGE_TYPES => qw(contact lock author warning);
 
-=attr Messages
+=type Messages
 
 A hash reference where the values are L<Text::Template|Text::Template>
 objects.

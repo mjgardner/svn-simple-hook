@@ -26,9 +26,7 @@ use URI;
 
 =for :stopwords SvnError SvnUri RevisionNumber RevisionEnum RevisionDate
 
-=head1 TYPES
-
-=head2 SvnError
+=type SvnError
 
 =cut
 
@@ -36,7 +34,7 @@ class_type SvnError,
     { class => '_p_svn_error_t' },
     where { $ARG->apr_err() ~~ keys %ERROR_NAME };
 
-=head2 SvnUri
+=type SvnUri
 
 A valid Subversion identifier within a repository, either a file: or
 http(s):// URI.
@@ -47,11 +45,7 @@ subtype SvnUri, as Uri, where { $ARG->scheme() =~ /\A (?:file | https?) \z/ },
     message {'Invalid Subversion URI'};
 SvnUri->coercion( Uri->coercion() );
 
-=head2 Revision and its subtypes
-
-=over
-
-=item RevisionNumber
+=type RevisionNumber
 
 A positive integer, corresponding to a Subversion repository revision number.
 
@@ -59,7 +53,7 @@ A positive integer, corresponding to a Subversion repository revision number.
 
 subtype RevisionNumber, as Int, where { $ARG > 0 };
 
-=item RevisionEnum
+=type RevisionEnum
 
 A string containing any one of the following values used as symbolic revisions
 in Subversion: C<HEAD>, C<BASE>, C<COMMITTED>, C<PREV>, C<WORKING>.
@@ -68,7 +62,7 @@ in Subversion: C<HEAD>, C<BASE>, C<COMMITTED>, C<PREV>, C<WORKING>.
 
 enum RevisionEnum, [qw(HEAD BASE COMMITTED PREV WORKING)];
 
-=item RevisionDate
+=type RevisionDate
 
 A string containing an ISO8601-formatted date enclosed in curly braces
 (C<{> and C<}>).
@@ -81,10 +75,10 @@ subtype RevisionDate, as Str, where {
     return 1;
 };
 
-=back
+=type Revision
 
 A C<Revision> is a valid Subversion revision identifier, incorporating the
-following subtypes:
+above C<Revision>... types.
 
 =cut
 
