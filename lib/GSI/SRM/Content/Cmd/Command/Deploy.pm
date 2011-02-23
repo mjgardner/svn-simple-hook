@@ -8,17 +8,12 @@ use MooseX::Types::URI 'Uri';
 use SVN::Simple::Client::Types 'SvnUri';
 use namespace::autoclean;
 extends 'MooseX::App::Cmd::Command';
-with 'MooseX::SimpleConfig';
 with 'MooseX::Getopt';
 with 'SVN::Simple::Client::AsRole';
+with 'GSI::SRM::Content::Role::Configurable';
 with 'GSI::SRM::Content::Role::Minify';
 
 has '+logger' => ( traits => ['NoGetopt'] );
-
-has '+configfile' => (
-    default       => 'conf/config.ini',
-    documentation => 'INI configuration file to set options',
-);
 
 for (qw(MooseX::Types::URI::Uri SVN::Simple::Client::Types::SvnUri)) {
     MooseX::Getopt::OptionTypeMap->add_option_type_to_map( $ARG => '=s' );

@@ -17,10 +17,8 @@ use GSI::SRM::Content::Config::Types 'Messages';
 use namespace::autoclean;
 extends 'MooseX::App::Cmd::Command';
 with 'SVN::Simple::Hook::PreCommit';
-with 'MooseX::SimpleConfig';
+with 'GSI::SRM::Content::Role::Configurable';
 with 'MooseX::Getopt';
-
-has '+configfile' => ( default => 'conf/config.ini' );
 
 has svn_branch => (
     ro, required,

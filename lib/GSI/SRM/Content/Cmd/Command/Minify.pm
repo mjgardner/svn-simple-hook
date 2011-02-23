@@ -6,14 +6,9 @@ use English '-no_match_vars';
 use Moose;
 use namespace::autoclean;
 extends 'MooseX::App::Cmd::Command';
-with 'MooseX::SimpleConfig';
 with 'MooseX::Getopt';
+with 'GSI::SRM::Content::Role::Configurable';
 with 'GSI::SRM::Content::Role::Minify';
-
-has '+configfile' => (
-    default       => 'conf/config.ini',
-    documentation => 'INI configuration file to set options',
-);
 
 =method execute
 
