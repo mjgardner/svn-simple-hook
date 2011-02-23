@@ -76,15 +76,15 @@ sub minify {
 
 sub _make_ant_finder_callback {
     my $self   = shift;
-    my $target = $self->ant_target();
+    my $target = $self->ant_target;
     ## no critic (RequireInterpolationOfMetachars)
     Readonly my $XPATH => '/project/target/java[@jar="${yuicompressor.jar}"]'
         . qq{/../../target[\@name="$target"]};
 
     return sub {
         my $path = shift;
-        return if $path->is_dir() or $path !~ / [.]xml \z/i;
-        my @dir_list = $path->dir->dir_list();
+        return if $path->is_dir or $path !~ / [.]xml \z/i;
+        my @dir_list = $path->dir->dir_list;
         return if 'CVS' ~~ @dir_list or '.svn' ~~ @dir_list;
 
         # look for matching XML files but only carp if parse error
@@ -100,7 +100,7 @@ sub _make_ant_finder_callback {
         };
 
         runx(
-            ant  => '-Dyuicompressor.jar=' . $self->yuicompressor(),
+            ant  => '-Dyuicompressor.jar=' . $self->yuicompressor,
             '-f' => "$path",
             $target,
         );

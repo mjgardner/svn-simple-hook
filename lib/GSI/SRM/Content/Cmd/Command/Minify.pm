@@ -19,7 +19,6 @@ Runs the subcommand.
 sub execute { $ARG[0]->minify(); return }
 
 __PACKAGE__->meta->make_immutable();
-
 1;
 
 __END__

@@ -48,7 +48,6 @@ subtype Messages,    ## no critic (ProhibitCallsToUndeclaredSubs)
     message {"hash keys must be @MESSAGE_TYPES"};
 
 __PACKAGE__->meta->make_immutable();
-
 1;
 
 __END__
