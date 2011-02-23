@@ -39,7 +39,7 @@ for my $attr (qw(username password)) {
         isa           => Str,
         predicate     => "has_$attr",
         documentation => 'authentication for the Subversion repository',
-        trigger => sub { $ARG[0]->context->auth( $ARG[0]->auth_baton() ) },
+        trigger => sub { $ARG[0]->context->auth( $ARG[0]->auth_baton ) },
     );
 }
 
@@ -84,7 +84,7 @@ has context => ( ro, required, lazy_build,
 sub _build_context {    ## no critic (ProhibitUnusedPrivateSubroutines)
     my $self = shift;
     my %params = ( notify => $self->notify_callback() );
-    if ( $self->has_username() ) { $params{auth} = $self->auth_baton() }
+    if ( $self->has_username ) { $params{auth} = $self->auth_baton }
     return SVN::Client->new(%params);
 }
 
@@ -214,7 +214,7 @@ then a new checkout is made.
 sub update_or_checkout {
     my $self = shift;
 
-    my $ctx = $self->context();
+    my $ctx = $self->context;
     my $wc  = $self->working_copy->stringify();
 
     my $error;
@@ -229,8 +229,9 @@ sub update_or_checkout {
     catch( SvnError $error
             where { $ARG->apr_err == $SVN::Error::WC_NOT_DIRECTORY } ) {
         $error->clear();
-            $ctx->checkout( $self->url->as_string(),
-            $wc, $self->revision(), 1 );
+            $ctx->checkout(
+            $self->url->as_string(), $wc, $self->revision, 1
+            );
             };
 
     return;
