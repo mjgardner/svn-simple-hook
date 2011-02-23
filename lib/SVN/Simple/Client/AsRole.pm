@@ -216,38 +216,24 @@ sub update_or_checkout {
 
     my $ctx = $self->context();
     my $wc  = $self->working_copy->stringify();
-    my ( $e, @out );
+
+    my $error;
     try {
-        @out = _svn_try( sub { $ctx->update( $wc, $self->revision(), 1 ) } );
+        ## no critic (ProhibitPackageVars,ProhibitCallsToUnexportedSubs)
+        local $SVN::Error::handler = undef;
+        my @out = $ctx->update( $wc, $self->revision, 1 );
+        ## no critic (RequireUseOfExceptions)
+        croak $out[0]->quick_wrap('update attempt failed')
+            if SVN::Error::is_error( $out[0] );
     }
-    catch(
-        SvnError $e where { $ARG->apr_err() == $SVN::Error::WC_NOT_DIRECTORY }
-        ) {
-        $e->clear();
+    catch( SvnError $error
+            where { $ARG->apr_err == $SVN::Error::WC_NOT_DIRECTORY } ) {
+        $error->clear();
             $ctx->checkout( $self->url->as_string(),
             $wc, $self->revision(), 1 );
-        } catch( SvnError $e ) {
-        $e->clear();
-            ## no critic (ProhibitCallsToUnexportedSubs)
-            SVN::Error::croak_on_error(@out);
-        };
+            };
+
     return;
-}
-
-# turn off SVN::Client error handling in favor of returning an array where
-# the first element might be an error object that can be caught
-sub _svn_try {
-    my $code_ref = shift;
-    my @out;
-
-    {
-        local $SVN::Error::handler = undef; ## no critic (ProhibitPackageVars)
-        @out = $code_ref->();
-    }
-
-    ## no critic (ProhibitCallsToUnexportedSubs)
-    croak $out[0] if SVN::Error::is_error( $out[0] );
-    return @out;
 }
 
 1;
@@ -261,7 +247,7 @@ Role for Moose-based Subversion clients
 =head1 SYNOPSIS
 
     package My::Class;
-    
+
     use Moose;
     with 'SVN::Simple::Client::AsRole';
 

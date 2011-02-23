@@ -41,7 +41,7 @@ templates.
 =head1 SYNOPSIS
 
     use GSI::SRM::Content::Config::Template;
-    
+
     my $template = GSI::SRM::Content::Config::Template->new(
         TYPE   => 'FILE',
         SOURCE => 'foo.tmpl',
