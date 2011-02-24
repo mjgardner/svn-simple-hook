@@ -48,11 +48,16 @@ for my $attr (qw(username password)) {
 URL (sometimes spelled URI) of the Subversion repository, as an
 L<SvnUri|SVN::Simple::Client::Types/SvnUri>.
 
+=method has_url
+
+Predicate method that returns true if the L</url> attribute is set.
+
 =cut
 
-has url => ( rw, required, coerce,
+has url => ( rw, coerce,
     isa           => SvnUri,
     documentation => 'location of the Subversion repository',
+    predicate     => 'has_url',
 );
 
 =attr working_copy
@@ -103,7 +108,7 @@ L<simple username/password prompt|SVN::Client/SVN::Client::get_simple_prompt_pro
 =cut
 
 has auth_baton => ( rw, lazy_build,
-    isa => ArrayRef [Object],
+    isa => ArrayRef [Ref],
     traits  => ['NoGetopt'],
     trigger => sub { $ARG[0]->context->auth( $ARG[1] ) },
 );
@@ -122,6 +127,7 @@ sub _build_auth_baton {    ## no critic (ProhibitUnusedPrivateSubroutines)
             },
             1,
         ),
+        SVN::Client::get_username_provider(),
     ];
 }
 
@@ -228,6 +234,8 @@ sub update_or_checkout {
     }
     catch( SvnError $error
             where { $ARG->apr_err == $SVN::Error::WC_NOT_DIRECTORY } ) {
+        $error->quick_wrap('no URL for checkout')
+            if !$self->has_url;
         $error->clear();
             $ctx->checkout(
             $self->url->as_string(), $wc, $self->revision, 1
