@@ -4,23 +4,31 @@ use Test::Most tests => 3;
 use App::Cmd::Tester;
 use Test::Files;
 use Path::Class;
+use Regexp::DefaultFlags;
 use Readonly;
 
-our $CLASS;
-
-BEGIN {
-    Readonly our $CLASS => 'GSI::SRM::Content::Cmd';
-    eval "require $CLASS; $CLASS->import();";
-}
+use GSI::SRM::Content::Cmd;
 
 Readonly my $WC => dir('t/minify_files');
 my $result;
 lives_ok(
-    sub { $result = test_app( $CLASS => [ qw(minify --working_copy), $WC ] ) }
-    ,
-    'minify'
+    sub {
+        $result = test_app(
+            'GSI::SRM::Content::Cmd' => [ qw(minify --working_copy), $WC ] );
+    },
+    'minify',
 );
-is( $result->error(), undef, 'threw no exceptions' );
-compare_dirs_ok( $WC->parent->subdir('target_expected'),
-    $WC->subdir('target'), 'matched expected targets' );
+is( $result->error, undef, 'threw no exceptions' );
+
+compare_dirs_filter_ok( $WC->parent->subdir('target_expected'),
+    $WC->subdir('target'), \&_blank_crlf_filter, 'matched expected targets' );
+
+diag 'cleaning up...';
 $WC->subdir('target')->rmtree();
+
+sub _blank_crlf_filter {
+    my $line = shift;
+    return q{} if $line =~ /\A \s* \z/;
+    $line =~ s/ \r\n \z/\n/;
+    return $line;
+}
