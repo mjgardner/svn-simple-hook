@@ -32,7 +32,7 @@ use URI;
 
 class_type SvnError,
     { class => '_p_svn_error_t' },
-    where { $ARG->apr_err() ~~ keys %ERROR_NAME };
+    where { $ARG->apr_err ~~ keys %ERROR_NAME };
 
 =type SvnUri
 
@@ -41,9 +41,9 @@ http(s):// URI.
 
 =cut
 
-subtype SvnUri, as Uri, where { $ARG->scheme() =~ /\A (?:file | https?) \z/ },
+subtype SvnUri, as Uri, where { $ARG->scheme =~ /\A (?:file | https?) \z/ },
     message {'Invalid Subversion URI'};
-SvnUri->coercion( Uri->coercion() );
+SvnUri->coercion( Uri->coercion );
 
 =type RevisionNumber
 

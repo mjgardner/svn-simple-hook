@@ -5,7 +5,6 @@ package GSI::SRM::Content::Role::Configurable;
 use strict;
 use Moose::Role;
 use MooseX::ConfigFromFile;
-use MooseX::Types::Path::Class 'File';
 use namespace::autoclean;
 with 'MooseX::SimpleConfig';
 

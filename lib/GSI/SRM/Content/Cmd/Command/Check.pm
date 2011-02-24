@@ -59,9 +59,8 @@ sub _build__messages {    ## no critic (ProhibitUnusedPrivateSubroutines)
 sub _make_template {
     my ( $self, $template ) = @ARG;
     return GSI::SRM::Content::Config::Template->new(
-        TYPE => 'FILE',
-        SOURCE =>
-            file( $self->messages_dir(), "$template.tmpl" )->stringify(),
+        TYPE   => 'FILE',
+        SOURCE => file( $self->messages_dir, "$template.tmpl" )->stringify(),
     );
 }
 
@@ -69,7 +68,7 @@ has schema => ( ro, required, lazy,
     isa     => 'GSI::Automerge::Connection::Schema',
     default => sub {
         GSI::Automerge::Connection::Schema->new_with_config(
-            configfile => $ARG[0]->configfile() );
+            configfile => $ARG[0]->configfile );
     },
 );
 
@@ -77,13 +76,13 @@ has _component => ( ro, lazy_build, isa => 'DBIx::Class::Row' );
 
 sub _build__component {    ## no critic (ProhibitUnusedPrivateSubroutines)
     my $self   = shift;
-    my $path   = $self->repository->path();
-    my $schema = $self->schema();
+    my $path   = $self->repository->path;
+    my $schema = $self->schema;
     my $rs     = $schema->resultset('ScmComponent');
     my $component;
 
     try {
-        my $guard = $schema->txn_scope_guard();
+        my $guard = $schema->txn_scope_guard;
         my @COMPONENT_REPO
             = ( { component_name => $path }, { key => 'scm_component_uk1' } );
 
@@ -91,9 +90,9 @@ sub _build__component {    ## no critic (ProhibitUnusedPrivateSubroutines)
         if ( !defined $component ) {
             $component = $rs->find_or_create(@COMPONENT_REPO);
             $schema->resultset('Branch')->create(
-                {   branch_name            => $self->svn_branch(),
-                    component_id           => $component->component_id(),
-                    default_lock_status_id => $self->default_lock_id(),
+                {   branch_name            => $self->svn_branch,
+                    component_id           => $component->component_id,
+                    default_lock_status_id => $self->default_lock_id,
                 }
             ) or croak "no branch record for $path";
         }
@@ -114,10 +113,10 @@ Runs the subcommand.
 sub execute {
     my ( $self, $opt, $args ) = @ARG;
 
-    my %change_info = %{ $self->root->paths_changed() };
+    my %change_info = %{ $self->root->paths_changed };
     my $branch      = $self->automerge->resultset('Branch')->search(
-        {   component_id => $self->component->component_id(),
-            branch_name  => $self->svn_branch(),
+        {   component_id => $self->component->component_id,
+            branch_name  => $self->svn_branch,
         },
     );
 
@@ -125,7 +124,6 @@ sub execute {
 }
 
 __PACKAGE__->meta->make_immutable();
-
 1;
 
 __END__
