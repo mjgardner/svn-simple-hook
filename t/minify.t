@@ -23,7 +23,7 @@ lives_ok(
 is( $result->error, undef, 'threw no exceptions' );
 
 compare_dirs_filter_ok(
-    $WC->parent->subdir('target_expected'), $WC->subdir('target/yui'),
+    $WC->parent->subdir('target_expected'), $WC->subdir('target'),
     \&_blank_crlf_filter,                   'matched expected targets',
 );
 

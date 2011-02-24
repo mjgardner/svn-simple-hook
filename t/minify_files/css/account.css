@@ -93,10 +93,10 @@ Account - Login
 #account-edit-email #repeatEmailAddress { float: left; }
 #account-change-password .label-input-grouping {margin-bottom: 15px;}
 #account-edit-email .left-content, #account-change-password .left-content {float: left; width: 736px; margin-right: 8px;}
-#account-edit-email .right-content, #account-change-password .right-content {float: right; width: 240px;}
-#account-edit-email .right-content h4, #account-edit-email .right-content h5, #account-change-password .right-content h4, #account-change-password .right-content h5 { margin-bottom: 8px; }
-#account-edit-email .right-content h5, #account-change-password .right-content h5, #account-edit-email .right-content p, #account-change-password .right-content p { padding-left: 4px; }
-#account-edit-email .right-content h5{font-weight:bold; font-size:12px;}
+#account-edit-email .right-content, #account-change-password .right-content, #account-edit-name .right-content {float: right; width: 240px;}
+#account-edit-email .right-content h4, #account-edit-email .right-content h5, #account-change-password .right-content h4, #account-change-password .right-content h5, #account-edit-name .right-content h4, #account-edit-name .right-content h5 { margin-bottom: 8px; }
+#account-edit-email .right-content h5, #account-change-password .right-content h5, #account-edit-name .right-content h5, #account-edit-email .right-content p, #account-change-password .right-content p, #account-edit-name .right-content p { padding-left: 4px; }
+#account-edit-email .right-content h5, #account-edit-name .right-content h5 {font-weight:bold; font-size:12px;}
 
 /* Email Preferences */
 #email-preference #content { padding-bottom:0px; border-bottom-width:0px;}/* amended Email Preference as per Defect # 88569 */

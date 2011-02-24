@@ -22,9 +22,9 @@ lives_ok(
             'GSI::SRM::Content::Cmd' => [
                 'deploy',
                 '--working_copy' => $TESTDIR,
-                '--revision'     => 4669,
+                '--revision'     => 4675,
                 '--url' =>
-                    'http://devsvn.gspt.net/svn/partnercontent/tbl/us/trunk/content',
+                    'http://devsvn.gspt.net/svn/partnercontent/tbl/us/trunk',
             ],
         );
     },
@@ -35,7 +35,7 @@ is( $result->error, undef, 'threw no exceptions' );
 
 compare_dirs_filter_ok(
     $TESTDIR->parent->subdir('target_expected'),
-    $TESTDIR->subdir('target/yui'),
+    $TESTDIR->subdir('target'),
     \&_blank_crlf_filter, 'matched expected targets',
 );
 

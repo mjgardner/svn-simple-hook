@@ -42,11 +42,18 @@ document.observe("dom:loaded", function(e) {
 				if(sku.colorId == selectedColor)sizes.push(sku);
 			}
 			
-			//:: Resort skus
-			if(colorSliceValues[0].availableSkuIds.length){
-				var newSizes=[];
-				colorSliceValues[0].availableSkuIds.each(function(sz,i){sizes.each(function(s,c){if(sz==s.id)newSizes.push(s);});});
-				sizes=newSizes;
+			//:: get presorted skus stack
+			if(colorSliceValues){
+				var availableSkuIds=[];
+				for(var key in colorSliceValues){
+					if(selectedColor==key)availableSkuIds=colorSliceValues[key].availableSkuIds;
+				}
+				//:: Resort skus
+				if(availableSkuIds.length){
+					var newSizes=[];
+					availableSkuIds.each(function(sz,i){sizes.each(function(s,c){if(sz==s.id)newSizes.push(s);});});
+					sizes=newSizes;
+				}
 			}
 			
 			if(sizes.length)sizes.each(function(sku,i){
