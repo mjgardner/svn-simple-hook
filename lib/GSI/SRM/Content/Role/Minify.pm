@@ -5,7 +5,7 @@ package GSI::SRM::Content::Role::Minify;
 use strict;
 use Carp;
 use English '-no_match_vars';
-use IPC::System::Simple 'runx';
+use IPC::System::Simple qw(capturex runx);
 use Moose::Role;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose 'Str';
@@ -100,12 +100,20 @@ sub _make_ant_finder_callback {
         };
 
         runx(
-            ant  => '-Dyuicompressor.jar=' . $self->yuicompressor,
-            '-f' => "$path",
+            ant => '-Dyuicompressor.jar=' . _ant_path( $self->yuicompressor ),
+            '-f' => _ant_path($path),
             $target,
         );
         return;
     };
+}
+
+sub _ant_path {
+    my $path = shift;
+    return $path if $OSNAME ne 'cygwin';
+    $path = capturex( qw(/usr/bin/cygpath --windows), $path );
+    chomp $path;
+    return $path;
 }
 
 1;
