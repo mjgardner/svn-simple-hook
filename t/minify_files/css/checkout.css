@@ -1,0 +1,655 @@
+/* START: Global Tag Styles */
+	body {
+		font-size: 12px;
+	}
+	h1 {
+		color: #666666;
+		font-size: 32px;
+		left: 15px;
+		position: absolute;
+		top: 17px;
+	}
+	h2 {
+		color: #666666;
+		font-size: 32px;
+		margin: 36px 0 0 16px;
+		padding-bottom: 5px;
+	}
+	h3 {
+		background-color: #F0F0F0;
+		font-size: 14px;
+		margin: 8px 0;
+		padding: 0 9px;
+		line-height: 1.8em;
+		text-transform: uppercase;
+	}
+	#sidebar h2, #sidebar h3 {
+		margin: 7px 0 9px;
+	}
+	a {
+		line-height: inherit;
+	}
+	span {
+		line-height: inherit;
+	}
+	/* Don't know why I did this and now not sure what it will break so... resetting */
+	strong {
+		line-height: inherit;
+	}
+	p strong {
+		line-height: inherit;
+	}
+	input.text, label, select {
+		font-size: 12px;
+		line-height: 1.3em;
+	}
+/* END: Global Tag Styles
+
+/* START: Global Layout Styles */
+	.cart-checkout #main #content {
+		border-bottom: 0;
+	}
+	.info {
+		margin: 0 8px 0 16px;
+		float: left;
+		width: 728px;
+	}
+	.info p {
+		line-height: 1.3em;
+	}
+	.apo-fpo, .edit {
+		margin-left: 7px;
+	}
+	div.tooltip {
+		display: none;
+		width: 200px;
+		background-color: #fff;
+		border: 1px #ccc solid;
+	}
+	.tooltip .close {
+		top:4px;
+		right:4px;
+	}
+	.continue {
+		overflow: hidden;
+		clear:left;
+	}
+	.continue .button {
+		float:right;
+		margin: 8px 8px 8px 0;
+	}
+	#checkout-payment .continue .button, #review .continue .button {
+		margin-top: 0px;
+	}
+	.collapsed {
+		display: none;
+	}
+	.expanded {
+		display: block;
+	}
+	.promo {
+		background-color: #FF6600;
+		color: white;
+		display: inline;
+		padding: 1px 0;
+		line-height: 1.4em;
+	}
+	/* START: Shopping Cart Styles */
+		.cart {
+			border-bottom: solid 1px #CECECE;
+			clear:left;
+		}
+		#checkout-shipping.cart {clear:left;}
+		#shopping-cart th {
+			border-top: 0;
+			font-size: 14px;
+			text-transform: uppercase;
+			border: none;
+			color: #666666;
+			padding: 0 0 3px 0;
+		}
+		#shopping-cart .description {
+			width: 480px;
+		}
+		#shopping-cart .price, #shopping-cart .total {
+			width: 110px;
+		}
+		#shopping-cart td {
+			padding: 8px 0;
+			border-top: 1px solid #CECECE;
+		}
+		#shopping-cart .product-thumb {
+			width: 103px;
+		}
+		#shopping-cart .product-description {
+			padding-left: 0;
+			width: 242px;
+		}
+		#shopping-cart .product-description h4 {
+			font-size: 12px;
+			line-height: 1.3em;
+		}
+		#shopping-cart .product-thumb, #shopping-cart .product-description, #shopping-cart .product-details {
+			float: left;
+			padding-right: 8px;
+		}
+		#shopping-cart .product-details {
+			width: 111px;
+			padding-bottom: 0;
+		}
+		#shopping-cart tr p {
+			padding-bottom: 0;
+			line-height: 1.3em;
+		}
+		#shopping-cart .product-details li {
+			line-height: 1.3em;
+		}
+		#shopping-cart .product-details li .property {
+			font-weight:bold;
+		}
+		#shopping-cart .photo { padding-right: 20px; }
+		#shopping-cart .cart-controls { font-weight: bold; }
+		#shopping-cart .shipping-time {
+			line-height: 1em;
+			margin-bottom: 3px;
+		}
+		.designDetailWrapper {
+			border-top: 0 !important;
+			padding-top: 0 !important;
+		}
+		.designDetail {
+			background-color: #F0F0F0;
+			display: block;
+			margin-bottom: 8px;
+			width: 100%;
+		}
+		.designDetail td {
+			border: 0 none !important;
+			padding: 8px 8px 0 !important;
+			width: 25%;
+		}
+		.designDetail .close {
+			float: right;
+		}
+		.designDetail td.last {
+			padding-bottom: 8px !important;
+		}
+	/* END: Shopping Cart Styles */
+/* END: Global Layout Styles */
+
+/* START: Checkout Header */
+	#checkout-steps {
+		font-size: 14px;
+		left: 140px;
+		list-style-type: none;
+		padding: 0;
+		position: absolute;
+		top: 32px;
+		line-height: 1em;
+	}
+	#cart-checkout-header {
+		background-color: #F0F0F0;
+		height: 58px;
+		margin-bottom: 16px;
+		position: relative;
+	}
+	#checkout-steps .current {
+		color: #f60;
+		font-weight: bold;
+		text-decoration: none;
+	}
+	#checkout-steps li {
+		float: left;
+		line-height: 1em;
+		padding-bottom: 3px;
+		margin-right: 43px;
+	}
+	#checkout-steps li a {
+		color:#999999;
+	}
+	#checkout-steps li a:hover {
+		color: #FF6600;
+		text-decoration: none;
+	}
+/* END: Checkout Header */
+
+/* START: Sidebar */
+	#sidebar {
+		clear: none;
+		padding-top: 0;
+		margin-top:-120px;
+		width: 240px;
+	}
+	#sidebar.loggedIn {
+		padding-top: 108px;
+	}
+	#sidebar h4 {
+		margin: 0 0 8px 1px;
+		font-size: 14px;
+		color: #666666;
+		text-transform: uppercase;
+	}
+	#sidebar .section {
+		padding: 11px 0 13px 1px;
+		float:left;
+		clear: left;
+		width: 240px;
+	}
+/* END: Sidebar */
+
+/* START: Returning Customer Login Box */
+	#returning-customer {
+		margin-bottom: 5px;
+		padding: 7px 5px 6px 11px;
+		width: 224px;
+		background-color: #DDDAD6;
+		position: relative;
+	}
+	#returning-customer h5 {
+		font-size: 16px;
+	}
+	#returning-customer p {
+		margin-top: 1px;
+		padding-bottom: 8px;
+		font-weight: bold;
+	}
+	#returning-customer .instruction { font-size:x-small; }
+	#returning-customer label {
+		width: 61px;
+		padding-top: 7px;
+		margin-left: 2px;
+	}
+	#returning-customer .text, #returning-customer label {
+		display: inline-block;
+		position: relative;
+	}
+	#returning-customer input + label { padding-top: 3px; }		/* Targeted for password label. CSS 2.1 compliant.*/
+	#returning-customer .text {
+		margin-bottom: 6px;
+		margin-top: 1px;
+		width: 147px;
+	}
+	#returning-customer .password {
+		margin-right: 4px;
+		margin-top: 0px;
+		width: 85px;
+	}
+	#forgot-password {
+		position: absolute;
+		left: 0px;
+		top: 16px;
+		line-height: 1em;
+		background-color: transparent;
+		padding-bottom: 3px;
+	}
+	#sign-in .button{
+		margin: -1px 4px 0 0;
+		float: right;
+	}
+/* END: Returning Customer Login Box */
+
+/* START: Cost Summary Box */
+	#sidebar .cost-summary dt, .cost-summary dd {
+		line-height: 1.3em;
+		font-weight:bold;
+		width: 82px;
+		font-size: 12px;
+	}
+	#sidebar .cost-summary dl {
+		width: 172px;
+		padding-left: 3px;
+		white-space: nowrap;
+	}
+	#sidebar .cost-summary dd {
+		padding-right: 8px;
+	}
+	
+	#sidebar .cost-summary .total {
+		border-top: 1px solid #CECECE;
+		margin-top: 3px;
+		padding-top: 5px;
+	}
+/* END: Cost Summary Box */
+
+/* START: Address Summary Box */
+	#sidebar .address p {
+		padding-bottom: 13px;
+		line-height: 1.5em;
+	}
+	#sidebar .address .important {
+		padding-bottom: 0;
+	}
+	#sidebar .address div {
+		padding-left: 1px;
+		line-height: 1.3em;
+	}
+/* END: Address Summary Box */
+
+/* START: Checkout -> Address Styles */
+	#address-suggestion-results h4 {
+		margin-bottom: 5px;
+	}
+	#address-suggestion-results label {
+		display: inline;
+	}
+	#addressForm div.fieldErrorMessages {
+		clear: left;
+	}
+	#addressForm #billingAddress .preference {
+		display: none;
+	}
+/* END: Checkout -> Address Styles */
+
+/* START: Checkout -> Shipping Styles */
+	.section.notApplicable {
+		padding-top: 15px;
+	}
+/* END: Checkout -> Shipping Styles */
+
+/* START: Checkout -> Payment Styles */
+	#paymentForm p.error {
+		padding-bottom: 8px !important;
+	}
+	#paymentForm .title, #redeemCardPaymentForm .title {
+		font-weight: bold;
+		width: 232px;
+		line-height: 1em;
+		float: left;
+		font-size: 12px;
+	}
+	#paymentForm .important label, #redeemCardPaymentForm .important label {
+		clear: left;
+		margin-top: 4px;
+		width: 123px;
+		float: left;
+	}
+	#paymentForm .important input, #redeemCardPaymentForm .important input {
+		float: left;
+	}
+	#paymentForm .pin, #redeemCardPaymentForm .pin, #review .pin {
+		width: 64px; /*57px*/
+	}
+	#paymentForm .card-number, #redeemCardPaymentForm .card-number {
+		width: 191px;
+	}
+	#paymentForm .section, #redeemCardPaymentForm .section {
+		padding: 8px 0 8px 8px;
+		overflow: hidden;
+		border-bottom: dashed 1px #CECECE;
+	}
+	#applyPromoPaymentForm .promo-apply.section {
+		border-bottom: 0;
+		padding: 0 0 0 8px;
+		overflow: hidden;
+	}
+	#paymentForm .section p, #redeemCardPaymentForm .section p {
+		line-height: 1.2em;
+		padding-bottom: 0;
+		overflow: hidden;
+	}
+	#applyPromoPaymentForm .promo-apply fieldset {
+		width: 232px;
+		float: left;
+	}
+	#applyPromoPaymentForm .promo-apply.section p {
+		padding-bottom: 0;
+		line-height: 1.3em;
+	}
+	#redeemCardPaymentForm .gift-card.section {
+		padding-top: 0px;
+		border-bottom: solid 1px #CECECE;
+	}
+	#redeemCardPaymentForm .gift-card.section p {
+		margin-bottom: 6px;
+	}
+	#redeemCardPaymentForm .gift-card.section .important {
+		margin-bottom: 5px;
+	}
+	#redeemCardPaymentForm .gift-card.section .important label {
+		margin-top: 4px;
+	}
+	#redeemCardPaymentForm .gift-card .text {
+		margin-bottom: 0px;
+	}
+	#redeemCardPaymentForm .gift-card .pin {
+		margin-bottom: 4px;
+	}
+    #redeemCardPaymentForm #giftCardBalanceLink {
+        clear: left;
+        display: block;
+    }
+	#paymentForm .pin {
+		margin: 0 20px 0 0;
+	}
+	#redeemCardPaymentForm .button {
+		clear: left;
+		margin-top: 2px;
+	}
+	
+	/* START: Payment > Wallet */
+		#cards {
+			background-color: #f4f4f4;
+			padding: 4px 8px 7px;
+			width: 480px;
+			margin: 0 0 8px -8px;
+			position: relative;
+		}
+		#cards p {
+			margin-bottom: 3px;
+		}
+		#cards ul {
+			overflow: hidden;
+			padding-bottom: 0;
+		}
+		#cards .topPad {
+			padding-top: 8px;
+		}
+		#cards li {
+			width: 114px;
+			margin-right: 8px;
+			float: left;
+			line-height: 1.2em;
+		}
+		#cards li.last {
+			margin-right: 0;
+		}
+		#cards li ul li {
+			margin-right: 0;
+		}
+		#cards input {
+			float: left;
+			margin-right: 5px;
+			width: 13px;
+			height: 13px;
+		}
+	/* END: Payment > Wallet */
+	
+	/* START: Credit Card Form */
+		#paymentForm #cc-icon-list li{
+			border: #FFFFFF 1px solid;
+			margin: 0 11px 8px 0px;
+			float: left;}
+		#paymentForm #cc-icon-list li.cc-icon-highlight{
+			border: #FF6600 1px solid;
+		}
+		#paymentForm #cc-icon-list li.cc-icon-dim{
+			border: #000000 1px solid;
+			opacity: 0.4;
+			filter: alpha(opacity=40); /**//* older IE */
+		}
+		#paymentForm .credit-card-text .credit-card-text p {
+			margin-bottom: 7px
+		}
+		#ccNumParent { clear:both; margin-bottom: 0px !important; }
+        #paymentForm #cards .button {
+			position: absolute;
+			bottom: -32px;
+			right: 8px;
+		}
+		#paymentForm #cc-selection {
+			clear: both;/* 
+			Being removed to allow DropDowns in Checkout > Payment for Credit Cards per IAD - As Designed.
+			display: none!important;*/
+		}
+                #paymentForm .section #cc-form  p.error {width:350px;}
+		#paymentForm #maskedCard {
+			margin-top: 7px;
+			display: block;
+		}
+		#paymentForm .cc-dropdown {
+			margin-bottom: 0;
+		}
+		#paymentForm #expDate {
+			position: relative;
+			overflow: visible;
+			padding-top: 10px;
+		}
+		#paymentForm .mo, #paymentForm .yr {
+			position: absolute;
+			left: 125px;
+			top: -7px;
+		}
+		#paymentForm .yr {
+			left: 187px;
+		}
+		#ccIDNum a.tooltip {
+			display: block;
+			float: left;
+			line-height: 1em;
+			padding-top: 6px;
+		}
+	/* END: Credit Card Form */
+	#paymentForm .bill-me-later-text div.errors {
+		margin-top: 8px;
+	}
+	#paymentForm .bill-me-later.section label {
+		padding: 5px;
+	}
+	#paymentForm #bill-me-later-plans iframe {
+		width: 100%;
+		height: 100%;
+	}
+	#paymentForm .paypal.section {
+		border-bottom: 0;
+	}
+	#paymentForm .rollup {
+		width: 375px;
+		display: block;
+		line-height: 1.3em;
+		font-weight: bold;
+		font-size: 12px;
+	}
+/* END: Checkout -> Payment Styles */
+
+/* START: Checkout -> Review Styles */
+	#reviewForm {
+		padding-top: 15px;
+	}
+	#review th.row, #receipt th.row {
+		width: 45%;
+	}
+	#review table input, #review table select {
+		margin-bottom: 0;
+	}
+	#review .section td, #receipt .section td {
+		padding: 0 0 8px 0;
+		line-height: 1.3em;
+	}
+/* END: Checkout -> Review Styles */
+
+/* START: Checkout -> Receipt Styles */
+	#receipt h2 {
+		width: 728px;
+	}
+	#registerUserInner {
+		padding-left: 8px;
+	}
+	#sidebar #registerUser ul {
+		margin-left: 0;
+		padding-left: 0;
+		list-style-type: square;
+		padding-left: 14px;
+	}
+/* END: Checkout -> Receipt Styles */
+
+#addressForm #billingAddress, #addressForm #shipping-address { width: 360px; float: left; display: block; margin-bottom: 72px; }
+#addressForm #billingAddress h3, #addressForm #shipping-address h3 { padding-left: 8px; }
+#address-book #shippingAddress { margin-bottom: 64px; }
+#addressForm #billingAddress {  margin-right: 8px; }
+dl.address-sugg-results-list dt { font-weight: bold; margin: 0 0 8px 0; }
+dl.address-sugg-results-list dd ul li label { display: inline-block; height: 20px; width: 12px; }
+dl.address-sugg-results-list dd ul li .suggOptionTxtEntry { display: inline-block; width: 320px; }
+#address-book .address-block { display: inline-block; width: 30%; padding: 5px; }
+#address-book .address-block .useAs { margin-top: 5px; }
+.address-block .address-book {line-height: 1.3em;}
+.address-block p { padding-bottom: 0; }
+.address-block .phoneNumber { line-height: 1.3em; }
+.address-block .address-editdelete { line-height: 1.3em; }
+#addresses { line-height: 0; overflow: hidden; }
+.required-fields { padding-bottom: 10px; font-weight:bold; font-size: 12px; line-height: 1.3em; }
+h3#promotional-code, h3.shipBucket { background: #f8ece0; clear: left; }
+body#checkout-payment .payment-info h2.payment-methods { background: #f0f0f0; }
+body#checkout-payment .promo-text, body#checkout-payment .gift-card-text, body#checkout-payment .bill-me-later-text, body#checkout-payment .paypal-text, body#checkout-payment .credit-card-text { width: 488px; float: left; }
+body#checkout-payment ul.cards li ul li { line-height: 1.5em; }
+body#checkout-payment .saved-credit-card { background: #f4f4f4; margin-bottom: 8px; padding: 8px; width: 468px; }
+body#checkout-payment .saved-credit-card ul { padding: 0; }
+body#checkout-payment .saved-credit-card ul li { display: inline-block; font-weight: bold; padding-right: 8px; width: 108px; }
+body#checkout-payment .saved-credit-card ul li label { font-weight: normal; margin: 4px 0; }
+body#checkout-payment input.ex-date-mo, body#checkout-payment input.ex-date-yr { width: 32px; }
+body#checkout-payment select { display: inline; }
+body#checkout-address address strong { width: 116px; }
+.product-description .tooltip, .remove-item, edit-item { font-weight: bold; }
+select.shipping-option, select.shipOpt { width: 181px; }
+input.shipping-option, input.shipOpt { margin-right: 16px; float: left; clear: left; }
+label.shipping-option, label.option { width: 360px; float: left; margin-bottom: 16px; }
+table { width: 100%; }
+#shipping-instructions { float: left; width: 312px; margin-left: 16px; }
+#shipping-instructions textarea { width: 300px; }
+#shipping-options, #select-method { width: 400px; float: left; }
+.toggle-link { display: block; }
+.address-block .edit-delete { padding-bottom: 10px; }
+#top-continue-checkout { position: absolute; top: 22px; right: 271px; }
+.section { padding-left: 8px; }
+.section td address span { line-height: 1.5em; }
+input.text, .textfield { display: block; margin-bottom: 8px; width: 190px; }
+.field { overflow: hidden; position: relative; }
+.field .tooltip { display: inline; float: left; line-height: 16px; margin-left: 11px; font-weight:bold;}
+.field p, .field label, .field .text, .field select, ul.fieldErrorMessages { float: left; clear: left; }
+.field .uneditableField { font-weight: bold; font-size: 12px; line-height: 1.3em; }
+select { margin-bottom: 8px }
+label.radio { margin-bottom: 8px; line-height: 1em;}
+label.radio input { margin-right: 2px; }
+#billingAddress-state select, #shippingAddress-state select { width: 58px; }
+input.text.zip { width: 70px; }
+input.text.phone { width: 180px; }
+input.text.email { width: 210px; }
+#address-suggestion-results h3 { clear: left; }
+.preference { clear: left; }
+.preference label { width: 325px; }
+input.checkbox { margin-right: 2px; }
+#shipping-address-content { padding-top: 5px; }
+#address-book { width: 100%; margin-bottom: 0px; }
+.product-thumb .remove-item { display: block; }
+.shipto, .shipto select { width: 232px; }
+.product-description h4.fn { font-weight:bold; color:#666666; }
+.tooltip p { padding-bottom: 0px; line-height: 1.3em;}
+.tooltip strong { line-height: 1.4em; }
+div.promo-apply p { line-height: 1.1em; margin-top: 10px; }
+#review .instruction { line-height: 1.2em; }
+#complete {
+	padding-top: 8px;
+}
+#complete p {
+	line-height: 1.3em;
+	padding-bottom: 8px;
+}
+#complete .salesTax {
+	font-weight: bold;
+}
+#cost-summary .revTotal { width: 55% }
+#receipt h2 .print { float: right; font-size: 20px; padding-top: 10px; }
+#expDate span { clear: left; display: block; }
+#expDate .slash { clear: none; display: inline; }
+.instruction { line-height: 1.3em; margin: 0; }
+#safensecure { float:left; position:absolute; padding-left: 16px; }
+.go { font-weight: bold; }

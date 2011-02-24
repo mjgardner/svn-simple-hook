@@ -1,0 +1,79 @@
+.pr-snippet-wrapper { background: #FFF; border:none; }
+.pr-contents { background-color: #FFF; padding: 0px; margin-top:0; border-top: 1px solid #CCCCCC; border-right: 0; border-left: 0; border-bottom: 0; position: relative; }
+.pr-contents-wrapper { border:none;}
+.pr-snapshot-body { padding: 0px; border:none; }
+.pr-snapshot-head { background-image: url(); padding: 0px; border: none; }
+.pr-snapshot-head-wrapper { padding: 0px; }
+.pr-snapshot-body-wrapper {border:none;}
+
+.pr-snippet-wrapper, .pr-snippet-stars { border: 0; }
+#sub-info dl#info-nav .pr-snippet-rating-decimal.pr-rounded { background: /*transparent url(/images/bg_rating.gif)*/ 0 0 no-repeat; text-align: center; display: block; line-height: 20px; padding: 0; font-size: 14px; font-family: 'TradeGothicCondensedNo.18', sans-serif; font-weight: normal; }
+.pr-snippet-stars { margin-right: 5px; }
+#reviews-and-ratings h3 { background-color:#f0f0f0; text-transform: uppercase; padding:4px 4px 4px 4px; font-size: 14px; font-family: 'Trade Gothic W01 Bold Cn 20',sans-serif;}
+
+
+.pr-snippet-read-write { border: none; background-color:#F0F0F0; }
+.pr-snippet-write-first-review { font-size: 11px;}
+
+.pr-snippet-read-write a.pr-snippet-link, .pr-snippet-read-write a.pr-snippet-link:visited { color: #f60; text-decoration: none; font-weight:bold; }
+.pr-snippet-read-write a.pr-snippet-link:hover { text-decoration: underline; color: #f60; font-weight:bold; }
+
+.pr-attribute-key p {border:none;background-color:#fff; font-family: 'TradeGothicCondensedNo.18', sans-serif; font-size:12px;}
+
+.pr-snapshot-rating-wrapper {margin-bottom: 10px;}
+.pr-snapshot-average-based-on-text {height:20px;}
+.pr-snapshot-average-based-on-text a {margin-left:5px; line-height: inherit; }
+
+.pr-review-points-attr-wrapper .pr-attribute-group {border:none;width: auto;}
+.pr-attribute-group{ width: auto !important; text-align: left; }
+.pr-attribute-group ul li{ text-align: left; }
+#reviews-and-ratings .pr-review-rating-wrapper { float:left; width:95%; }
+.pr-review-author { width:95%; }
+.pr-review-author .pr-review-author-info-wrapper .pr-review-author-name { display: block; float: left; }
+.pr-review-author-info-wrapper{ float: left; margin: 0; overflow: hidden; }
+.pr-review-author .pr-review-author-info-wrapper .pr-review-author-location { display: block; float: left; margin-left:10px;}
+.pr-review-author .pr-review-author-affinity-wrapper, .pr-review-rating-wrapper .pr-rating.pr-rounded, .pr-comments-header, .pr-other-attributes, .pr-review-bottom-line-wrapper, .pr-snapshot-body-wrapper .pr-snapshot-footer, .pr-snapshot .pr-snapshot-head {display:none;}
+.pr-review-author-date { background:none; border:none; float: right; font-size: 9px !important; font-weight: normal !important; margin: 0 0 0 1em; padding: 0.2em 0.6em; text-align: center; text-transform: uppercase; width: auto !important; }
+.pr-review-author-date span { font-size: 9px !important; font-weight: normal !important; }
+.pr-review-main-wrapper {float:left; width:95%;}
+.pr-review-sort-wrapper .pr-review-count {display:none;}
+
+#reviews-and-ratings .pr-review-sort-box { width: 185px; float: none; position: absolute; bottom: 0; right: 0; height: 26px; }
+.pr-review-sort { background-color: #fff; border:none; text-align: right; width: 100%; }
+.pr-review-sort-by {float:left; font-weight: bold;}
+#reviews-and-ratings .pr-review-wrap { border-bottom: 1px dashed #CCCCCC; float: left; clear: left; position: relative; width: 100%; }
+.pr-review-rating-headline { font-family: 'TradeGothicCondensedNo.18', sans-serif; font-size: 18px;}
+.pr-review-author-location span { font-weight:normal !important; }
+#reviews-and-ratings .pr-snapshot-attribute-value-list { height: auto; }
+
+#reviews-and-ratings .pr-pagination-top { padding: 0; border: 0; position: absolute; left: 8px; top: -21px; text-align: left; margin: 0; }
+#reviews-and-ratings .pr-pagination-top p { margin-right: 16px; height: auto; line-height: 1em !important; }
+#reviews-and-ratings .pr-pagination-top p span { font-family: Arial !important; font-size: 12px !important; }
+
+
+.pr-review-helpful-response {color:#cc3333; padding:5px 0 3px 0; font-size: 11px;}
+
+.pr-error {border: none; background-color:#F0F0F0;}
+.pr-error .pr-report-issue-header {font-weight: bold; }
+.pr-error div input, .pr-error div label {display:inline-block; margin-left: 5px; font-weight: normal;}
+.pr-error div input, .pr-error div {margin-bottom: 5px;}
+.pr-error div label {clear: left;}
+.pr-submit-button {background: url(../images/buttons.png) no-repeat left top; text-indent: -9999em; display: block; height: 17px;background-position: -573px top; width: 49px;}
+.pr-submit-button:hover { background-position: -573px -17px; }
+.pr-snippet, .pr-snippet p, .pr-snippet-review-count{ font-size: 11px; }
+.pr-snippet{ display: none; }
+.pr-header .pr-hidden{ margin-top: -400px; display: none; }
+.pr-modal-container{ position: static; }
+.pr-nav-back-to-top{ float: right; }
+.pr-page-count{ height: 3px; }
+.pr-review-author-badge-wrapper{ display: none; }
+.pr-attribute-value-list li{line-height:16px;font-size:12px;color:#666;font-family:"Arial";}
+.pr-review-wrap .pr-review-points .pr-review-points-attr-wrapper .pr-attribute-group .pr-attribute-key p{color:#666!important;font-family: 'Trade Gothic W01 Bold Cn 20',sans-serif;font-size:14px!important;font-weight:normal;}
+.pr-review-rating-headline{text-transform:capitalize;font-size:16px!important;font-family: 'Trade Gothic W01 Bold Cn 20',sans-serif;}
+.pr-attribute-label-pros,.pr-attribute-label-cons,.pr-attribute-label-bestuses{color:#666!important;font-family: 'Trade Gothic W01 Bold Cn 20',sans-serif!important;font-weight:normal!important;font-size:14px!important;}
+/*.pr-review-wrap .pr-review-points .pr-review-points-attr-wrapper .pr-attribute-group .pr-attribute-key{margin-right:15px;}*/
+#reviews-and-ratings .pr-review-wrap .pr-review-points .pr-review-points-attr-wrapper .pr-attribute-group { width: 32.3% !important; }
+#reviews-and-ratings .pr-review-points-attr-wrapper { position: static; }
+#reviews-and-ratings .pr-nav-back-to-top { display: none; }
+#reviews-and-ratings .pr-review-sort-wrapper { position: relative; padding-bottom: 35px; }
+#reviews-and-ratings strong, #reviews-and-ratings a, #reviews-and-ratings span { line-height: inherit; }

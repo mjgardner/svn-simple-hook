@@ -32,13 +32,14 @@ has working_copy => ( rw, required, coerce,
 
 =attr ant_target
 
-Name of the Ant target used to run the minify tasks
+Name of the Ant target used to run the minify tasks.
+Defaults to C<yuicompress>.
 
 =cut
 
 has ant_target => ( ro, required,
     isa           => Str,
-    default       => 'minify',
+    default       => 'yuicompress',
     documentation => 'name of the Ant target used to run the minify tasks',
 );
 

@@ -1,0 +1,355 @@
+.clear {clear:both; font-size:0; line-height:0; display:block;}
+/******************************************\
+ *         My Account Global CSS          *
+\******************************************/
+/*body.account #content textarea, body.account #content input.text, body.account #content input.password {
+	-moz-border-radius-bottomleft:0;
+	-moz-border-radius-bottomright:0;
+	-moz-border-radius-topleft:0;
+	-moz-border-radius-topright:0;
+	-moz-box-shadow:1px 1px 1px #E7E7E7;
+	margin-bottom:2px;
+	padding-left:3px;
+	right:0;
+}*/
+/*-- body.account #content label {
+	display:inline-block;
+	font-size:11px;
+	font-weight:bold;
+	margin-right:10px;
+	padding-bottom:5px;
+	vertical-align:middle;
+} -- */
+
+.error { margin-bottom:10px; }
+.fieldErrorMessages { padding: 8px 0 0; }
+.hide { display: none !important; }
+legend { display: none; }
+.notbold{font-weight:normal;}
+span.bold-span{font-weight:bold; line-height:16px;}
+.account #main-content { width: auto; padding: 0 8px; }
+
+.buttons { margin-top: 8px; width: 728px; overflow: hidden; }
+#account-order-history .buttons { margin-left:4px; } 
+.buttons .button { margin-right: 8px; font-weight: normal; }
+
+body.account #content { border-bottom: solid 8px #FFFFFF; }
+
+/* -- .account #content { padding: 25px 75px; font-size: 12px; }
+.account h4 { font-size: 13px; float: none !important; } -- */
+
+/* ------------------------------------------------------
+Account - Login
+------------------------------------------------------ */
+
+/* Login */
+/* -- #account-login h1 { display: none; } 
+#account-login #content { padding: 25px 75px; }
+#account-login #shopping-bar { padding-bottom: 25px; } 
+#account-login #shopping-bar ul { background: url(../images/lock-icon.png) no-repeat left center; padding-left: 15px; font-size: 12px; padding-bottom: 0; margin-bottom: 10px; } 
+#account-login #shopping-bar ul li { display: inline-block; padding-right: 10px; }
+#account-login #shopping-bar p { padding-bottom: 0; } -- */
+
+/* --#account-login #content form { float: left; display: block; }
+ #account-login h2 { clear: left; } 
+#account-login h4 { font-size: 13px; } -- */
+/* -- #account-login #content p, #account-login #content a { font-size: 13px; }
+#account-login #content label { font-weight: bold; vertical-align: middle; display: inline-block; width: 60px; margin-right: 10px; } -- */
+#account-login #content label.emailOpt { font-weight: bold; vertical-align: middle; display: inline-block; margin-left: 6px; margin-top: 2px; }
+/*#account-login #content input.text, #account-login #content input.password { width: 150px; vertical-align: middle; display: inline-block; }
+#account-login #content fieldset a { display: block; padding-bottom: 15px; }*/
+/*#account-login #content textarea, #account-login #content input.text, #account-login #content input.password { -moz-border-radius: 0; -webkit-border-radius: 0; right: 0; padding-left: 3px; -moz-box-shadow: 1px 1px 1px #e7e7e7; -webkit-box-shadow: 1px 1px 1px #e7e7e7; box-shadow: 1px 1px 1px #e7e7e7; margin-bottom: 2px; }*/
+/*#account-login .field { margin-bottom: 8px; }*/
+#account-login #content #call-rates {font-style: italic; color: #999;} 
+
+/* -- #returningCustomer, #newCustomer { margin-bottom: 30px; padding: 10px 0; }
+#returningCustomer, #orderDetailCommand { width: 420px; margin-right: 20px; } -- */
+#orderDetailCommand label { width: 100px !important; }
+#orderDetailCommand #zipCode { width: 70px !important; }
+/*#newCustomer { padding-left: 20px; border-left: 1px solid #e6e7e8; width: 330px; }
+#newCustomer label { width: 160px !important; }*/
+#newCustomer label.emailOpt { width: 280px !important; }
+
+/* Welcome / Main page */
+/* #account-main h1 {display: none; } 
+#account-main h2 { padding-bottom: 5px; }
+#account-main h4 {padding-bottom: 5px;}
+#account-main .info-section li {font-size: 11px; padding-bottom: 5px;}
+#account-main .info-section { margin-top: 30px; display: inline-block; vertical-align: top; width: 400px; }
+#account-main .info-section.alt { padding: 0 0 40px 20px; border-left: 1px solid #e6e7e8; }
+#account-main .info-section p { padding-bottom: 0; }
+#account-main .note { padding-top: 30px; }*/
+
+/* Edit Email Address, Password */
+#account-edit-email form { width:auto; margin-bottom: 0; }
+#account-edit-email .label-input-grouping { padding-bottom: 8px; }
+#account-edit-email #currentEmailAddress { padding-bottom: 11px; }
+#account-edit-email .label-input-grouping input { margin-bottom: 0; }
+#account-edit-email h1, #account-change-password h1 {padding: 0 0 5px 0;}
+#account-edit-email #main-content label, #account-change-password #main-content label {width: 160px;}
+.label-input-grouping input {display: inline; width: 160px;}
+#account-edit-email .label-input-grouping input {width: 232px;}
+#account-edit-email #newEmailAddress, #account-edit-email #verifyPassword { display:inline-block; width:250px; float:left; clear:left;}
+#account-edit-email #repeatEmailAddress { float: left; }
+#account-change-password .label-input-grouping {margin-bottom: 15px;}
+#account-edit-email .left-content, #account-change-password .left-content {float: left; width: 736px; margin-right: 8px;}
+#account-edit-email .right-content, #account-change-password .right-content {float: right; width: 240px;}
+#account-edit-email .right-content h4, #account-edit-email .right-content h5, #account-change-password .right-content h4, #account-change-password .right-content h5 { margin-bottom: 8px; }
+#account-edit-email .right-content h5, #account-change-password .right-content h5, #account-edit-email .right-content p, #account-change-password .right-content p { padding-left: 4px; }
+#account-edit-email .right-content h5{font-weight:bold; font-size:12px;}
+
+/* Email Preferences */
+#email-preference #content { padding-bottom:0px; border-bottom-width:0px;}/* amended Email Preference as per Defect # 88569 */
+#email-preference #main-content h1{ margin-bottom:8px; padding-bottom:0px;}
+#email-preference .buttons { padding-top: 8px;} /* Padding amended to Email Preference as per Defect # 88569 */
+#email-preference form { margin-bottom:8px;}
+#email-preference #sidebar {float: right;}
+#email-preference #content label {padding-bottom: 0; width: 325px; float: left;font-size:12px; line-height:16px; font-weight:normal;}
+#email-preference #content input, #email-preference #content button { float: left; margin-right: 8px; margin-top:2px;}
+#email-preference #content fieldset{ margin-left:4px; }
+
+/***********************************
+/** Forgot password pop-up
+/***********************************/
+#forgot-pwd-pop h1{height:1px;left:-9999px;overflow:hidden;position:absolute;width:1px;}
+#forgot-pwd-pop p{margin:10px 0;}
+#forgot-pwd-pop .error{ font-size:9px;display:block;}
+#forgot-pwd-pop fieldset {padding:10px;}
+#forgot-pwd-pop legend {margin:10px 0;font-weight:bold;font-size:12px;}
+
+/***************************************
+/** Address Book
+/***************************************/
+/*#account-address-book #main-content {padding:0 0 40px 40px; width:620px; }*/
+/*#account-address-book #content {padding: 40px 10px;}*/
+/*#account-address-book h1 {padding: 0 0 15px 40px;}*/
+#account-address-book h2 {/*display: none;*/} /* Minicart header "CART" gets invisible */
+#account-address-book #shipOpt label {width: 180px; display:block; font:12px "Arial"; color:#666666;}
+#account-address-book #shipOpt label.suggOptionTxtEntry { width: auto; }
+/*#account-address-book #shipOpt input {display: inline;}*/
+#account-address-book a.tooltip {margin-left: 5px; vertical-align: middle;}
+#account-address-book .splatter {background-image: url(../images/layout-sprite.png); background-position: 0 -381px; color: #fff; margin: 0 0 10px -40px; width: 265px; height: 40px; padding: 5px 0 0 60px;}
+#account-address-book .splatter2 {background-image: url(../images/layout-sprite.png); background-position: 0 -924px; color: #fff; margin: 0 0 10px -40px; width: 265px; height: 40px; padding: 5px 0 0 60px;}
+/*#account-address-book #save {text-indent: -9999px; background-image: url(../images/layout-sprite.png); background-position: -1360px -385px; width: 120px; height: 32px; margin-left: 382px;}*/
+#account-address-book #prefBill label, #account-address-book #prefShip label, #account-address-book #reset, #account-address-book #cancel { display: none !important; }
+#account-address-book #preferredBilling1, #account-address-book #preferredShipping1 { margin-right: 5px; }
+
+#account-address-book #main-content form {width:auto; float:none;}
+/*#account-address-book #main-content fieldset,
+#account-address-book #main-content p {width:695px;}*/
+#account-address-book #addresses ul {float:left;}
+#account-address-book #addresses li {float:left; width: 236px; padding: 8px 8px 8px 2px; }
+#account-address-book #addresses li.last {margin:0;}
+#account-address-book .error {float:none;}
+#account-address-book #shipOpt input,#account-address-book #shipOpt select {display:inline; margin-bottom:4px;}
+#account-address-book .addressbuttons { margin-left: 12px; margin-top: 19px; } /* Modified for "Save Address" on Billing Address page */
+#account-address-book .addressbuttons input {float:left;}
+.myaddressformfield div{ margin-bottom: 8px; }
+/*#addressBookForm > fieldset { margin-bottom: 60px; }*/
+#addressBookTopInfo { margin-bottom: 60px; }
+#addressBookForm #shipOpt { margin-bottom: 0; }
+/*#addressBookForm > p {  }*/
+.editAddInfo { line-height: 1.5em; margin-top: 6px; }
+
+
+/***********************************
+/** Order History
+/***********************************/
+
+/* for SRM Branding
+
+#order-history #content {
+	width: 100%;
+}
+#order-history table {
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+	width: 100%;
+	margin: 30px 0;
+}	
+#order-history th {
+	font-size: 1.4em;
+	font-weight: bold;
+	padding: 9px 0;
+}
+#order-history td {
+	border-top: 1px solid #666;
+	padding: 13px 0;
+}
+.order-date, .order-number, .order-view {
+	width: 15%;
+}
+.order-destination {
+	width: 20%;
+}
+.order-status {
+	width: 35%;
+}
+.address-structure .full-name {
+	font-weight: bold;
+}
+#order-history #content td {
+	vertical-align: top;
+}
+
+*/
+
+/* for PEA Branding */
+#order-history table {
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+	width: 100%;
+	margin: 30px 0;
+}	
+#account-order-history-detail table thead th {
+	color:#666;}
+#order-history th {
+	font-size: 1.4em;
+	font-weight: bold;
+	padding: 9px 0;
+}
+#order-history td {
+	border-top: 1px solid #666;
+	padding: 13px 0;
+}
+.order-date, .order-number, .order-destination, .order-status {
+	width: 25%;
+}
+.address-structure .full-name {
+	font-weight: bold;
+}
+#order-history #content td {
+	vertical-align: top;
+}
+/* Account History Main Page Styles */
+#account-order-history h1 { margin-bottom:8px; padding-bottom:0px;}
+#account-order-history #main-content form { margin-bottom:8px; padding-bottom:0px; margin-bottom:8px;}
+#account-order-history #main-content table tbody td{padding-top:8px;padding-bottom:8px;}
+#account-order-history #main-content p { padding-bottom:8px;}
+#account-order-history .tracked-orders-table th {font-size:14px; color:#666;}
+#account-order-history .tracked-orders-table .col-1, #account-order-history .tracked-orders-table .order-date {width:238px; padding-left:4px;}
+#account-order-history .tracked-orders-table .col-2 {width:118px;}
+#account-order-history .tracked-orders-table .col-3 {width:119px;}
+#account-order-history .tracked-orders-table .col-4 {width:248px;}
+#account-order-history .tracked-orders-table .col-5 {}
+
+#account-edit-email #main-content #editEmailCommand .search-submit { display:inline; width:49px; }
+
+#account-order-history .tracked-orders-table td { border-bottom: solid 1px #CECECE; }
+#account-order-history .tracked-orders-table .button { margin-bottom: 8px; width: 98px;}
+#account-order-history .buttons input {float:left; margin:0 120px 0 0;}
+#account-order-history #main-content p{width:767px; line-height:16px; font-size:12px; margin-left:4px;}
+#account-edit-email label, #account-edit-email #main-content p{font-size:12px; line-height:16px;}
+
+/* Order history detail */
+#account-order-history-detail {}
+#account-order-history-detail #sidebar {display:none;}
+#account-order-history-detail { font-size: 12px; }
+#account-order-history-detail #main-content h1 { padding-bottom:0px; margin-bottom:8px;}
+#account-order-history-detail #main-content form { margin-bottom:8px; padding-bottom:0px; margin-bottom:8px;}
+#account-order-history-detail #main-content p { padding-bottom:8px;}
+#account-order-history-detail #main-content .error, #account-order-history-detail #main-content>p{ width:767px; line-height:16px; font-size:12px;}
+
+/* Order history detail - Order Summary section */
+#account-order-history-detail .order-desc { border-bottom:1px solid #CECECE; float:left; margin:8px 0px; padding-bottom: 7px; width:100%;}
+#account-order-history-detail .order-desc li {float:left; margin:0 30px 0 0;}
+#account-order-history-detail .order-summary {float:left; width:100%; padding-bottom: 8px; }
+#account-order-history-detail .order-summary li { float: left;}
+#account-order-history-detail .order-summary li.last { padding-right: 0; width: 225px; }
+#account-order-history-detail .order-summary dt { font-size: 14px; color: #666; margin-bottom: 4px; }
+#account-order-history-detail .order-summary dd {font-size:12px; line-height: 1.3em;}
+#account-order-history-detail .order-summary .cost-summary { overflow: auto; padding-bottom: 0; }
+#account-order-history-detail .order-summary .costsummary .cost-summary dd { width:auto !important; }
+#account-order-history-detail .order-summary .cost-summary dt, #account-order-history-detail .order-summary .cost-summary dd { font-size: 12px; font-family: "Arial"; line-height: 1.3em; margin-bottom: 0; }
+/* Order history detail - Summary Section Further Formatting */
+#account-order-history-detail #orderHistoryBillingAddress{width:242px;}
+#account-order-history-detail #orderHistoryShippingAddress{width:255px;}
+#account-order-history-detail #orderHistoryPaymentMethod{width:256px;}
+
+/* Order history detail - Return Item Section Formatting */
+#account-order-history-detail .dfn-grouping{ display:block; clear:left;}
+#account-order-history-detail .dfn-grouping dt{ float:left; line-height:16px;}
+#account-order-history-detail .dfn-grouping dd{ text-align:right;}
+/* changing Float to Text-Align for #account-order-history-detail .dfn-grouping dd to fix IE alignment issues on Order History Detail - Return Item
+	Defect #90040
+*/
+#account-order-history-detail .dfn-grouping .sum-total{ font-weight:bold;}
+
+#account-order-history-detail .order-items-table {
+	border-top: 1px solid #CECECE;
+	border-bottom: solid 1px #CECECE;
+	font-size: 12px;
+	width: 100%;
+	border-collapse: separate;
+}
+#account-order-history-detail .order-items-table thead {font-size:14px; color:#666;}
+#account-order-history-detail .order-items-table th { border: none; }
+#account-order-history-detail .order-items-table td, #account-order-history-detail .order-items-table th { padding: 8px 8px 7px 0; }
+#account-order-history-detail .order-items-table tbody tr td { border-top: 1px dashed #E5E5E5; }
+#account-order-history-detail .order-items-table .col-1 { width: 11%; }
+#account-order-history-detail .order-items-table .col-2 { width: 26.5%; }
+#account-order-history-detail .order-items-table .col-3 { width: 13%; }
+#account-order-history-detail .order-items-table .col-4 { width: 26%; }
+#account-order-history-detail .order-items-table .col-5 {  }
+#account-order-history-detail .order-items-table .design-details {padding:5px; background:#f0f0f0;}
+#account-order-history-detail .order-items-table .design-details h6 {margin:0 0 15px 0;}
+#account-order-history-detail .order-items-table .design-details ul {float:left;}
+#account-order-history-detail .order-items-table .design-details ul li {float:left; width:198px; margin:0 41px 0 0;}
+#account-order-history-detail .order-items-table .img-placeholder {width:70px; height:70px; background:#f0f0f0; float:left; margin:0 5px 0 0;}
+#account-order-history-detail .order-items-table .item-definition dt,
+#account-order-history-detail .order-items-table .item-definition dd {display:inline;}
+#account-order-history-detail .order-items-table .item-definition dd, #account-order-history-detail .order-items-table .item-definition dl, .adr *, .order-summary dd *, .order-items-table .item-definition dt { line-height: 1.3em; }
+#account-order-history-detail .order-items-table .item-definition a {color:#666666;}
+#account-order-history-detail .order-items-table .photo { width: 80px; height: 80px; float: left; display: block; }
+#account-order-history-detail .order-items-table .desc { width: 149px; float: left; margin-left: 8px; }
+#account-order-history-detail .order-items-table .dyo-row { border-top: solid 1px #FFFFFF; padding: 0 0 8px; }
+#account-order-history-detail .order-items-table .dyo-row h6 { margin-bottom: 8px; }
+#account-order-history-detail .order-items-table .dyo-row dl { width: 255px; float: left; line-height: 1.3em; }
+#account-order-history-detail .order-items-table .dyo-row dl span { line-height: inherit; }
+#account-order-history-detail .order-items-table .product-details { padding: 8px; background-color: #F0F0F0; overflow: hidden; }
+
+#account-order-history-detail .order-return-item {}
+#account-order-history-detail .order-return-item .col-1 {width:740px;}
+#account-order-history-detail .order-return-item .col-1 h6 {display:inline; font-size:14px; font-weight:bold;}
+#account-order-history-detail .order-return-item .col-2 {}
+#account-order-history-detail .order-return-item .col-2 h6 {text-transform:uppercase; margin:0 0 5px 0;}
+#account-order-history-detail .order-return-item .summary {float:left;}
+#account-order-history-detail .order-return-item .summary dt,
+#account-order-history-detail .order-return-item .summary dd {float:left;}
+#account-order-history-detail .order-return-item .summary dt {clear:both; width:125px;}
+#account-order-history-detail .order-return-item .summary dt.total {text-transform:uppercase; font-weight:bold;}
+#account-order-history-detail .order-return-item .summary dd.result {font-weight:bold;}
+#account-order-history-detail td.return-header{width:500px;}
+#account-order-history-detail dt.title{width:175px;}/*text-align:center;*/
+#account-order-history-detail .costsummary .cost-summary dt.title, #account-order-history-detail .costsummary .cost-summary dt.total{font-weight: bold !important;}
+#account-order-history-detail .cost-summary { padding-bottom: 0; }
+#account-order-history-detail .order-summary dt { font-size: 14px; }
+#account-order-history-detail .order-summary { padding-bottom: 0; margin-bottom: 8px; }
+
+#account-order-history-detail .buttons,
+#account-order-history-detail .buttons input,
+
+/* Address book */
+/*#account-address-book {}
+#account-address-book #sidebar {display:none;}
+#account-address-book form {width:auto;}
+#account-address-book #content,
+#account-address-book h1 {padding:0;}
+#account-address-book .addresses {}
+#account-address-book .addresses ul {float:left;}
+#account-address-book .addresses ul li {float:left;}
+#account-address-book h1 {padding:0; margin:0; margin-bottom:8px; padding-bottom:4px;}*/
+
+/* Billing Address */
+body#billing-address .addresses { overflow: hidden; }
+body#billing-address .address, body#checkout-payment .address { padding-top: 16px; }
+body#billing-address .preferred { font-weight: bold; padding-bottom: 0; }
+body#billing-address .edit-button:hover, body#billing-address .delete-button:hover { cursor: pointer; text-decoration: underline; }
+body#billing-address .edit-button { padding-right: 8px; border-right: 1px solid #8c8c8c; margin-right: 8px; }
+body#billing-address p { line-height: 1.5em; }
+#account-address-book #shipOpt label.suggOptionTxtEntry { display: inline; }
+#account-main #content #main-content h2{text-transform:inherit!important;font-size:24px;}
+#account-address-book #main-content #addresses ul{width: 100%; min-height:100px; padding-bottom: 0; }
+#account-address-book #main-content #addresses ul li div { line-height: 1.3em; }
+#account-address-book.account .preferred { font-weight:bold; position:relative; font-size:12px; }
+#account-order-history-detail dd.cost{float:right; display:inline-block;font-weight:400;}

@@ -1,0 +1,36 @@
+/* ie-8 specific readjustments. */
+
+/* z-index */
+#header { z-index: 998; }
+
+/* cart */
+body.cart #main-content, body.cart fieldset#item-summary, body.cart #promo-form  {position: relative;}
+body.cart #cart-checkout-header {/*position: absolute;*/ top: 0px;} /* Fixes empty shopping cart issue. */
+body.cart fieldset#item-summary{/*top: 70px;*/ left: 0px; clear: left;}
+/*
+DEFECT 88047 - Cart CSS being applied from /css/cart.css - commenting out here as it is not required for IE8
+body#cart #shopping-cart td {padding: 0px;}
+body#cart #shopping-cart .product-thumb a {clear: both; width: 100px;}
+body#cart #shopping-cart .product-thumb, body#cart #shopping-cart .product-description, body#cart #shopping-cart .product-details {margin-top: 20px;}
+body#cart #shopping-cart td.price, body#cart #shopping-cart td.total {padding-top: 20px;}
+body#cart #shopping-cart td.qty {padding-top:20px;}
+*/
+#product-info-wrapper #rating { float:left; }
+#emailafriend .send { float:left; width:100%; }
+#emailafriend .send input { float:left; }
+
+/* checkout */
+#returning-customer { margin-bottom: 6px; }
+
+/* My Account */
+body.account #shop-nav li.lvl2 { margin-right: 3px; }
+body#account-order-history-detail #orderHistoryShippingAddress { width: 250px; }
+
+body#family .page .pagination, body#search .page .pagination {margin-top:27px!important;}
+
+body#receipt .expanded-footer #content h2{margin-top:0px!important; padding-top:20px!important;}
+body#cart #main-content #cart-checkout-header h1{padding-bottom:5px!important;}
+
+/* gift card */
+body#giftCertPage .cards-certificates .passage, body#giftcard .cards-certificates .passage {margin-top:5px; }
+body#product div.pr-contents-wrapper .pr-pagination-top  p.pr-pagination-top p.pr-page-nav{float:left;}

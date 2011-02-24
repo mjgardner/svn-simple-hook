@@ -1,0 +1,96 @@
+ul.df-dropnav li {
+	position: relative;
+}
+ul.df-dropnav li.activeController {
+    background: url('../images/navdropdown-splatter.png') 0 0 no-repeat !important;
+	height: 35px;
+}
+li.mainNav {
+	height: 35px;
+	padding: 20px 10px 0 10px;
+}
+ul.df-dropnav li.activeController a {
+	color: #748DB5 !important; 
+}
+ul.df-dropnav li ul li a {
+    color: #fff;
+    font-size: 18px;
+	display: block;
+    text-transform: uppercase;
+	text-decoration: none;
+}
+ul.df-dropnav li ul {
+    /*background: transparent url('../images/navdropdown-left-right.png') 0 0 repeat-y !important; */
+    background: transparent url('../images/navdropdown-sprite.png') left bottom repeat !important;
+	display: none;
+	height: auto;
+	left: 0px;	
+	position: absolute;
+	overflow: hidden;
+	top: 44px;
+	left: -2px;
+	padding: 0;
+	margin-bottom: 25px;
+	width: 440px; /* default for 2 columns */
+	z-index: 200;
+}
+ul.df-dropnav li ul.col-1 {
+    width: 230px;
+}
+ul.df-dropnav li ul.col-3 {
+    width: 650px;
+}
+ul.df-dropnav li ul li {
+    /*background: #FFF url('../images/navdropdown-bottom.png') bottom left repeat-x !important;*/
+    background: #FFF !important;
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+    margin-bottom: 6px;
+    float: none !important;
+    overflow: auto;
+}
+ul.df-dropnav li ul li ul {
+    background: transparent !important;
+	display: block;
+    position: relative;
+    float: left;
+    width: 190px;
+    padding: 0 0 0 20px;
+	top: 20px;
+}
+ul.df-dropnav li ul li ul.first-col {
+    padding-left: 18px !important;
+}
+ul.df-dropnav li ul li ul.last-col, ul.df-dropnav li ul.col-1 ul.first-col {
+    padding-right: 18px !important;
+}
+ul.df-dropnav li ul li ul li {
+    background: transparent !important;
+}
+ul.df-dropnav li ul li ul li ul {
+	display: inline;
+	padding: 0;
+	position: static;
+	width: auto;
+}
+ul.df-dropnav li ul li ul li {
+	position: relative;
+	width: 190px;
+	margin: 0 !important;
+}
+ul.df-dropnav li ul li ul li a {
+	background-image: none !important;
+	display: block;
+	margin-top: 5px;
+}
+ul.df-dropnav li li li li a {
+	text-transform: none !important;
+}
+.navSub {
+	font: bold 12px helvetica, arial, sans-serif;
+}
+.navSubSub {
+	margin-left: -20px;
+}
+
+

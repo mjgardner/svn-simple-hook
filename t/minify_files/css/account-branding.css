@@ -1,0 +1,29 @@
+/************************\
+ * BRANDING DEFINITIONS *
+\************************/
+
+/* NOTE:  The definitions below are sample definitions. */
+
+/* Main Tags */
+
+body {
+	background-color: #fff;
+	color: #000;
+    font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+	font-size: 11px; /* this should be the minimum font size for the web */
+}
+
+p, td, h1, h2, h3, h4, h5, h6, li, input, select, th, td {
+	line-height: 1.2;
+}
+
+p { margin-bottom: 2ex; }
+li, th, td { margin-bottom: 0; }
+h1 { font-size: 30px; }
+h2 { font-size: 25px; }
+h3 { font-size: 20px; margin-bottom: .65ex; }
+h4 { font-size: 14px; }
+h5 { font-size: 12px; }
+h6 { font-size: 11px; }
+
+/* Region Tags */ 

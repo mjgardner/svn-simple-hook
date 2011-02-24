@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="configuration.xsd">
+
+<!-- Configuration -->
+<Property name="version" value="1.8"/>
+<Property name="AdminMode" value="false"/>
+<Property name="localStorageLocaleId" value="/"/>
+<Property name="localStorageId" value="timberland_buildyourown_localstorage"/>
+<Property name="fontSWFURL" value="/custom/images/Fonts.swf"/>
+<Property name="sizingChartBaseUrl" value="/custom/xml/"/>
+
+<!-- Server APIs 44444 -->
+<Property name="productDataApi" value="/dyoxml/index.jsp" />
+
+<!-- menClassic example 
+<Property name="productDataApi" value="xml/menClassic.xml" />
+-->
+<Property name="customHandlerApi" value="/cart/customHandler.jsp"/>
+<Property name="emailApi" value="/emailAProduct/index.jsp"/>
+<Property name="feedbackApi" value="/feedbackEmailHandler/index.jsp"/>
+<Property name="badwordsApi" value="/custom/xml/badwords.xml"/>
+<Property name="cartUrl" value="/cart/shoppingcart.jsp"/>
+
+<!-- URLS for the 3 pages example -->
+<!-- previously portalPageUrl was /custom/index.jsp -->
+<!-- Return to shopping link -->
+<Property name="portalPageUrl" value="/category/index.jsp?categoryId=4238671"/>
+<Property name="portalBoatPageUrl" value="/category/index.jsp?categoryId=4238695"/>
+<Property name="portalBootPageUrl" value="/category/index.jsp?categoryId=4238694"/>
+
+<!-- Server API Actions -->
+<Property name="addRecipeToCartAction" value="customSkuAddCart"/>
+<Property name="updateRecipeToCartAction" value="customSkuUpdateCart" />
+<Property name="addItemToCartAction" value="skuAddToCart"/>
+<Property name="addToWishlistAction" value="customSkuAddWish"/>
+<Property name="saveBuildAction" value="createPreconfiguration"/>
+<Property name="newsletterSignupAction" value="signup"/>
+<!-- UI Properties -->
+<Property name="PrimaryTypeFace" value="DINMittelschrift"/>
+<Property name="SecondaryTypeFace" value="Clarendon"/>
+<Property name="ThirdTypeFace" value="Arial"/>
+<Property name="GreekTypeFace" value="Times NR Dual Greek MT"/>
+<Property name="BackgroundColor" value="0x404040"/>
+<Property name="PrimaryUIColor" value="0x191919"/>
+<Property name="PrimaryTextColor" value="0xE5E5E5"/>
+<Property name="SecondaryTextColor" value="0xA6A6A6"/>
+<Property name="PrimaryOrangeColor" value="0xFE6102"/>
+<Property name="SecondaryOrangeColor" value="0xF8980E"/>
+<Property name="AccordionTitleEnabledColor" value="0xFE6102"/>
+<Property name="AccordionTitleDisabledColor" value="0x808080"/>
+<Property name="SpeedOut" value="300"/>
+<Property name="SpeedIn" value="150"/>
+<!-- Messaging -->
+
+<!-- Server API Actions -->
+<Property name="addRecipeToCartAction" value="customSkuAddCart"/>
+<Property name="addItemToCartAction" value="skuAddToCart"/>
+<Property name="addToWishlistAction" value="customSkuAddWish"/>
+<Property name="saveBuildAction" value="createPreconfiguration"/>
+<Property name="newsletterSignupAction" value="signup"/>
+<!-- UI Properties -->
+<Property name="PrimaryTypeFace" value="TradeGothicLTStdCn"/>
+<Property name="SecondaryTypeFace" value="TradeGothic"/>
+<Property name="ThirdTypeFace" value="TradeGothic"/>
+<Property name="GreekTypeFace" value="Times NR Dual Greek MT"/>
+<Property name="BackgroundColor" value="0xFFFFFF"/>
+<Property name="PrimaryUIColor" value="0xFFFFFF"/>
+<Property name="PrimaryTextColor" value="0x333333"/>
+<Property name="SecondaryTextColor" value="0x333333"/>
+<Property name="PrimaryOrangeColor" value="0xe46b01"/>
+<Property name="SecondaryOrangeColor" value="0xe46b01"/>
+<Property name="AccordionTitleEnabledColor" value="0xFFFFFF"/>
+<Property name="AccordionTitleDisabledColor" value="0xCCCCCC"/>
+<Property name="SpeedOut" value="300"/>
+<Property name="SpeedIn" value="150"/>
+</Configuration>

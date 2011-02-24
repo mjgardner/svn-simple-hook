@@ -27,7 +27,7 @@ Readonly my %CMD => (
     Minify => {
         attrs => {
             working_copy => { isa => Dir },
-            ant_target   => { isa => Str, default => 'minify' },
+            ant_target   => { isa => Str, default => 'yuicompress' },
             yuicompressor => {
                 isa     => File,
                 default => file(

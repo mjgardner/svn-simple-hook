@@ -1,0 +1,414 @@
+/* begin express shop */
+.express-shop{
+    position:absolute;
+    top:50px;
+    left:50px;
+    z-index:1;
+    background-color:#ffffff;
+}
+
+.expressShopLoader{
+    border: 1px solid #ccc;
+    width:234px!important; height:150px;
+    background:#fff url('../images/loader.gif') center no-repeat;
+}
+
+#ins2 {
+    left:700px;
+}
+/* begin product images Images */
+.express-shop .photo {
+    float:left;
+    width:330px;
+}
+/* end product images Images */
+/* begin product details */
+.express-shop .detail {
+    background-color:#fff;
+    float:left;
+    width:290px;
+}
+
+/* product title */
+.express-shop .detail h1 {
+    padding:7px;
+}
+.express-shop .slices{
+	overflow: hidden;
+    position:relative;
+}
+.express-shop .tt-inner {
+    padding:10px 10px 10px 30px;
+    z-index:1;
+    position:relative;
+    margin-right: 4px;
+}
+.express-shop .tt-inner h4, .express-shop .tt-inner .combo, .express-shop .tt-inner .qty {
+    float: left;
+} 
+.express-shop .tt-inner h4 {
+    clear: both;
+    color: #666;
+    font-size: 13px;
+    margin-right: 10px;
+    padding-top: 2px;
+    text-align: right;
+    width: 45px;
+	font-weight: normal; 
+}
+
+.express-shop .tt-inner .tab{
+    padding:7px;
+    display:none;
+}
+.express-shop .tt-inner .active{
+    display:block;
+}
+/* end tabset */
+/* begin cross sells */
+
+/* Not required 
+.express-shop div.xSells {
+    height:100px;
+    position:relative;
+}
+.express-shop .xSells .mask{
+    height:100px;
+    width:220px; 
+    left:35px;
+    position:absolute;
+    overflow:hidden;
+}
+
+.xSells .slider{
+    position:absolute;
+    top:0;
+    left:0;
+    height:100px;
+}
+.slider li{
+    float:left;
+    margin-left:6px;
+    width: 55px;
+    text-align:center;
+}
+
+.prevBase{
+    position:absolute;
+    width:20px;
+    height:80px;
+    left:0px;
+    top:10px;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+.prevOn{
+    cursor:pointer;
+    background-image:url(../images/df/left_on.gif);
+}
+
+.prevOff{
+    cursor:auto;
+    background-image:url(../images/df/left_off.gif);
+}
+
+.prevDisable{
+    visibility:hidden;
+    cursor:auto;
+}
+
+.nextBase{
+    position:absolute;
+    width:20px;
+    height:80px;
+    right:0px;
+    top:10px;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+.nextOn{
+    cursor:pointer;
+    background-image:url(../images/df/right_on.gif);
+}
+
+.nextOff{
+    cursor:auto;
+    background-image:url(../images/df/right_off.gif);
+}
+
+.nextDisable{
+    visibility:hidden;
+    cursor:auto;
+}
+*/
+
+/* end cross sells */
+
+/* end product details */
+
+
+
+
+
+div.express-shop div.productSpec h4, div.express-shop2 div.productSpec h4{
+    line-height: 22px;
+}
+
+div.express-shop div.productImage, div.express-shop2 div.productImage{
+    height:225px; width:230px;
+    overflow:hidden; position:relative; margin:55px;
+}
+
+div.express-shop div.productImage img.base, div.express-shop2 div.productImage img.base {
+    position:absolute; top:0; left:0; width:330px; height:400px; background-color:#ffffff;
+}
+
+div.express-shop div.productImage img.zoom, div.express-shop2 div.productImage img.zoom {
+    position:absolute; display:block; top:0; left:0;
+}
+
+div.express-shop div.productImage div.loader, div.express-shop2 div.productImage div.loader {
+    position:absolute; top:0; left:0; display:none; width:330px; height:400px;
+    background-color:#ffffff; background-position:center; background-repeat:no-repeat;
+    background-image:url('../images/loader.gif');
+}
+
+div.express-shop div.rating, div.express-shop2 div.rating{
+    margin-top:7px;
+    margin-bottom:7px;
+    position:relative;
+    height:16px;
+    width:64px;
+}
+
+div.express-shop div.rating div, div.express-shop2 div.rating div{
+    position:absolute;
+    top:0px;
+    left:0px;
+    height:16px;
+    width:64px;
+    background-position:left;
+    background-repeat:repeat-x;
+}
+
+div.express-shop div.rating div.full, div.express-shop2 div.rating div.full{
+    width:0px;
+    background-image:url('../images/demos/rating_full.gif')
+}
+
+div.express-shop div.rating div.empty, div.express-shop2 div.rating div.empty{
+    background-image:url('../images/demos/rating_empty.gif')
+}
+
+div.express-shop div.esNextPreviousHolder, div.express-shop2 div.esNextPreviousHolder {
+    clear:both;
+    position:relative;
+    overflow:hidden;
+}
+
+div.esNextPreviousHolder div.carouselEnabled{
+    border:1px solid #73BEE6;
+    color:#73BEE6;
+    cursor:pointer;
+    font-weight:bold;
+    height:20px;
+    line-height:20px;
+    text-align:center;
+    width:100px;
+}
+
+div.esNextPreviousHolder div.carouselDisabled{
+    background-color:#EEEEEE;
+    border:1px solid #CCCCCC;
+    color:#CCCCCC;
+    cursor:auto;
+    font-weight:bold;
+    height:20px;
+    line-height:20px;
+    text-align:center;
+    width:100px;
+}
+
+div.esNextPreviousHolder div.carouselNext{
+    float:right;
+}
+
+div.esNextPreviousHolder div.carouselPrevious{
+    float:left;
+}
+
+div.combo{cursor:pointer; background-image:url(../images/df/combo.gif); width:96px; padding: 4px 20px 4px 6px; height:12px; margin-bottom:10px; position:relative; background-repeat:no-repeat;}
+.list{cursor:pointer; visibility:hidden; position:absolute; border:1px solid #cccccc; background-color:#FFFFFF; overflow:hidden; height:0px; z-index:6;width:120px !important; z-index:10002;}
+.list div div { padding: 2px 5px; }
+.list div div.listItem{ text-align:left; }
+.list div div.itemHover{background-color:#f0f0f0;}
+.list div div.selected{ background-color:#73BEE6 !important;}
+.list div{ overflow:hidden;}
+
+select.combo {display: block; margin-bottom:10px;}
+
+.express-shop div.altImages {
+    height:100px;
+    position:relative;
+}
+.express-shop .altImages .mask{
+    height:100px;
+    width:293px;
+    left:19px;
+    position:absolute;
+    overflow:hidden;
+}
+
+.altImages .slider{
+    position:absolute;
+    top:0;
+    left:0;
+    height:100px;
+}
+
+/*ul.altContainer{height:80px; width:130px;}*/
+
+
+div.altContainer div.swatch{
+    border:1px solid #f0f0f0;
+    float: left; cursor:pointer;
+    height:78px; width:48px;
+    text-align:center;
+    background-position:center;
+    background-repeat:no-repeat;
+    margin:1px;
+}
+
+div.swatchContainer{margin-bottom:10px;}
+div.swatchContainer div.swatch{
+    border:1px solid #f0f0f0;
+    float:left; cursor:pointer;
+    height:18px; width:31px;
+    text-align:center;
+    background-position:center;
+    background-repeat:no-repeat;
+    margin:1px;
+}
+div.swatchContainer div.selected, div.altContainer div.selected{
+    border:1px solid #73BEE6; cursor:auto !important;
+}
+/*
+input.qty {
+    border: 1px solid #73BEE6; height:18px; width: 50px; display:block;
+    margin-bottom:20px;
+}
+*/
+div.addToWishlist {
+    border: 1px solid #73BEE6; color:#73BEE6; font-weight:bold; width:100px;
+    font-size:12px; height:20px; line-height:20px; text-align:center;
+    cursor:pointer;
+}
+
+div.addToCart {
+    background-position: 0 -1085px;
+    height: 24px;
+    margin: 10px 0 0 55px;
+    clear: both;
+}
+
+div.emailFriend {
+    border: 1px solid #73BEE6; color:#73BEE6; font-weight:bold; width:100px;
+    font-size:12px; height:20px; line-height:20px; text-align:center;
+    cursor:pointer;
+}
+
+div.emailFriend a{ color:#73BEE6; }
+
+div.addToCartDisabled {
+    cursor:auto;
+    opacity: 0.2;
+}
+
+div.break{line-height:1px; height:1px; font-size:1px; clear:both;}
+
+
+/* END express shop */
+
+/* BEGIN minicart */
+
+div.miniCart{position:absolute; left:1350px; top:50px; overflow:hidden; width:460px;}
+
+div.miniCart div.xSells{float:left; width:460px; height:100px; padding: 0 5px; position:relative; overflow:hidden;}
+
+.miniCart .xSells .mask{
+    height:100px;
+    width:386px;
+    left:35px;
+    position:absolute;
+    overflow:hidden;
+}
+
+    div.mcImg{height:50px; width:50px; float:left;}
+
+    div.miniCart li.mcProdContainer{
+        margin-bottom:5px;
+        padding-bottom:3px;
+        border-bottom:1px solid;
+        color:gray;
+    }
+
+    div.miniCart ol li img{
+        float:left;
+        margin-right:3px;
+    }
+
+    div.miniCart ol.mcItemSpec{
+        float:left;
+        margin-right:10px;
+        width:250px;
+        height:50px;
+        border-right:1px solid gray;
+    }
+        ol.mcItemSpec li.mcProdTitle{
+            font-weight:bold;
+            font-size:11px;
+        }
+
+        ol.mcItemSpec li.mcSize{
+            float:left;
+        }
+
+        li.mcActionButtons{
+            float:right;
+            width:75px;
+        }
+
+        li.mcActionButtons div{cursor:pointer;}
+        li.mcActionButtons div.mcEdit{float:left; margin-right:6px;}
+
+    div.miniCart ol.mcLineItemSummary{float:left;}
+
+    div.miniCart div.cartDetails{
+        border-bottom: 1px solid gray;
+        margin-bottom: 3px;
+        padding-bottom: 7px;
+    }
+
+    div.miniCart div.cartDetails dl dt {
+        float:left;
+        margin-right:3px;
+    }
+
+    div.miniCart div.cartDetails dl dd {
+        float:left;
+        margin-right:15px;
+    }
+
+    div.miniCart div.cartMicro{
+        height:16px;
+        overflow:hidden;
+    }
+
+    div.miniCart div.cartMicro div{
+        float:left;
+        padding-right:3px;
+    }
+
+/* END minicart */

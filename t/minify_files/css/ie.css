@@ -1,0 +1,217 @@
+/* ------------------------------------------------------
+General Fixes
+------------------------------------------------------ */
+/* odd balls */
+.dropdown-subinfo li { display: inline; float: left; clear: left; width: 170px; }
+#sidebar h2 { clear: left; }
+#footer-nav li.copyright { display: inline; } 
+
+/* footer */
+#shopFooter5 #recent-history h5 { float:left; width: auto; }
+#shop-footer .recently-view-all { margin-top: 5px; }
+
+/* ------------------------------------------------------
+IE6 & 7 Bugs
+------------------------------------------------------ */
+
+/* more colors */
+.products li ul.colors { padding-bottom: 6px; }
+
+/* line height on pagination arrows */
+.pagination .button { line-height: 0; margin-top: 5px; }
+
+/* hasLayout */
+.dropdown .inner, .dropdown .topcap, .dropdown-subinfo ul, .dropdown-subinfo li, .dropdown-cats, #footer-content, #minicart-subtotal, #content, #shop-footer .recently-viewed-items ul, #sidebar h2, form.filter, .products { zoom: 1; }
+
+/* inline block */
+#header-search .text, #header-search .header-search, .dropdown-subinfo ul, a.button.minicart, input.text, input.text.prefix, input.text.area-code, table .product-description, .button.minicart, body#cart #shopping-cart .description, body#cart #shopping-cart .price, body.cart-checkout h1, #shop-footer .recently-viewed-items h5 a, .products .promo, body#email-sign-up form label.radio { zoom: 1; display: inline; }
+
+/* inline-block in IE cuts off leading below baseline on text - padding to fix */
+/*body.cart-checkout #checkout-steps li, body.cart-checkout #returning-customer label, body.cart-checkout div.cost-summary .cost-summary dd, body.cart-checkout div.cost-summary .cost-summary dt { padding-bottom: 3px; }*/
+
+/* block */
+#top-continue-checkout { display:block!important;}
+
+/* Product Page */
+#product h1 {padding-bottom: 6px;}
+#product-image #alternate-images {display: inline;}
+#product-image #alternate-images li { width: 54px; float: left;}
+#product-information p#availability-msg {margin-top: 28px;}
+#product-image-main-zoom-controls { bottom:-3px;}
+
+/* z-index */
+#header { z-index: 998; }
+
+/* for the Gifts pages */
+.add-to-cart { clear: both; }
+
+/* cart */
+body.cart #main-content, body.cart fieldset#item-summary, body.cart #promo-form  {position: relative;}
+body.cart #cart-checkout-header { top: 0px; left: 0px;} /* Fixes empty shopping cart layout */
+body.cart fieldset#item-summary{ left: 0px; clear: left;}
+body#cart #shopping-cart .product-thumb a {clear: both; width: 100px;}
+body.cart form#cartCommand{padding-bottom:0px !important;}
+body.cart #content {/*margin-top:71px;*/}
+body#cart #main-content #proceedToCheckoutForm .btn-cont-shopng { margin-right: 19px; }
+body.cart #main-content { width: 745px; margin-right: 0;}
+#editItemTarget .productSpec .es-close-button { margin-right: 4px; }
+body#cart .designDetail td { width: auto !important; }
+body#cart #shopping-cart th { float: none !important; }
+body#cart .totals .property, body#cart .totals .value { padding-bottom: 2px; }
+
+
+/* Shopping Cart */
+/* fixes IE6/7 Layout */
+#cart div.empty-cart {
+	min-height:250px;
+	height:auto !important;
+	height:250px;
+}
+
+/* Checkout */
+/*Fixes IE6/7 Layout*/
+.field label { width: 100%; }
+.field p.uneditableField { width: 60%; }
+.field ul.fieldErrorMessages { width: 100%; }
+label.radio input { height: 13px; }
+.preference input { margin-right: 0; width: 13px; height: 13px; }
+#sign-in .button { margin: 0; position: absolute; bottom: 8px; right: 8px; }
+#safensecure { padding-left: 0; }
+
+
+#logo { cursor:pointer; }
+
+#global-menu li div.global-dropdown ul.first { padding:0 0 7px; }
+#global-menu li div.global-dropdown ul li ul { margin-top:-5px; }
+#global-menu li div.global-dropdown ul li ul li { padding-bottom:2px; }
+#global-menu li div.global-dropdown { padding-top:46px; }
+#global-menu li div.global-dropdown ul.no-brdr li ul { padding-bottom:0; margin-bottom:-8px; }
+#global-menu li div.global-dropdown ul.no-brdr { padding-bottom:15px; }
+
+/* Help Desk*/
+body.article #main-content .section-header { left:202px;}
+body.article #main-content .article{padding-top:15px;}
+body.article #main-content{margin-top:27px;}
+
+/*minicart*/
+a.button.minicart {display:inline-block;float:left;}
+#added-to-minicart .product{padding-bottom:20px;}
+#added-to-minicart .product-information{position:absolute;}
+
+#nav li a.lvl1, #nav li a.lvl2 { /*letter-spacing:normal; font-size:23px;*/ }
+.dropdown-columns ul, .dropdown-columns ul li { /*margin:0; padding:0; line-height:normal;*/ }
+.dropdown-columns ul li {/*padding-bottom: 6px;*/ }
+#shopSlot .dropdown-columns {  /*height:145px; padding-bottom:25px;*/ }
+
+#product-image { z-index:99999 !important; }
+/*body.article #content .section-header { left:-7px !important; }  i am commenting this out because of this the header was being dislocated*/
+body#family .pagination{ 
+	margin:-35px 0px 4px 0px !important;
+	padding-top:0px!important; 
+	text-align:right; margin-bottom:0px;}/*ie double margin bug*/
+#family div.page .pagination,body#search  div.page .pagination{margin-top:0px;}
+body#search .pagination{margin-top:-10px;}	
+/* margin fixes */
+#home.home #content, body#sub-category #content, body#family #content, body#storelocator #content, body#helpdesk #content, body.dyoproduct#product #content, body#search-no-results #content, body.errorPage #content {/*margin-top: 71px !important;*/}
+#product-info-wrapper #rating { display:inline; }
+#family div.title{float:left;}
+body#family #sidebar{/*height:515px;*/}
+#shopFooter1 {height:115px !important;}
+
+#emailafriend .send { float:left; width:100%; }
+#emailafriend .send input { float:left; }
+.email-a-friend .tell{float:left;display:inline;position:absolute;}
+
+.product.out-of-stock {position:relative!important; margin-right:15px; }
+#product-information .product.out-of-stock {position:relative!important; margin-right:15px; }
+
+.filter-by-size { float:left; margin-right:30px; display:inline; }
+/*.total-pagination { margin-top:10px; }
+#sidebar .category-title { width:100%; float:none !important; }*/
+#sidebar div#categorytitle div.category-title {float:left;display:inline-block; }
+.page-filter .close { float:none; }
+#sidebar div#categorytitle { background-color:#FFF; margin-bottom:0px; }
+#sidebar #sub { background-color:#FFF; }
+.products ul.show-block li { float:left; margin-right:1px; }
+#nav { width:525px; }
+h2#search-recommendation { margin:18px 0 0px 0; }
+h2#search-recommendation span { float:left; }
+
+body#search-no-results #sidebar {padding-top: 8px;}
+#header-search .text {padding-bottom: 0; padding-top: 6px; height: 18px;}
+
+#sidebar ul.cats {margin-bottom:0px;}/*left-nav*/
+div#categorytitle .title{float:left;margin-bottom:0px;}
+#connectionSlot #product-collections ul li{clear:none;width:115px!important; float:left;padding-right:10px; padding-bottom:6px;}
+
+/* helpdesk related */
+body.article #content .section-header h1 {padding: 0px;padding-bottom:2px; }
+body#helpdesk #content{/*margin-top:73px;*/}/*issue seen on ie for helpdesk page*/
+div.emailsignup{display:inline;}/*emailsignup as per new comp*/
+
+#account-order-history-detail div#desc{display:inline!important;}
+#account-order-history-detail #orderHistoryShippingAddress { width: 251px !important; }
+body#account-login form#orderDetailCommand{clear:both;}
+
+#added-to-minicart .product-information { position:relative!important; }
+#added-to-minicart { padding-bottom: 0; }
+#added-to-minicart .product-thumb { float: left!important; }
+/*#added-to-minicart {padding-bottom: 20px!important;}*/
+#added-to-minicart #minicart-subtotal {margin-top: 0px!important;}
+#added-to-minicart .minicart-promo {margin-top:60px!important;}
+
+/*helpdesk contact csr ie double margin bug fixed*/
+body.csr-contact #sidebar {margin-top:0px;}
+body.csr-contact #main-content{margin-top:0px!important;padding-top:37px;}
+#contactform{padding-top:15px;margin-top:15px;}
+body#email #main-content{width:984px;}
+#email #emailgender span{zoom:1;margin-top:2px;}
+ #helpdesk.csr-contact  .section-header h1 {left:-232px;}
+#helpdesk.csr-contact #contact-csr #csr form table td.csr{vertical-align:baseline;}
+p.checkbox span {margin-top:4px;}
+body#search #content {/*margin-top:73px;*/}/* ie double margin bug fixed*/
+body#search  #sidebar ul#breadcrumbs{padding-top:6px;}
+body#search  #parametric-filter{padding-bottom:0px;}
+body#search ul.total-pagination {margin-top:4px;}
+#search #main-content  h1{padding-top:0px;}
+#product.product .recaptchatable.recaptcha_theme_clean tr { height:auto!important;}
+#helpdesk.csr-contact  .section-header h1 {left:-242px;}
+#product .pagination .view-all {margin-left:0px;}
+
+body#search #parametric .flyout-wrap {width: 748px!important;}
+#product .pagination .view-all {margin-left:0px;}
+body#checkout-payment .gift-card-text { margin-bottom: -5px; }
+body#checkout-payment #cards ul strong { display: block; padding-bottom: 6px; }
+.pr-review-sort-box{margin-bottom:15px;}
+
+body#family .page .pagination, body#search .page .pagination {margin-top:27px!important;}
+body#receipt .expanded-footer #content h2{margin-top:0px!important; padding-top:20px!important;}
+body#cart #main-content #cart-checkout-header h1{padding-bottom:5px!important;}
+body#family #parametric-filter fieldset{ width: 142px!important;}
+body#family #parametric-filter{padding-top: 8px!important;}
+.products .promo {padding-bottom: 4px;padding-top: 0;}
+ul.product-tags li.first {margin-top: 2px; margin-bottom: 2px;}
+
+/* gift card */
+body#giftCertPage .cards-certificates .passage, body#giftcard .cards-certificates .passage {margin-top:5px; }
+#product ul#breadcrumbs {padding-top:4px;}
+body#family #sidebar  h2#cattitle{zoom:0;line-height:36px;padding-top:8px;padding-bottom:0px;margin-bottom:2px;text-transform:capitalize;}
+body#product #sidebar  h2#cattitle{zoom:0;padding-top:8px;padding-left:4px;line-height:36px;padding-bottom:1px;text-transform:capitalize;}
+body#product h1.product-title{padding-top:1px;}
+body#product ul#breadcrumbs {padding-top:3px;}
+body#helpdesk #main-content span.important{line-height: 16px;}
+body.article #content table tr.alt td {background-color:#f9f3e7;} /*not sure why ie is rendering different behavior for tables */
+body.article #content table tr.alt1 td{background-color:#f6eddc;}
+body.article #content table tr.h1 td{background-color:#ee7033;}
+body.article #content ol li{vertical-align:baseline}
+body#family #main-content h1{padding-top:0px; padding-bottom:1px;}
+body#family #sidebar  h2#lefttitle{padding-top:0px;}
+sup {font-size:0.8em; top:-2px;position:relative;}
+div#minicart-price{padding-bottom:2px;}
+
+#sub-info dl#info-nav dd p.write-reviews { width:250px; }
+#sub-info dl#info-nav dd p.write-reviews .button { margin-top: -18px; }
+div#orderLevelPromotion{display:inline!important;}
+#search .products div#prodinfo{height:45px;margin-bottom:0px;}
+#family .products #prodinfo  {height: 45px;margin-bottom:2px;}
+.products li.highlight { height:359px; }

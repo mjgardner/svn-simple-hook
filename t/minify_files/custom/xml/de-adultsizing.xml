@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<SizingChart>
+	<Group label="MEN'S">
+		<Countries>
+			<Country label="USA" sizes="6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 13, 14, 15" />
+			<Country label="UK" sizes="5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9.0, 9.5, 10, 10.5, 11, 11.5, 12.5, 13.5, 14.5" />
+			<Country label="Europe" sizes="39, 39.5, 40, 41, 41.5, 42, 43, 43.5, 44, 44.5, 45, 45.5, 46, 47.5, 48, 50" />
+			<Country label="Japan" sizes="24, 24.5, 25, 25.5, 26, 26.5, 27, 27.5, 28, 28.5, 29, 29.5, 30, 31, 32, 33" />
+		</Countries>
+	</Group>
+	<Group label="WOMEN'S">
+		<Countries>
+			<Country label="USA" sizes="5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12" />
+			<Country label="UK" sizes="3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 10, 11, 11.5" />
+			<Country label="Japan" sizes="22, 22.5, 23, 23.5, 24, 24.5, 25, 25.5, 26, 26.5, 27, 27.5, 28, 28.5, 29" />
+			<Country label="Europe" sizes="35.5, 36, 37, 37.5, 38, 38.5, 39, 39.5, 40, 41, 41.5, 42, 42, 44, 44.5" />
+		</Countries>
+	</Group>
+	<Group label="YOUTH" truncate="true">
+		<Countries>
+			<Country label="USA" sizes="12.5, 13, 13.5, 1, 1.5, 2, 2.5, 3" />
+			<Country label="UK" sizes="12, 12.5, 13, 13.5, 1, 1.5, 2, 2.5" />
+			<Country label="Europe" sizes="30, 31, 31.5, 32, 33, 33.5, 34, 35" />
+			<Country label="Japan" sizes="18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22" />
+		</Countries>
+	</Group>
+	<Group label="JUNIOR" append="true" truncate="true">
+		<Countries>
+			<Country label="USA" sizes="3.5, 4, 4.5, 5, 5.5, 6" />
+			<Country label="UK" sizes="3, 3.5, 4, 4.5, 5, 5.5" />
+			<Country label="Europe" sizes="35.5, 36, 36.5, 37, 37.5, 38" />
+			<Country label="Japan" sizes="22.5, 23, 23.5, 24, 24.5, 25" />
+		</Countries>
+	</Group>
+</SizingChart>

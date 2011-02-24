@@ -11,6 +11,8 @@ use GSI::SRM::Content::Cmd;
 
 Readonly my $WC => dir('t/minify_files');
 my $result;
+
+diag 'minifying, this may take a while...';
 lives_ok(
     sub {
         $result = test_app(
@@ -20,8 +22,10 @@ lives_ok(
 );
 is( $result->error, undef, 'threw no exceptions' );
 
-compare_dirs_filter_ok( $WC->parent->subdir('target_expected'),
-    $WC->subdir('target'), \&_blank_crlf_filter, 'matched expected targets' );
+compare_dirs_filter_ok(
+    $WC->parent->subdir('target_expected'), $WC->subdir('target/yui'),
+    \&_blank_crlf_filter,                   'matched expected targets',
+);
 
 diag 'cleaning up...';
 $WC->subdir('target')->rmtree();

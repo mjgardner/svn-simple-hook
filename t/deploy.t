@@ -22,11 +22,9 @@ lives_ok(
             'GSI::SRM::Content::Cmd' => [
                 'deploy',
                 '--working_copy' => $TESTDIR,
-                '--revision'     => 2124,
+                '--revision'     => 4669,
                 '--url' =>
-                    'http://devsvn.gspt.net/svn/partnerwebstores/peac/gb/trunk',
-                '--buildfile_url' =>
-                    'http://devsvn.gspt.net/svn/partnerwebstores/peac/gb/trunk/webstore-war/yui-build.xml',
+                    'http://devsvn.gspt.net/svn/partnercontent/tbl/us/trunk/content',
             ],
         );
     },
@@ -37,7 +35,7 @@ is( $result->error, undef, 'threw no exceptions' );
 
 compare_dirs_filter_ok(
     $TESTDIR->parent->subdir('target_expected'),
-    $TESTDIR->subdir('webstore-war/target'),
+    $TESTDIR->subdir('target/yui'),
     \&_blank_crlf_filter, 'matched expected targets',
 );
 
