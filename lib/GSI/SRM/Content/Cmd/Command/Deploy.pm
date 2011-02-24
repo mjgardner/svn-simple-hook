@@ -4,6 +4,7 @@ package GSI::SRM::Content::Cmd::Command::Deploy;
 
 use English '-no_match_vars';
 use Moose;
+use MooseX::Has::Sugar;
 use MooseX::Types::URI 'Uri';
 use SVN::Simple::Client::Types 'SvnUri';
 use namespace::autoclean;
@@ -19,6 +20,16 @@ for (qw(MooseX::Types::URI::Uri SVN::Simple::Client::Types::SvnUri)) {
     MooseX::Getopt::OptionTypeMap->add_option_type_to_map( $ARG => '=s' );
 }
 
+has buildfile_url => ( ro, coerce, lazy_build, isa => Uri );
+
+sub _build_buildfile_url {
+    my $url = $ARG[0]->url->clone();
+    my @path_segments = $url->path_segments;
+    splice @path_segments, -1, 1, 'yui-build.xml';
+    $url->path_segments(@path_segments);
+    return $url;
+}
+
 =method execute
 
 Runs the subcommand.
@@ -28,6 +39,11 @@ Runs the subcommand.
 sub execute {
     my ( $self, $opt, $args ) = @ARG;
     $self->update_or_checkout();
+    $self->context->export(
+        $self->buildfile_url->as_string(),
+        $self->working_copy->file('yui-build.xml')->stringify(),
+        'HEAD', 0,
+    );
     $self->minify();
     return;
 }
