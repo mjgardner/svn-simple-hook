@@ -228,13 +228,12 @@ sub update_or_checkout {
         ## no critic (ProhibitPackageVars,ProhibitCallsToUnexportedSubs)
         local $SVN::Error::handler = undef;
         my @out = $ctx->update( $wc, $self->revision, 1 );
-        ## no critic (RequireUseOfExceptions)
         croak $out[0]->quick_wrap('update attempt failed')
             if SVN::Error::is_error( $out[0] );
     }
     catch( SvnError $error
             where { $ARG->apr_err == $SVN::Error::WC_NOT_DIRECTORY } ) {
-        $error->quick_wrap('no URL for checkout')
+        croak $error->quick_wrap('no URL for checkout')
             if !$self->has_url;
         $error->clear();
             $ctx->checkout(

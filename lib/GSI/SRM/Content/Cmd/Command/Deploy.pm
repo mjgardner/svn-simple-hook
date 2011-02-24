@@ -22,8 +22,8 @@ for (qw(MooseX::Types::URI::Uri SVN::Simple::Client::Types::SvnUri)) {
 
 has buildfile_url => ( ro, coerce, lazy_build, isa => Uri );
 
-sub _build_buildfile_url {
-    my $url = $ARG[0]->url->clone();
+sub _build_buildfile_url {    ## no critic (ProhibitUnusedPrivateSubroutines)
+    my $url           = $ARG[0]->url->clone();
     my @path_segments = $url->path_segments;
     splice @path_segments, -1, 1, 'yui-build.xml';
     $url->path_segments(@path_segments);

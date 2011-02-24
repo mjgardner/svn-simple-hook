@@ -25,6 +25,8 @@ lives_ok(
                 '--revision'     => 2124,
                 '--url' =>
                     'http://devsvn.gspt.net/svn/partnerwebstores/peac/gb/trunk',
+                '--buildfile_url' =>
+                    'http://devsvn.gspt.net/svn/partnerwebstores/peac/gb/trunk/webstore-war/yui-build.xml',
             ],
         );
     },
