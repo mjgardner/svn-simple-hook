@@ -47,6 +47,7 @@ for my $attr (qw(username password)) {
 
 URL (sometimes spelled URI) of the Subversion repository, as an
 L<SvnUri|SVN::Simple::Client::Types/SvnUri>.
+Defaults to the URL of the current L</working_copy>.
 
 =method has_url
 
@@ -54,11 +55,19 @@ Predicate method that returns true if the L</url> attribute is set.
 
 =cut
 
-has url => ( rw, coerce,
+has url => ( rw, coerce, lazy_build,
     isa           => SvnUri,
     documentation => 'location of the Subversion repository',
     predicate     => 'has_url',
 );
+
+sub _build_url {
+    my $self = shift;
+    my $url;
+    $self->context->info( $self->working_copy->stringify,
+        undef, undef, sub { $url = URI->new($ARG[1]->URL) }, 0 );
+    return $url;
+}
 
 =attr working_copy
 
