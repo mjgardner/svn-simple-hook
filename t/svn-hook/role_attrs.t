@@ -5,7 +5,6 @@ use Test::Most;
 use Readonly;
 
 Readonly my %ATTR => read_attr_hash(<<'END_DATA');
-    SVN::Simple::Client::AsRole  username password url working_copy context
     SVN::Simple::Hook            repos_path
     SVN::Simple::Hook::PreCommit repos_path txn_name transaction author root
 END_DATA
