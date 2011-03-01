@@ -45,23 +45,21 @@ has transaction => (
 
 =attr author
 
-The author of the current transaction.
+The author of the current transaction as required by all
+L<SVN::Simple::Hook|SVN::Simple::Hook> consumers.
+
+=attr root
+
+The L<Subversion root|SVN::Fs/_p_svn_fs_root_t> node as required by all
+L<SVN::Simple::Hook|SVN::Simple::Hook> consumers.
 
 =cut
 
-has author => (
-    ro, required, lazy,
-    isa      => Str,
-    init_arg => undef,
-    default  => sub { $ARG[0]->transaction->prop('svn:author') },
-);
-
-has root => (
-    ro, lazy,
-    isa      => '_p_svn_fs_root_t',
-    init_arg => undef,
-    default  => sub { $ARG[0]->transaction->root() },
-);
+{
+    ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
+    sub _build_author { return shift->transaction->prop('svn:author') }
+    sub _build_root   { return shift->transaction->root() }
+}
 
 1;
 

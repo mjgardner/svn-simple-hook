@@ -43,6 +43,27 @@ has repository => (
     default => sub { SVN::Repos::open( shift->repos_path->stringify() ) },
 );
 
+=attr author
+
+Author of the current revision or transaction.  Role consumers must provide a
+C<_build_author> method to set a default value.
+
+=cut
+
+has author => ( ro, required, lazy_build, isa => Str, init_arg => undef );
+
+=attr root
+
+L<Subversion root object|SVN::Fs/_p_svn_fs_root_t> from the repository.  Role
+consumers must provide a C<_build_root> method to set a default value.
+
+=cut
+
+has root => ( ro, required, lazy_build,
+    isa      => '_p_svn_fs_root_t',
+    init_arg => undef,
+);
+
 1;
 
 __END__
