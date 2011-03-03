@@ -61,6 +61,20 @@ has yuicompressor => ( ro, required, coerce,
     },
 );
 
+=attr output
+
+Read-only storage of the output from yuicompressor.
+
+=cut
+
+has output => ( ro,
+    isa      => Str,
+    traits   => ['String'],
+    init_arg => undef,
+    default  => q{},
+    handles  => { _add_output => 'append' }
+);
+
 =method minify
 
 Looks for Ant build XML files in L</working_copy> and then runs C<ant>
@@ -84,9 +98,15 @@ sub _make_ant_finder_callback {
 
     return sub {
         my $path = shift;
+
+        # skip directories and non-XML files
         return if $path->is_dir or $path !~ / [.]xml \z/i;
+
         my @dir_list = $path->dir->dir_list;
-        return if 'CVS' ~~ @dir_list or '.svn' ~~ @dir_list;
+        for ( 0 .. $#dir_list ) {    # skip symlinks
+            return if -l file( @dir_list[ 0 .. $ARG ] )->stringify();
+        }
+        return if 'CVS' ~~ @dir_list or '.svn' ~~ @dir_list;   # skip SCM dirs
 
         # look for matching XML files but only carp if parse error
         my $err;
@@ -100,11 +120,13 @@ sub _make_ant_finder_callback {
                 return;
         };
 
-        runx(
+        my $output = capturex(
             ant => '-Dyuicompressor.jar=' . _ant_path( $self->yuicompressor ),
             '-f' => _ant_path($path),
             $target,
         );
+
+        $self->_add_output($output);
         return;
     };
 }

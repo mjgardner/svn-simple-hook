@@ -65,7 +65,7 @@ sub _build_url {
     my $self = shift;
     my $url;
     $self->context->info( $self->working_copy->stringify,
-        undef, undef, sub { $url = URI->new($ARG[1]->URL) }, 0 );
+        undef, undef, sub { $url = URI->new( $ARG[1]->URL ) }, 0 );
     return $url;
 }
 
