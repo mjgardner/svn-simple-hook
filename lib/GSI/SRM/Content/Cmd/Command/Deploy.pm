@@ -3,6 +3,7 @@ package GSI::SRM::Content::Cmd::Command::Deploy;
 # ABSTRACT: deploy and post-process content from SVN
 
 use English '-no_match_vars';
+use File::Copy;
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::URI 'Uri';
@@ -30,6 +31,18 @@ sub execute {
     my ( $self, $opt, $args ) = @ARG;
     $self->update_or_checkout();
     $self->minify();
+
+    ## XXX FIXME this is a horrible kluge with hardcoded paths
+    my $wc = $self->working_copy;
+    for my $dir1 (qw(concat minified)) {
+        for my $dir2 (qw(css js)) {
+            my $yui_out = $wc->subdir("target/yui/$dir1/$dir2");
+            for ( $yui_out->children ) {
+                move( $ARG, $wc->subdir( $dir2, $ARG->relative($yui_out) ) );
+            }
+        }
+    }
+
     return;
 }
 

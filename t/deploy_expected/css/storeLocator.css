@@ -1,0 +1,166 @@
+#map-shadow { background: url(/images/store-locator-shadow.png) no-repeat left top; height:50px; left:20px; position:absolute; top:40px; width:930px; z-index:100; }
+#store-locator #main-content { margin-top: 50px; width: 100%; float: none; }
+h1 { position: absolute; top: 32px; }
+
+/*BEGIN SEARCH SECTION*/
+#sl-body{height:660px; width:775px; position:relative; /*font-family:Arial, Helvetica, sans-serif;*/ font-size:11px; color:#000000; line-height:14px;}
+v\:* {behavior:url(#default#VML);}
+
+#sl-body *{margin:0; padding:0; border:0;}
+.fB{font-weight:bold;}
+#sl-body input{ border:1px solid #adadad; height: 20px; }
+/*#sl-body p{padding:0; margin:0 40px 14px 0; font-size: 12px; line-height: 18px;}*/
+#sl-body ul{}
+#sl-body ul li{margin-left:15px; padding:7px 0;}
+/*BEGIN SEARCH SECTION*/
+#searchArea{ z-index:1; position:absolute; width:775px; top:0px; left:0px;
+/*	background-image:url('../images/storeLocator/headi18N.gif'); US version */
+	background-image:url('../images/storeLocator/headi18N.gif'); height:149px;
+	background-position:bottom; background-repeat:no-repeat;
+}
+	#searchArea .notInUs{ font-weight:bold; color:#686a67; position:absolute; right:11px; top:27px;}
+	#searchArea .notInUs a{text-decoration:none; color:#0052b4;}
+	#searchArea .locations{ font-weight:bold; color:#848484; position:absolute; left:50px; top:66px; width:63px;}
+	#searchArea .shipToStoreLocation{ font-weight:bold; color:#848484; position:absolute; left:154px; top:66px; width:83px;}
+
+	/* BEGIN: controls */
+	#controls{position:absolute; top:-43px; left:235px;}
+		.control{position:absolute; background-repeat:no-repeat; height:27px; width:27px; cursor:pointer;}
+		.panLeft{display: none;}
+		.panRight{display: none;}
+		.panUp{display: none;}
+		.panDown{display: none;}
+		.recenter{display: none;}
+
+		.zoomIn{ z-index:2; top:6px; left:535px; background-image:url('../images/storeLocator/zoomIn.png'); }
+		.zoomInOff{ cursor:auto; background-image:url('../images/storeLocator/zoomInOff.jpg'); }
+		.zoomOut, .zoomOutOff { z-index:2; top:6px; left:666px; background-image:url('../images/storeLocator/zoomOut.png'); }
+		
+		.extra-field { background: url(../images/storelocator-labels-sprite.png) no-repeat; height: 50px; top: -8px; position: absolute; cursor: pointer; }
+		#zoom-label { background-position: 0 0; width: 75px; left: 464px; }
+		#return-to-last { background-position: 0 -50px; width: 136px; left: 300px; }
+		#return-to-last.active { background-position: 0 -100px; width: 136px; }
+
+		/*BEGIN slider*/
+		.slider{position:absolute; width:127px; top:9px; left:545px; height:27px;
+			background: url('../images/storeLocator/slider.png') no-repeat;
+		}
+
+		.slider .marker{z-index:3; cursor:pointer; position:absolute;
+			top:-3px; left:0; width:12px; height:27px;
+			filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/storeLocator/marker.png', sizingMethod='crop');
+		}
+		html>body .slider .marker{background: url('../images/storeLocator/marker.png') no-repeat;}
+		/*END slider*/
+
+		.cmap{display: none;}
+		.csat{display: none;}
+		.chybrid{display: none;}
+
+		.chybrid, .csat, .cmap{color:#0374c7; line-height:27px; text-align:center; height:27px; width:66px; top:0px; background-image:url('../images/storeLocator/buttonBack.jpg');}
+		.chybridOn, .csatOn, .cmapOn{cursor:auto; font-weight:bold;}
+
+
+
+	#frm{position:absolute; margin:0px; padding:0px; top:-57px; left:0px;}
+		#fldAddress{position:absolute; width:322px; top:20px; left:8px; font-size:10px; padding:1px 0 1px 1px;}
+		#fldCity{position:absolute; width:234px; top:20px; left:348px; font-size:10px; padding:1px 0 1px 1px;}
+		#fldState{position:absolute; width:32px; top:20px; left:588px; font-size:10px; padding:1px 0 1px 1px;}
+		#fldZip{position:absolute; width:48px; top:20px; left:648px; font-size:10px; padding:1px 0 1px 1px;}
+		#fldLocation{font-size: 12px; position:absolute; top:17px; left:234px; font-size:10px; padding:1px 0 1px 10px; width: 260px; }
+#searchBtn { left: 510px; position:relative; top: 17px; }
+
+/*END SEARCH SECTION*/
+
+/*BEGIN MAP SECTION */
+#map{z-index:1; height:630px; width:680px; position:absolute; left:235px; border:1px solid #a8a8a8;}
+
+/*bubble*/
+.mapBubbleContainer{z-index:3; position:absolute; width:270px; height:195px;}
+.mapBubble{width:270px; height:195px; background-repeat:no-repeat;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/storeLocator/bubbleBack.png', sizingMethod='scale');
+}
+html>body .mapBubble{background-image:url('../images/storeLocator/bubbleBack.png'); background-repeat:no-repeat; }
+	.mapBubble .closeIt{position:absolute; top:0px; left:146px; width:124px; height:34px;
+		background-image:url('../images/storeLocator/bubble_close.gif'); cursor:pointer; background-repeat:no-repeat;
+	}
+	.mapBubble .tab1, .mapBubble .tab2{position:absolute; top:0px; left:0px;
+		height:195px; width:270x;
+	}
+	.mapBubble .tab2{display:none;}
+	.mapBubble .hitArea1, .mapBubble .hitArea2{cursor:pointer; position:absolute;
+		top:0px; height:34px; background-repeat:no-repeat;
+	}
+
+	.mapBubble .hitArea1{left:0px; width:95px; display:none; background-image:url('../images/storeLocator/bubble_info.gif');}
+	.mapBubble .hitArea2{left:95px; width:51px; background-image:url('../images/storeLocator/bubble_hours.gif');}
+	.mapBubble .hitArea2Inactive{top:0px; height:34px; background-repeat:no-repeat; position:absolute; left:95px; width:51px; background-image:url('../images/storeLocator/bubble_hours_off.gif');}
+
+	.mapBubble .bubbleContent{padding:40px 22px 0 22px !important;}
+
+	.mapBubble .storeName{font-weight:bold;}
+	.mapBubble .directions{ text-decoration:none; font-weight:bold; color:#0052b4; cursor:pointer;}
+	.mapBubble .shipToStore{background-image:url('../images/storeLocator/shipToStore.gif'); background-repeat:no-repeat; height:34px; width:106px;}
+	.mapBubble .space{ height:7px; font-size:7px; line-height:7px;}
+	.mapBubble .discl{font-weight:bold;}
+/*END MAP SECTION*/
+
+/*BEGIN LIST SECTION */
+#resultListHolder{z-index:1; position:absolute; top:5px; left:0px;
+	width:228px; height:480px;
+	/* background-image:url('../images/storeLocator/rs_listBack.gif');
+	background-repeat:no-repeat; */
+}
+
+	#ResultHeader{ /*position:absolute;*/ z-index:2; /*left:0px; top:30px;*/
+		color:#848484; height:25px; line-height:25px; width:219px;
+	}
+
+	#ResultList{z-index:1; position:absolute; top:61px; left:0px;
+		height:430px; overflow:hidden; width:206px;
+	}
+		#ResultList .paddMsg{padding:12px 12px 0 0;}
+		#ResultList #recSlider{position:relative;}
+			#ResultList  .rec{height:144px; padding:0 0 0 12px;
+				background-image:url('../images/storeLocator/rs_dots.gif'); background-repeat:no-repeat;}
+			#ResultList  .rec.on{background-color:#e5f4fc;}
+				#ResultList .rec .storeName{font-weight:bold; padding-top:8px;cursor:pointer;}
+				#ResultList .rec .miles{color:#cc0000; padding-right:15px;}
+				#ResultList .rec .info{color:#0374c7; cursor:pointer;}
+				#ResultList .rec .mapLink a { color:#0052b4; cursor:pointer;}
+
+
+	#ResultFooter{position:absolute; z-index:2; left:8px; top:455px;
+		color:#848484; height:25px; line-height:25px; width:219px;}
+
+		#ResultFooter .nav{font-weight:bold; line-height:13px; height:13px;
+			position:absolute; top:6px; right:6px;}
+		#ResultFooter #backBtn{ padding-right:6px; display:inline; color:#0374c7; border-right:1px solid #a8a8a8; cursor:pointer;}
+		#ResultFooter #backBtn.off{cursor:auto; color:#a8a8a8}
+		#ResultFooter #nextBtn{ padding-left:6px; display:inline; color:#0374c7; cursor:pointer;}
+		#ResultFooter #nextBtn.off{ cursor:auto; color:#a8a8a8}
+
+		#ResultFooter .status{position:absolute; top:6px; left:0px; line-height:13px; height:13px;}
+		#ResultFooter .status span{font-weight:bold;}
+
+/*END LIST SECTION */
+
+
+/*BEGIN LOADER SECTION*/
+#sl_loader{display:none;
+}
+/*END LOADER SECTION*/
+
+/*BEGIN Error SECTION*/
+#errorBox{display:none; position:absolute; z-index:2; height:35px; width:195px;
+background-repeat:no-repeat; font-weight:bold; color:#cc0000;
+top:340px; left:364px; text-align:center; padding:20px;
+ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/storeLocator/error.png', sizingMethod='crop');
+}
+
+html>body #errorBox{ background-image:url('../images/storeLocator/error.png')}
+/*END Error SECTION*/
+
+/* Tooltip */
+#ptooltip { top: 180px; left: 505px; display: none; }
+#ptooltip.show { display: block; }

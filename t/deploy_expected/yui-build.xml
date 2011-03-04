@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<project name="yui-build">
+
+    <property name="concat.dir" value="${basedir}/target/yui/concat"/>
+    <property name="concat.js.dir" value="${concat.dir}/js"/>
+    <property name="concat.css.dir" value="${concat.dir}/css"/>
+    <property name="minified.dir" value="${basedir}/target/yui/minified"/>
+    <property name="minified.js.dir" value="${minified.dir}/js"/>
+    <property name="minified.css.dir" value="${minified.dir}/css"/>
+
+    <filelist id="yui.site.css.files" dir="${basedir}">
+        <!--
+            these file declaration MUST match and be in the same order of those in:
+            /tbl/partnerwebstores/us/webstore-war/WEB-INF/jsp/include/site-css.jsp
+        -->
+        <file name="css/reset.css" />
+        <file name="css/main.css" />
+        <file name="css/tradegothic.css" />
+        <file name="css/esmc.css" />
+    </filelist>
+
+    <filelist id="yui.site-head.js.files" dir="${basedir}">
+        <!--
+            these file declaration MUST match and be in the same order of those in:
+            /tbl/partnerwebstores/us/webstore-war/WEB-INF/jsp/include/site-head-js.jsp
+        -->
+        <file name="js/prototype.js"/>
+        <file name="js/cufon.js"/>
+        <file name="js/fonts/tradegothic_cufon.js"/>
+    </filelist>
+
+    <filelist id="yui.site.js.files" dir="${basedir}">
+        <!--
+            these file declaration MUST match and be in the same order of those in:
+            /tbl/partnerwebstores/us/webstore-war/WEB-INF/jsp/include/site-js.jsp
+        -->
+        <file name="js/df/Df.js"/>
+        <file name="js/df/Df.ClassAnimate.js"/>
+        <file name="js/df/Df.Nav.js"/>
+        <file name="js/tbl-nav.js"/>
+        <file name="js/Timberland.js"/>
+        <file name="js/df/Df.Modal.js"/>
+        <file name="js/ess.js"/>
+        <file name="js/ess.swatches.js"/>
+        <file name="js/ess.popup.js"/>
+        <file name="js/ess_emailSignup.js"/>
+        <file name="js/ess.emailsignup.js"/>
+    </filelist>
+
+    <filelist id="yui.analytics.js.files" dir="${basedir}">
+        <!--
+            these file declaration MUST match and be in the same order of those in:
+            /tbl/partnerwebstores/us/webstore-war/WEB-INF/jsp/include/analytics-scripts.jsp
+        -->
+        <file name="js/analytics/omniture-h-20-3.js"/>
+        <file name="js/df/Df.Analytics.js"/>
+        <file name="js/analytics/ess_analytics.js"/>
+    </filelist>
+
+    <filelist id="yui.checkout.js.files" dir="${basedir}">
+        <!--
+            these file declaration MUST match and be in the same order of those in:
+            /tbl/partnerwebstores/us/webstore-war/WEB-INF/jsp/checkout/common/checkout-js.jsp
+        -->
+        <file name="js/df/Df.Tip.js"/>
+        <file name="js/ess.checkout.js"/>
+        <file name="js/ess.checkout.tipHelper.js"/>
+        <file name="js/ess.addressTemplate.js"/>
+        <file name="js/AddressBook.js"/>
+    </filelist>
+
+    <target name="init">
+        <mkdir dir="${concat.js.dir}"/>
+        <mkdir dir="${minified.js.dir}"/>
+        <mkdir dir="${concat.css.dir}"/>
+        <mkdir dir="${minified.css.dir}"/>
+    </target>
+
+    <target name="concat-files">
+        <concat destfile="${concat.css.dir}/concat.site.css" fixlastline="yes">
+            <filelist refid="yui.site.css.files"/>
+        </concat>
+        <concat destfile="${concat.js.dir}/concat.site-head.js" fixlastline="yes">
+            <filelist refid="yui.site-head.js.files"/>
+        </concat>
+        <concat destfile="${concat.js.dir}/concat.site.js" fixlastline="yes">
+            <filelist refid="yui.site.js.files"/>
+        </concat>
+        <concat destfile="${concat.js.dir}/concat.analytics.js" fixlastline="yes">
+            <filelist refid="yui.analytics.js.files"/>
+        </concat>
+        <concat destfile="${concat.js.dir}/concat.checkout.js" fixlastline="yes">
+            <filelist refid="yui.checkout.js.files"/>
+        </concat>
+    </target>
+
+    <target name="compress-files" depends="concat-files">
+        <java jar="${yuicompressor.jar}" fork="true" classpath="${compile_classpath}">
+            <arg line="--type css"/>
+            <arg line="--charset utf-8"/>
+            <arg value="${concat.css.dir}/concat.site.css"/>
+            <arg line="-o ${minified.css.dir}/minified.site.css"/>
+        </java>
+        <java jar="${yuicompressor.jar}" fork="true" classpath="${compile_classpath}">
+            <arg line="--type js"/>
+            <arg line="--charset utf-8"/>
+            <arg value="${concat.js.dir}/concat.site-head.js"/>
+            <arg line="-o ${minified.js.dir}/minified.site-head.js"/>
+        </java>
+        <java jar="${yuicompressor.jar}" fork="true" classpath="${compile_classpath}">
+            <arg line="--type js"/>
+            <arg line="--charset utf-8"/>
+            <arg value="${concat.js.dir}/concat.site.js"/>
+            <arg line="-o ${minified.js.dir}/minified.site.js"/>
+        </java>
+        <java jar="${yuicompressor.jar}" fork="true" classpath="${compile_classpath}">
+            <arg line="--type js"/>
+            <arg line="--charset utf-8"/>
+            <arg value="${concat.js.dir}/concat.analytics.js"/>
+            <arg line="-o ${minified.js.dir}/minified.analytics.js"/>
+        </java>
+        <java jar="${yuicompressor.jar}" fork="true" classpath="${compile_classpath}">
+            <arg line="--type js"/>
+            <arg line="--charset utf-8"/>
+            <arg value="${concat.js.dir}/concat.checkout.js"/>
+            <arg line="-o ${minified.js.dir}/minified.checkout.js"/>
+        </java>
+    </target>
+
+    <target name="yuicompress" depends="init,compress-files"/>
+
+</project>

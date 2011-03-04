@@ -1,0 +1,82 @@
+@media print{
+	body{
+		font-family:Arial, Helvetica, sans-serif;
+	}
+	
+	#header, #shopFooter, #global-footer, #copyright, #promo-form, .instruction, .aside, .right, .button, .sidebar, .remove, .tooltip, .go,
+	 .continue, .print, .noprint, #breadcrumbs, #prodTools, #tabs-prod, img.zoom, .util, #add-to-cart, #mainProductSwatches, #cart-checkout-header{	
+		display: none!important;
+	}
+	
+	h2 {}
+	
+	a img, fieldset, select {
+    	border: none;
+	}
+	
+	.fn {
+		text-decoration:none;
+	}
+	
+	tr, th, td, thead, tbody, address, span, .address-summary{
+		vertical-align:top;
+		text-align:left;
+	}
+	
+	address {
+		font-style:normal;
+		font-weight:normal;
+		font-size: 14px;
+	}
+
+	ul { 
+		list-style-type: none!important; 
+		float: left!important;
+	}
+	
+	ul.product-details{
+		clear:right;	
+	}
+	
+	.section{
+		text-align: left;
+	}
+	
+	th{
+		width:325px;
+	}
+
+	#zoom {
+    	background: none !important;
+	}
+	
+	.description{
+		/*width:480px;*/
+		/*float:left!important;*/
+	}
+	
+	#shopping-cart .product-details, ul{
+		list-style-type: none!important;
+	}
+	
+	table .product-description {
+		display: inline-block;
+	}
+	
+	.dollars{
+		width:122px;
+		text-align: left;
+		font-size: 14px;
+	}
+	
+	#shopping-cart tr .product-number, #shopping-cart tr.hproduct .shipping-time, #shopping-cart tr.hproduct .details {
+		line-height:1em;	
+	}
+	table .product-description h4, p, .p-v, .p-v span, .promo, .section table tbody tr td {
+		font-size: 14px; 
+	}
+
+	.in-stock, #shopping-cart tr .product-number, #shopping-cart tr.hproduct .shipping-time, #shopping-cart tr.hproduct .details {
+		line-height: 1em!important;
+	}
+}

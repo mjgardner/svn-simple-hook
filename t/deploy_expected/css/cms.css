@@ -1,0 +1,33 @@
+/* CMS RELATED STYLES */
+.cms { position: relative; }
+.cms-sidebar { position: relative; margin: 8px 0 0 0; }
+
+/* CMS Slot containers  */
+body#sub-category #bodySlot { display: none;}
+#content div.slot_block1 {clear: both;}
+#content div.slot_block1 div {float: left;} /* boxed_subcategory.jsp */
+.slot_752 {float:left; width:752px; position:relative; overflow:hidden;}
+.slot_248 {float:left; width:248px; position:relative; overflow:hidden;}
+.slot_1000 {width:1000px; position:relative; overflow:hidden; }
+.spot_block_a {width: 1000px; clear: both; position: relative; overflow: hidden;}
+.spot_block_b {width: 1000px; clear: both; position: relative; overflow: hidden;}
+.spot_block_a div, .spot_block_b div{float: left; overflow: hidden;}
+#slot_1{}
+#slot_2 {float:right;}
+
+#home.home #content, body#storelocator #content {background: none; border-bottom: none; margin-bottom: 0; padding: 0; /*margin-top: 86px;*/}
+#home.home #main-content, body#storelocator #main-content { padding:0; overflow: hidden; width: 1000px;}
+#home.home #sidebar, body#storelocator #sidebar {display: none !important;}
+body#sub-category #main-content, body#home #main-content {padding: 0; margin: 0;}
+body#sub-category #main-content {width: 752px;}
+body#sub-category table tbody td, body#home table tbody td, body#storelocator table tbody td, body.cart .aside .slot_cart table tbody td  { padding: 0; margin: 0;}
+
+
+/* cms slot for cart */
+body.cart .aside .slot_cart {float: right; width: 248px; position: relative; overflow: hidden;} 
+/* cms for trademark popup. */
+#id-modal-bg {border: 3px solid black;}
+body#copyright {background-color: #ffffff; padding: 0;}
+body#copyright .close {position: absolute; right: 4px; top: 4px; z-index: 600;}
+body#copyright div.slot_800 {width: 800px;}
+

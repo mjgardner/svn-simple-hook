@@ -1,0 +1,245 @@
+/* ------------------------------------------------------
+Shopping Cart 
+---------------------------------------------------------*/
+
+body.cart #main-content { padding: 0; width: 744px; float: left; padding: 74px 0 0; }
+
+/*body#cart #cart-checkout-header { margin-bottom: 8px; padding: 22px 0; }*/
+body.cart #cart-checkout-header { background-color: #f0f0f0; position: relative; height: 58px; width: 744px; padding-right: 256px; position: absolute; left: 0px; top: 0px; }
+body#cart #shopping-cart, body#cart #all-transactions { width: 736px; }
+body#cart #shopping-cart { width: 728px; display: block; float: left; border-collapse:collapse;}
+body#cart #shopping-cart th { font-family:'Trade Gothic W01 Bold Cn 20',sans-serif; font-size: 14px; text-transform: uppercase; color: #666; border: none; padding: 0 0 3px; }
+body#cart #shopping-cart .description { width: 362px; border-right:0px !important;}
+/*body#cart #shopping-cart .qty { border-left:0px !important;}*/
+body#cart #shopping-cart .price { width: 370px;}
+body#cart #shopping-cart td.last { border-right: none; }
+body#cart #shopping-cart .price{ width: 132px; /*text-align:left;*/}
+body#cart #shopping-cart .total { width: 126px; }
+body#cart #shopping-cart td.price, body#cart #shopping-cart td.total { font-weight: bold; }
+body#cart #shopping-cart .edit-item { display: block;  }
+body#cart #shopping-cart tr.hproduct p { padding-bottom: 0; }
+body#cart #shopping-cart a, body#cart #shopping-cart p, body#cart #shopping-cart div, body#cart #shopping-cart span, body#cart #shopping-cart b { line-height: 1.3em; }
+body#cart #shopping-cart tr.hproduct .product-number, body#cart #shopping-cart tr.hproduct .shipping-time b{font-weight: normal !important;}
+body#cart #shopping-cart .product-thumb, body#cart #shopping-cart .product-description, body#cart #shopping-cart .product-details { float: left; padding:0px; }
+body#cart #shopping-cart .product-thumb { width: 115px;/* padding-top:15px;*/}
+body#cart #shopping-cart .product-description { width: 227px; padding-left: 0; /* padding-top:15px;*/}
+body#cart #shopping-cart .product-details { width: 112px;  }
+body#cart #shopping-cart .product-details li { padding-bottom: 4px; }
+body#cart #shopping-cart .property, body#cart #shopping-cart .value { display: inline-block; vertical-align: middle; }
+body#cart #shopping-cart .property { font-weight: bold; }
+body#cart #shopping-cart .free-shipping { background-color: #f60; color: white; display: inline; }
+body#cart #shopping-cart label.property { display: none; }
+body#cart #shopping-cart select { margin-bottom: 10px; display: inline-block; width:115px;}d
+body#cart #shopping-cart .emptyCell {empty-cells:show;border-top:1px solid white;width:8px;}
+
+/* cart */
+/*body#cart #main-content { width: 654px; padding: 0 44px 40px 0; }
+#cart #content {background: white url(http://localhost/timberland/images/logo-mark.png) no-repeat 100% 100%; background-color: white; border-bottom: 20px solid white; overflow: hidden; padding-bottom: 25px; position: relative; top: 99px;}*/
+#cart .instruction { margin-left: 16px; padding-bottom: 8px; font-size:12px; }
+body.cart-checkout h1 {color: #666; font-size: 30px; left: 16px; position: absolute; top: 16px;}
+body#cart .buttons li, body#cart .buttons input { display: inline;}
+.all-transactions, .all-transactions a { vertical-align: baseline; }
+.all-transactions { font-size: 11px; color: black; font-family: Helvetica, Arial; padding-left: 20px; }
+#shopping-cart { padding-bottom: 0; }
+#cart th.description { width: 500px;}
+#cart th.price, #cart th.total  { text-align: right; }
+#cart th.price { width: 60px; }
+#cart td.qty { width:125px;}
+/*#cart td.qty input {width: 50px;}*/
+#cart td.price, #cart td.total {/* padding-top: 20px;*/ text-align: right;}
+#cart td.total { background:/* url(../images/cell-bg.png)*/ no-repeat left top; /*padding-left: 35px;*/ }
+#cart .photo, #order-details #details .photo { display: block; }
+#cart h4 { color: #333; padding-bottom: 0; }
+#cart h4.fn a {color: #666; /*text-decoration:none;*/ font-size:12px; font-weight:bold;/* font-family:'Trade Gothic W01 Bold Cn 20',sans-serif;*/}
+#cart .inner .products dd a { color: #666; font-size:11px; font-weight:bold; }
+#cart .product-thumb { float: left; width: 104px; }
+#cart .product-description { float: left; width: 279px; }
+#cart .product-number { color: #999; padding-bottom: 30px; }
+#cart .product-details .value { /*font-weight: bold;*/ }
+#cart .cart-controls { font-weight:bold; margin-bottom: 10px; display: block; float: left; }
+/*#cart .cart-controls.move { padding-right: 10px; border-right: 1px solid #E6E7E8; margin-right: 10px; }*/
+#cart .at { color: #999; font-size: 12px; padding-right: 5px; vertical-align: baseline; }
+#cart a.editLink { font-weight:bold; }
+
+#cart #promo-form { width: 614px; border-bottom: 1px solid #F8ECE0; background-color: #f8ece0; margin-left:16px; height: 23px; padding: 12px 0 12px 114px; }
+form#cartCommand { padding-top: 12px; display: block; width: 728px; overflow: hidden; margin: 0 0 8px 16px; border-bottom: 1px solid #C6C6C6; }
+form#cartCommand button.update { margin: 10px 0 0 430px; }
+form#promoCodeCommand label { color: #666; font-size: 12px; line-height: 2em; width: 241px; }
+form#promoCodeCommand input, form#promoCodeCommand label { vertical-align: middle; float: left; }
+form#promoCodeCommand input.text { margin-bottom: 0; margin-top: 3px; width: 192px; }
+input#postalCode { height: 16px; padding-top: 2px; margin-right: 7px; }
+form#promoCodeCommand input.submit { position: relative; }
+form#promoCodeCommand .button { margin-left: 8px; }
+
+#cart #costSummary {
+	background: url(../images/horz-dash-bg.png) no-repeat left top;
+	overflow: hidden;
+	width: 728px;
+	padding: 8px 0;
+	margin: 8px 0 0 16px;
+}
+#cart #costSummary .property.promo { margin-top: 0px; }
+#cart #tax-shipping { margin-top: 5px; margin-left:16px; padding-top: 10px; overflow: hidden; width: 736px;}
+#cart .totals li {
+	font-weight: bold;
+	text-align: right;
+	margin-bottom: 8px;
+	overflow: hidden;
+}
+#cart .totals .subtotal, #cart .totals .total { text-transform: uppercase; }
+#cart .totals .property { width: 607px; float: left; }
+#cart .totals .value { float: right; width: 121px; }
+#cart .totals .shipping-description { font-weight: normal; display: block; }
+#cart .totals .promo { color: #9f1731; }
+#cart .totals .go { padding-left: 5px; }
+#cart .totals .estimated-total { border-top: 1px solid #e7e6e3; margin-bottom: 0; padding-top: 8px; }
+
+body#cart .shopping-checkout { border-top: 1px solid #CCC; margin: 0 0 0 16px; padding: 8px 0; width: 728px; text-align: right; }
+
+#cart fieldset legend { display:none; }
+#cart fieldset.submit { clear: both; float: right; margin-right: 30px; }
+
+#cart div.empty-cart {margin: 10px; min-height: 250px;}
+#cart div.empty-cart p {margin: 10px 0 10px 0;}
+
+#cart .edit-cart-item .prod-info {display:none;}
+
+/* -----------------------------------------
+ * Right Column - You Might Also Like
+ * ----------------------------------------- */
+
+#cart .aside { width: 248px; float: right; position: relative; z-index: 1; }
+#cart .aside h3.fn {font-size: 12px; color: #999; margin-top: 3px;}
+#cart .aside h2 { font-size: 18px; text-transform: none; clear: both; margin: 0 8px 15px; border-bottom: 1px solid #CECECE; height: 20px; padding-top: 17px; padding-bottom: 1px; width: auto; }
+div.hr { color: #f00; background-color: #f00; height: 1px;}
+#cart .aside.right .products { padding-top: 0; padding-left: 8px; border-top: 0; width: 232px; }
+#cart .aside.right .products .hproduct { float: none; padding: 0 0 6px; margin-right: 0; border-right: none; width: 232px; min-height:100%; height:100%;}
+#cart .aside.right .products .hproduct .fn { padding-bottom: 0; }
+#cart .aside.right .products .hproduct .price { font-size: 11px; padding-bottom: 0; }
+#cart .aside.right .products .hproduct.last { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+#cart .aside.right .products img { float: left; padding-right: 20px; display: block; width: 92px; height: 92px; }
+#cart .aside.right span.now-price {font-weight: bold; color: #F60;}
+
+
+/* Product Promo details and shipping details */
+#cart a.tooltip {font-weight:bold; margin: 0 0 5px 0; text-transform: capitalize; line-height: inherit;}
+#cart div.tooltip {display: none;}
+#cart #moredetails {margin: 5px; padding: 3px; background-color: #fbf3d7;}
+#cart #moredetails .close {position: relative; float: right; margin-left: 3px; }
+
+
+#cart .editItemWrapper {position:relative;}
+#cart .expressShopLoader {width:150px!important; height:100px;}
+
+/* Cross-Cell callout */
+/*.inner li {float:left;} ...commented this as it was adversely affecting the main-nav drop-down 82858, if it has broken what it was intended for PLEASE use proper parent selector... */
+dl.crossSell dt.title { float: left; margin-right: 8px; width: 106px; height: 145px; background: url(/images/loader.gif) no-repeat 50% 50% #FFFFFF; }
+dl.crossSell dt.title a {display:block;margin:0 0 10px 0;padding-right:0px !important;}
+dl.crossSell dt.title a img {padding-right:0px !important;}
+dl.crossSell dd { display: block; margin: 4px 0; }
+.productSpec button.editItemCart { margin-bottom: 15px; }
+dl.crossSell dd select {margin-bottom:5px;width:115px;}
+dl.corssSell .priceAnim { margin-bottom: 12px; }
+
+/* Edit Item */
+.editItemWrapper{
+	width:125px;
+	position:relative;
+	padding-left:2px;
+}
+#editItemTarget{
+	width:125px;
+	left:2px;
+	top:-6px;
+	border:none;
+	position:absolute;
+}
+#editItemTarget.expressShopLoader{
+	height:100px;
+}
+.productSpec { 
+	position:relative; 
+}
+#editItemTarget .es-close-button{
+	float: left;
+	clear: left;
+	margin-left: 0;
+}
+#editItemTarget label{
+	clear:both;
+	display:inline-block;
+	float:left;
+	height:20px;
+	margin-bottom:2px;
+	padding-top:2px;
+	width:44px;
+	font-size:1.1em;
+}	
+#editItemTarget h2.productPrice{
+	display:none;
+}
+#editItemTarget div.combo {
+	background-image:url(../images/combo_cart.gif);
+	display:block;
+	float:left;
+	height:16px;
+	margin-bottom: 3px;
+	position:relative;
+	width:90px;
+	line-height:1.3;
+	overflow:hidden;
+	padding-bottom: 1px;
+	padding-top: 3px;
+}
+#editItemTarget input.qty {
+	border:1px solid #999999 !important;
+	display:inline;
+	height:18px;
+	margin-bottom:0px;
+	width:50px;
+	line-height: 1.5em;
+}
+#editItemTarget button{
+	font-size: 12px !important;
+	font-weight:normal;
+	height: 20px !important;
+	padding: 2px 0 4px !important;
+	position:relative;
+	width: 56px;
+	margin: 0 0 0 2px;
+}
+#cart .list{
+	width:113px!important;
+}
+.promo{
+	margin-top:10px;
+}
+
+body#cart #sidebar {display: none;}
+
+/* empty cart page */
+.circleIndent li {margin-left:20px;list-style-type:disc;}
+
+/* DYO table */
+#shopping-cart .designDetail { background-color: #F0F0F0; width:100%; display: block; margin-bottom: 8px; }
+#shopping-cart table.designDetail tr td.firstRow {padding-top:0px;}
+#shopping-cart td.designDetailWrapper { border-top: 0px !important; padding: 0; }
+#shopping-cart .close { float: right; }
+
+#item-summary { clear: left; }
+body#cart .buttons { float: right; margin: 22px 0 0 0; float: right; }
+#cart-checkout-header .buttons .button, .shopping-checkout .button { margin-left: 8px; }
+#proceedToCheckoutForm { float: right; }
+#shopping-cart .hproduct td { padding: 8px 0; z-index:10;}
+#shopping-cart .editItemWrapper a {font-weight: bold; }
+body#cart #shopping-cart .designDetailWrapper td { border: 0; padding: 8px 8px 0; width: 25%; }
+body#cart #shopping-cart .designDetailWrapper td.last { padding-bottom: 8px; }
+
+.tooltip p {
+	padding-bottom: 0;
+	line-height: 1.3em;
+}
+#cart div#orderLevelPromotion{background:#D86736; display:inline-block; color:#fff!important;padding:8px;margin-left:16px;margin-bottom:4px;font-size:18px;font-family:'Trade Gothic W01 Bold Cn 20', sans-serif;font-weight:normal;}
+#cart .aside.right .products .hproduct .price span.currentprice{color:#f60;display:block;}
+#cart .aside.right .products .hproduct .price span{font-weight:bold;}
+#cart .inner .products dd a:hover,body#cart #shopping-cart .product-description h4.fn a:hover{color:#f60;text-decoration:none;}

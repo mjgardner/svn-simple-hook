@@ -1,0 +1,136 @@
+<!ELEMENT gsicatalog (category*, product*, badwords*)>
+<!ELEMENT category (catalogdescription*, image*, category*, product*)>
+<!ATTLIST category
+	id CDATA #REQUIRED
+	title CDATA #REQUIRED
+>
+<!ELEMENT catalogdescription (longdescription?, shortdescription?)>
+<!ELEMENT longdescription (#PCDATA)>
+<!ELEMENT shortdescription (#PCDATA)>
+
+<!ELEMENT badwords (badword*)>
+<!ELEMENT badword (#PCDATA)>
+
+<!ELEMENT product (productdescription?, image*, (product+ | (slice+ | sku+)), layout*, crosssells, recipe, shipwindow, promo*)>
+<!ATTLIST product
+	id CDATA #REQUIRED
+	mfgstyle CDATA #IMPLIED
+	title CDATA #REQUIRED
+	price CDATA #IMPLIED
+	saleprice CDATA #IMPLIED
+	link CDATA #IMPLIED
+>
+<!ELEMENT productdescription (catalogdescription*, bullet*)>
+<!ELEMENT slice (slicevalue*)>
+<!ATTLIST slice
+	title CDATA #REQUIRED
+>
+<!ELEMENT slicevalue (image*, sku+, layout?)>
+<!ATTLIST slicevalue
+	attribute (color_code | kind) #REQUIRED
+	title CDATA #REQUIRED
+	available (yes | no) #REQUIRED
+>
+<!ELEMENT sku (image*, layout*, skuAttrib*)>
+<!ATTLIST sku
+	id CDATA #REQUIRED
+	color CDATA #IMPLIED
+	size CDATA #REQUIRED
+	quantity CDATA #IMPLIED
+>
+<!ELEMENT skuAttrib EMPTY>
+<!ATTLIST skuAttrib
+	tag CDATA #REQUIRED
+	value CDATA #IMPLIED
+>
+<!ELEMENT bullet (#PCDATA)>
+<!ATTLIST bullet
+	number CDATA #REQUIRED
+>
+<!ELEMENT image EMPTY>
+<!ATTLIST image
+	view CDATA #REQUIRED
+	type CDATA #IMPLIED
+	url CDATA #REQUIRED
+	width CDATA #IMPLIED
+	height CDATA #IMPLIED
+>
+<!ELEMENT layout (catalogdescription?, layoutpage+)>
+<!ATTLIST layout
+	id CDATA #REQUIRED
+	title CDATA #IMPLIED
+	displaySeq CDATA #IMPLIED
+>
+<!ELEMENT layoutpage (layoutimageview*, layoutfeature+)>
+<!ATTLIST layoutpage
+	title CDATA #REQUIRED
+	number CDATA #REQUIRED
+>
+<!ELEMENT layoutfeature (layoutfeaturevalue*, shortdescription?, longdescription?)>
+<!ATTLIST layoutfeature
+	title CDATA #REQUIRED
+	jdaMessageType CDATA #IMPLIED
+	imagingTag CDATA #REQUIRED
+	componentNum CDATA #REQUIRED
+	formFieldName CDATA #IMPLIED
+	defaultValue CDATA #IMPLIED
+	displaySeq CDATA #IMPLIED
+	inputRule CDATA #REQUIRED
+	displayType CDATA #IMPLIED
+	valueType CDATA #IMPLIED
+	textMaxLength CDATA "1"
+	numberMin CDATA "1"
+	numberMax CDATA "1"
+	numberIncrement CDATA "1"
+	sortType CDATA #IMPLIED
+	legalCharacters CDATA #IMPLIED
+>
+<!ELEMENT layoutfeaturevalue EMPTY>
+<!ATTLIST layoutfeaturevalue
+	text CDATA #IMPLIED
+	vendorCode CDATA #IMPLIED
+	webCode CDATA #IMPLIED
+	displaySeq CDATA #IMPLIED
+	catalogEntryId CDATA #IMPLIED
+	productFeatureValueNum CDATA #IMPLIED
+	price CDATA #IMPLIED
+	type CDATA #IMPLIED
+	description CDATA #IMPLIED
+	crossSellSet CDATA #IMPLIED
+>
+<!ELEMENT layoutimageview EMPTY>
+<!ATTLIST layoutimageview
+	name CDATA #REQUIRED
+	displaySeq CDATA #REQUIRED
+>
+
+<!ELEMENT crosssells (crosssell*)>
+
+<!ELEMENT crosssell EMPTY>
+<!ATTLIST crosssell
+	relatedtype CDATA #IMPLIED
+	type CDATA #IMPLIED
+	id CDATA #IMPLIED
+	displaySeq CDATA #IMPLIED
+	slot CDATA #IMPLIED
+	recipe CDATA #IMPLIED
+	description CDATA #IMPLIED
+	crossSellSet CDATA #IMPLIED
+	featureTag CDATA #IMPLIED
+>
+
+<!ELEMENT recipe EMPTY>
+<!ATTLIST recipe
+	value CDATA #IMPLIED
+>
+
+<!ELEMENT shipwindow EMPTY>
+<!ATTLIST shipwindow
+	copy CDATA #IMPLIED
+>
+
+<!ELEMENT promo EMPTY>
+<!ATTLIST promo
+	id CDATA #IMPLIED
+	longTitle CDATA #IMPLIED
+>

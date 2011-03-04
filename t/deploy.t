@@ -33,11 +33,17 @@ lives_ok(
 
 is( $result->error, undef, 'threw no exceptions' );
 
-compare_dirs_filter_ok(
-    $TESTDIR->parent->subdir('target_expected'),
-    $TESTDIR->subdir('target'),
-    \&_blank_crlf_filter, 'matched expected targets',
+my @svn_dirs;
+$TESTDIR->recurse(
+    callback => sub {
+        return if !$ARG[0]->is_dir or $ARG[0]->dir_list(-1) ne '.svn';
+        push @svn_dirs, $ARG[0];
+    }
 );
+$ARG->rmtree() for @svn_dirs;
+
+compare_dirs_filter_ok( dir('t/deploy_expected'),
+    $TESTDIR, \&_blank_crlf_filter, 'matched expected targets' );
 
 diag 'cleaning up...';
 $TESTDIR->rmtree();
