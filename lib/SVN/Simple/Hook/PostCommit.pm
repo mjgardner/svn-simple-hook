@@ -1,46 +1,30 @@
-package SVN::Simple::Hook::PreCommit;
+package SVN::Simple::Hook::PostCommit;
 
-# ABSTRACT: Role for Subversion pre-commit hooks
+# ABSTRACT: Role for Subversion post-commit hooks
 
 use strict;
 use English '-no_match_vars';
 use Moose::Role;
 use MooseX::Has::Sugar;
-use MooseX::Types::Moose 'Str';
+use MooseX::Types::Common::Numeric 'PositiveInt';
 use SVN::Core;
 use SVN::Repos;
 use SVN::Fs;
 use namespace::autoclean;
 with 'SVN::Simple::Hook';
 
-=attr txn_name
+=attr revision_number
 
-Full name of the transaction to check in the repository.
+Revision number created by the commit.
 
 =cut
 
-has txn_name => (
+has rev => (
     ro,
     traits        => ['Getopt'],
-    isa           => Str,
-    cmd_aliases   => [qw(t txn tran trans transaction transaction_name)],
+    isa           => PositiveInt,
+    cmd_aliases   => [qw(revnum rev_num revision_number)],
     documentation => 'commit transaction name',
-);
-
-=pod
-
-=attr transaction
-
-The current L<Subversion transaction|SVN::Fs/_p_svn_fs_txn_t>, automatically
-populated at object creation time when the L<txn_name|/txn_name> is set.
-
-=cut
-
-has transaction => (
-    ro, required, lazy,
-    isa      => '_p_svn_fs_txn_t',
-    init_arg => undef,
-    default => sub { $ARG[0]->repository->fs->open_txn( $ARG[0]->txn_name ) },
 );
 
 =attr author
@@ -55,10 +39,24 @@ L<SVN::Simple::Hook|SVN::Simple::Hook> consumers.
 
 =cut
 
+has _svn_filesystem => (
+    ro, lazy,
+    isa     => '_p_svn_fs_t',
+    default => sub { shift->repository->fs },
+);
+
 {
     ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
-    sub _build_author { return shift->transaction->prop('svn:author') }
-    sub _build_root   { return shift->transaction->root() }
+    sub _build_author {
+        my $self = shift;
+        return $self->_svn_filesystem->revision_prop( $self->rev,
+            'svn:author' );
+    }
+
+    sub _build_root {
+        my $self = shift;
+        return $self->_svn_filesystem->revision_root( $self->rev );
+    }
 }
 
 1;
@@ -67,8 +65,8 @@ __END__
 
 =head1 DESCRIPTION
 
-This L<Moose::Role|Moose::Role> gives you access to the current Subversion
-transaction for use in a pre-commit hook.  It's designed for use with
+This L<Moose::Role|Moose::Role> gives you access to the Subversion revision
+just committed for use in a post-commit hook.  It's designed for use with
 L<MooseX::App::Cmd::Command|MooseX::App::Cmd::Command> classes, so consult
 the main L<MooseX::App::Cmd documentation|MooseX::App::Command> for details
 on how to extend it to create your scripts.
@@ -79,14 +77,13 @@ on how to extend it to create your scripts.
     use Moose;
     extends 'MooseX::App::Cmd';
 
-    package MyHook::Cmd::Command::pre_commit;
+    package MyHook::Cmd::Command::post_commit;
     use Moose;
     extends 'MooseX::App::Cmd::Command';
-    with 'SVN::Simple::Hook::PreCommit';
+    with 'SVN::Simple::Hook::PostCommit';
 
     sub execute {
         my ( $self, $opt, $args ) = @_;
-        my $txn = $self->txn();
 
         warn $self->author, ' changed ',
             scalar keys %{ $self->root->paths_changed() }, " paths\n";
@@ -94,12 +91,12 @@ on how to extend it to create your scripts.
         return;
     }
 
-=head1 Example F<hooks/pre-commit> hook script
+=head1 Example F<hooks/post-commit> hook script
 
     #!/bin/sh
 
     REPOS="$1"
-    TXN="$2"
+    REV="$2"
 
-    perl -MMyHook::Cmd -e 'MyHook::Cmd->run()' pre_commit -r "$REPOS" -t "$TXN" || exit 1
+    perl -MMyHook::Cmd -e 'MyHook::Cmd->run()' post_commit -r "$REPOS" --rev "$REV" || exit 1
     exit 0
