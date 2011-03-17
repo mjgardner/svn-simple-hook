@@ -1,0 +1,73 @@
+=pod
+
+=for :stopwords Mark Gardner GSI Commerce
+
+=encoding utf8
+
+=head1 NAME
+
+SVN::Simple::Hook - Simple Moose-based framework for Subversion hooks
+
+=head1 VERSION
+
+version 0.2
+
+=head1 SYNOPSIS
+
+=head1 DESCRIPTION
+
+This is a collection of L<Moose::Role|Moose::Role>s that help you implement
+Subversion repository hooks by providing simple attribute access to relevant
+parts of the Subversion API.  This is a work in progress and the interface
+is extremely unstable at the moment.  You have been warned!
+
+=head1 ATTRIBUTES
+
+=head2 repos_path
+
+L<Directory|Path::Class::Dir> containing the Subversion repository.
+
+=head2 repository
+
+Subversion L<repository object|SVN::Repos/_p_svn_repos_t>.  Opened on first
+call to the accessor.
+
+=head2 author
+
+Author of the current revision or transaction.  Role consumers must provide a
+C<_build_author> method to set a default value.
+
+=head2 root
+
+L<Subversion root object|SVN::Fs/_p_svn_fs_root_t> from the repository.  Role
+consumers must provide a C<_build_root> method to set a default value.
+
+=for test_synopsis 1;
+
+=for test_synopsis __END__
+
+=head1 SEE ALSO
+
+See L<SVN::Simple::Hook::PreCommit|SVN::Simple::Hook::PreCommit/SYNOPSIS> for
+an example.  This role exists solely to be composed into other roles.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website
+http://github.com/mjgardner/SVN-Simple-Hook/issues
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
+=head1 AUTHOR
+
+Mark Gardner <mjgardner@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by GSI Commerce.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
