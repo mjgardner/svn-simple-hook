@@ -19,11 +19,11 @@ Revision number created by the commit.
 
 =cut
 
-has rev => (
+has revision_number => (
     ro,
     traits        => ['Getopt'],
     isa           => PositiveInt,
-    cmd_aliases   => [qw(revnum rev_num revision_number)],
+    cmd_aliases   => [qw(rev revnum rev_num revision_number)],
     documentation => 'commit transaction name',
 );
 
@@ -49,13 +49,13 @@ has _svn_filesystem => (
     ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
     sub _build_author {
         my $self = shift;
-        return $self->_svn_filesystem->revision_prop( $self->rev,
+        return $self->_svn_filesystem->revision_prop( $self->revision_number,
             'svn:author' );
     }
 
     sub _build_root {
         my $self = shift;
-        return $self->_svn_filesystem->revision_root( $self->rev );
+        return $self->_svn_filesystem->revision_root( $self->revision_number );
     }
 }
 

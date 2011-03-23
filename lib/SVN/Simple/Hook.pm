@@ -8,9 +8,11 @@ use Moose::Role;
 use MooseX::Has::Sugar;
 use MooseX::Types::Moose 'Str';
 use MooseX::Types::Path::Class 'Dir';
+use Path::Class;
 use SVN::Core;
 use SVN::Repos;
 use SVN::Fs;
+use SVN::Simple::Path_Change;
 use namespace::autoclean;
 with 'MooseX::Getopt';
 
@@ -63,6 +65,38 @@ has root => ( ro, required, lazy_build,
     isa      => '_p_svn_fs_root_t',
     init_arg => undef,
 );
+
+=attr paths_changed
+
+A hash reference where the keys are paths in the L</root> and values are
+L<SVN::Simple::Path_Change|SVN::Simple::Path_Change> objects.  Enables hooks
+to access the changes that triggered them.
+
+=cut
+
+has paths_changed => ( ro, required, lazy_build,
+    isa      => 'HashRef[SVN::Simple::Path_Change]',
+    init_arg => undef,
+);
+
+sub _build_paths_changed {    ## no critic (ProhibitUnusedPrivateSubroutines)
+    my $self        = shift;
+    my $root        = $self->root;
+    my $changed_ref = $root->paths_changed;
+
+    my %paths_changed;
+    while ( my ( $path, $info_ref ) = each %{$changed_ref} ) {
+        my $path_obj;
+        if ( $root->is_dir($path) )  { $path_obj = dir($path) }
+        if ( $root->is_file($path) ) { $path_obj = file($path) }
+
+        $paths_changed{$path} = SVN::Simple::Path_Change->new(
+            svn_change => $info_ref,
+            path       => $path_obj,
+        );
+    }
+    return \%paths_changed;
+}
 
 1;
 

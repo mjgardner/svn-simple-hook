@@ -10,7 +10,7 @@ SVN::Simple::Hook - Simple Moose-based framework for Subversion hooks
 
 =head1 VERSION
 
-version 0.200
+version 0.210
 
 =head1 SYNOPSIS
 
@@ -41,6 +41,12 @@ C<_build_author> method to set a default value.
 
 L<Subversion root object|SVN::Fs/_p_svn_fs_root_t> from the repository.  Role
 consumers must provide a C<_build_root> method to set a default value.
+
+=head2 paths_changed
+
+A hash reference where the keys are paths in the L</root> and values are
+L<SVN::Simple::Path_Change|SVN::Simple::Path_Change> objects.  Enables hooks
+to access the changes that triggered them.
 
 =for test_synopsis 1;
 

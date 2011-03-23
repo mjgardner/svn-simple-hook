@@ -5,9 +5,9 @@ use Test::Most;
 use Readonly;
 
 Readonly my %ATTR => read_attr_hash(<<'END_DATA');
-    SVN::Simple::Hook             repos_path
-    SVN::Simple::Hook::PreCommit  repos_path author root txn_name transaction
-    SVN::Simple::Hook::PostCommit repos_path author root rev
+    SVN::Simple::Hook             repos_path author root paths_changed
+    SVN::Simple::Hook::PreCommit  author root txn_name transaction
+    SVN::Simple::Hook::PostCommit author root revision_number
 END_DATA
 Readonly my %ATTR_TODO => read_attr_hash(<<'END_DATA');
     SVN::Simple::Hook::PostLock          repos_path user

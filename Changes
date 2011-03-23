@@ -1,4 +1,4 @@
 {{$NEXT}}
-
+    new paths_changed attribute for all hooks
 0.200     2011-03-22 14:17:49 America/New_York
     initial release: factored out from internal GSI project
