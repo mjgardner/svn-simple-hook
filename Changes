@@ -1,5 +1,5 @@
 {{$NEXT}}
-
+    better handling of paths_changed for deleted files and directories
 0.210     2011-03-23 10:40:42 America/New_York
     new paths_changed attribute for all hooks
 0.200     2011-03-22 14:17:49 America/New_York
