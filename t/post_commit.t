@@ -14,7 +14,7 @@ sub execute {
     my ( $self, $opt, $args ) = @ARG;
 
     warn $self->author(), ' changed ',
-        scalar keys %{$self->paths_changed}, " paths\n";
+        scalar keys %{ $self->paths_changed }, " paths\n";
 
     return;
 }

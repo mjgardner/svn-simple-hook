@@ -55,7 +55,8 @@ has _svn_filesystem => (
 
     sub _build_root {
         my $self = shift;
-        return $self->_svn_filesystem->revision_root( $self->revision_number );
+        return $self->_svn_filesystem->revision_root(
+            $self->revision_number );
     }
 }
 

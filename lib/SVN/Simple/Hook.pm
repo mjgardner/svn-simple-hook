@@ -80,15 +80,22 @@ has paths_changed => ( ro, required, lazy_build,
 );
 
 sub _build_paths_changed {    ## no critic (ProhibitUnusedPrivateSubroutines)
-    my $self        = shift;
-    my $root        = $self->root;
+    my $self = shift;
+    my $root = $self->root;
+    my $fs   = $root->fs;
+
+    my $rev_root    = $fs->revision_root( $fs->youngest_rev );
     my $changed_ref = $root->paths_changed;
 
     my %paths_changed;
     while ( my ( $path, $info_ref ) = each %{$changed_ref} ) {
         my $path_obj;
-        if ( $root->is_dir($path) )  { $path_obj = dir($path) }
-        if ( $root->is_file($path) ) { $path_obj = file($path) }
+        if ( $root->is_dir($path) or $rev_root->is_dir($path) ) {
+            $path_obj = dir($path);
+        }
+        if ( $root->is_file($path) or $rev_root->is_file($path) ) {
+            $path_obj = file($path);
+        }
 
         $paths_changed{$path} = SVN::Simple::Path_Change->new(
             svn_change => $info_ref,
