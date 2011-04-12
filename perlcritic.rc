@@ -5,6 +5,9 @@ exclude = Compatibility::PodMinimumVersion Documentation::RequirePodAtEnd Editor
 [Lax::RequireExplicitPackage::ExceptForPragmata]
 allowed_pragmata = diagnostics feature perlversion strict warnings utf8
 
+[CodeLayout::RequireTidyCode]
+perltidyrc = xt/author/perltidy.rc
+
 [Compatibility::PerlMinimumVersionAndWhy]
 above_version = 5.010
 

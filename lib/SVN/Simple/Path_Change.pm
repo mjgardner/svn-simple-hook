@@ -6,6 +6,7 @@ use English '-no_match_vars';
 use Moose;
 use MooseX::Has::Sugar;
 use MooseX::Types::Path::Class qw(Dir File);
+use SVN::Core;
 use SVN::Fs;
 use namespace::autoclean;
 
