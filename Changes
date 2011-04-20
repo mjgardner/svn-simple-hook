@@ -1,5 +1,6 @@
 {{$NEXT}}
-
+    explicitly require MooseX::App::Cmd and MooseX::Types::Common
+    fix links in documentation
 0.212     2011-04-12 14:11:18 America/New_York
     fix compile error in SVN::Simple::Path_Change
 0.211     2011-03-24 13:47:02 America/New_York
