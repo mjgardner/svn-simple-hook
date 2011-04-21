@@ -19,8 +19,7 @@ Full name of the transaction to check in the repository.
 
 =cut
 
-has txn_name => (
-    ro,
+has txn_name => ( ro, required,
     traits        => ['Getopt'],
     isa           => Str,
     cmd_aliases   => [qw(t txn tran trans transaction transaction_name)],
@@ -36,8 +35,7 @@ populated at object creation time when the L<txn_name|/txn_name> is set.
 
 =cut
 
-has transaction => (
-    ro, required, lazy,
+has transaction => ( ro, required, lazy,
     isa      => '_p_svn_fs_txn_t',
     init_arg => undef,
     default => sub { $ARG[0]->repository->fs->open_txn( $ARG[0]->txn_name ) },

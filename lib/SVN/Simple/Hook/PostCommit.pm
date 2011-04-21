@@ -19,12 +19,11 @@ Revision number created by the commit.
 
 =cut
 
-has revision_number => (
-    ro,
+has revision_number => ( ro, required,
     traits        => ['Getopt'],
     isa           => PositiveInt,
     cmd_aliases   => [qw(rev revnum rev_num revision_number)],
-    documentation => 'commit transaction name',
+    documentation => 'commit revision number',
 );
 
 =attr author
@@ -39,8 +38,7 @@ L<SVN::Simple::Hook|SVN::Simple::Hook> consumers.
 
 =cut
 
-has _svn_filesystem => (
-    ro, lazy,
+has _svn_filesystem => ( ro, required, lazy,
     isa     => '_p_svn_fs_t',
     default => sub { shift->repository->fs },
 );
