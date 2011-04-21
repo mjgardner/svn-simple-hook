@@ -10,7 +10,7 @@ SVN::Simple::Hook - Simple Moose-based framework for Subversion hooks
 
 =head1 VERSION
 
-version 0.213
+version 0.214
 
 =head1 SYNOPSIS
 
