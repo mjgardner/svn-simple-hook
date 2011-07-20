@@ -2,14 +2,14 @@
 
 use English '-no_match_vars';
 use Test::Most;
-use Readonly;
+use Const::Fast;
 
-Readonly my %ATTR => read_attr_hash(<<'END_DATA');
+const my %ATTR => read_attr_hash(<<'END_DATA');
     SVN::Simple::Hook             repos_path author root paths_changed
     SVN::Simple::Hook::PreCommit  author root txn_name transaction
     SVN::Simple::Hook::PostCommit author root revision_number
 END_DATA
-Readonly my %ATTR_TODO => read_attr_hash(<<'END_DATA');
+const my %ATTR_TODO => read_attr_hash(<<'END_DATA');
     SVN::Simple::Hook::PostLock          repos_path user
     SVN::Simple::Hook::PostRevpropChange repos_path rev user propname action
     SVN::Simple::Hook::PostUnlock        repos_path user

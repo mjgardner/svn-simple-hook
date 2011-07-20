@@ -10,7 +10,7 @@ SVN::Simple::Hook - Simple Moose-based framework for Subversion hooks
 
 =head1 VERSION
 
-version 0.215
+version 0.216
 
 =head1 SYNOPSIS
 
@@ -29,7 +29,7 @@ L<Directory|Path::Class::Dir> containing the Subversion repository.
 
 =head2 repository
 
-Subversion L<repository object|SVN::Repos/_p_svn_repos_t>.  Opened on first
+Subversion L<repository object|SVN::Repos>.  Opened on first
 call to the accessor.
 
 =head2 author

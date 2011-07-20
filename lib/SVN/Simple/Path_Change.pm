@@ -29,7 +29,9 @@ L<Path::Class::File|Path::Class::File> representing the changed entity.
 
 =cut
 
-has path => ( ro, required, coerce, isa => Dir | File );
+has path => ( ro, required, coerce,
+    isa => Dir | File,    ## no critic (Bangs::ProhibitBitwiseOperators)
+);
 
 __PACKAGE__->meta->make_immutable();
 1;

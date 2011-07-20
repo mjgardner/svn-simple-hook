@@ -20,15 +20,15 @@ sub execute {
 }
 
 package main;
+use Const::Fast;
 use English '-no_match_vars';
 use File::Temp;
-use Readonly;
 use SVN::Core;
 use SVN::Repos;
 use Test::More tests => 2;
 use App::Cmd::Tester;
 
-Readonly my $USERID => scalar getpwuid $EFFECTIVE_USER_ID;
+const my $USERID => scalar getpwuid $EFFECTIVE_USER_ID;
 my $tmp_dir = File::Temp->newdir();
 my $repos   = SVN::Repos::create( "$tmp_dir", (undef) x 4 );
 my $txn     = $repos->fs_begin_txn_for_update( 0, "$USERID" );

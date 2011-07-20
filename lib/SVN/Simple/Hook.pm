@@ -32,7 +32,7 @@ has repos_path => (
 
 =attr repository
 
-Subversion L<repository object|SVN::Repos/_p_svn_repos_t>.  Opened on first
+Subversion L<repository object|SVN::Repos>.  Opened on first
 call to the accessor.
 
 =cut
