@@ -2,11 +2,9 @@ package SVN::Simple::Hook::PreCommit;
 
 # ABSTRACT: Role for Subversion pre-commit hooks
 
-use strict;
 use English '-no_match_vars';
-use Moose::Role;
-use MooseX::Has::Sugar;
-use MooseX::Types::Moose 'Str';
+use Any::Moose '::Role';
+use Any::Moose 'X::Types::' . any_moose() => ['Str'];
 use SVN::Core;
 use SVN::Repos;
 use SVN::Fs;
@@ -19,9 +17,11 @@ Full name of the transaction to check in the repository.
 
 =cut
 
-has txn_name => ( ro, required,
-    traits        => ['Getopt'],
+has txn_name => (
+    is            => 'ro',
     isa           => Str,
+    required      => 1,
+    traits        => ['Getopt'],
     cmd_aliases   => [qw(t txn tran trans transaction transaction_name)],
     documentation => 'commit transaction name',
 );
@@ -35,8 +35,11 @@ populated at object creation time when the L<txn_name|/txn_name> is set.
 
 =cut
 
-has transaction => ( ro, required, lazy,
+has transaction => (
+    is       => 'ro',
     isa      => '_p_svn_fs_txn_t',
+    required => 1,
+    lazy     => 1,
     init_arg => undef,
     default => sub { $ARG[0]->repository->fs->open_txn( $ARG[0]->txn_name ) },
 );

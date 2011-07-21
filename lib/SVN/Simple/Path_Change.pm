@@ -3,9 +3,8 @@ package SVN::Simple::Path_Change;
 # ABSTRACT: A class for easier manipulation of Subversion path changes
 
 use English '-no_match_vars';
-use Moose;
-use MooseX::Has::Sugar;
-use MooseX::Types::Path::Class qw(Dir File);
+use Any::Moose;
+use Any::Moose 'X::Types::Path::Class' => [qw(Dir File)];
 use SVN::Core;
 use SVN::Fs;
 use namespace::autoclean;
@@ -17,12 +16,14 @@ returned from the C<< $root->paths_changed() >> method.
 
 =cut
 
-has svn_change => ( ro, required,
-    isa     => '_p_svn_fs_path_change_t',
-    handles => [
+has svn_change => (
+    is       => 'ro',
+    isa      => '_p_svn_fs_path_change_t',
+    required => 1,
+    handles  => [
         grep { not $ARG ~~ [qw(new DESTROY)] }
             map { $ARG->name }
-            Moose::Meta::Class->initialize('_p_svn_fs_path_change_t')
+            any_moose('::Meta::Class')->initialize('_p_svn_fs_path_change_t')
             ->get_all_methods(),
     ],
 );
@@ -34,11 +35,13 @@ L<Path::Class::File|Path::Class::File> representing the changed entity.
 
 =cut
 
-has path => ( ro, required, coerce,
-    isa => Dir | File,    ## no critic (Bangs::ProhibitBitwiseOperators)
+has path => (
+    is       => 'ro',
+    isa      => Dir | File,    ## no critic (Bangs::ProhibitBitwiseOperators)
+    required => 1,
+    coerce   => 1,
 );
 
-__PACKAGE__->meta->make_immutable();
 1;
 
 __END__

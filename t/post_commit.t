@@ -1,13 +1,13 @@
 #!perl
 
 package My::Cmd;
-use Moose;
-extends 'MooseX::App::Cmd';
+use Any::Moose;
+extends any_moose('X::App::Cmd');
 
 package My::Cmd::Command::post_commit;
 use English '-no_match_vars';
-use Moose;
-extends 'MooseX::App::Cmd::Command';
+use Any::Moose;
+extends any_moose('X::App::Cmd::Command');
 with 'SVN::Simple::Hook::PostCommit';
 
 sub execute {

@@ -2,11 +2,9 @@ package SVN::Simple::Hook::PostCommit;
 
 # ABSTRACT: Role for Subversion post-commit hooks
 
-use strict;
 use English '-no_match_vars';
-use Moose::Role;
-use MooseX::Has::Sugar;
-use MooseX::Types::Common::Numeric 'PositiveInt';
+use Any::Moose '::Role';
+use Any::Moose 'X::Types::Common::Numeric' => ['PositiveInt'];
 use SVN::Core;
 use SVN::Repos;
 use SVN::Fs;
@@ -19,9 +17,11 @@ Revision number created by the commit.
 
 =cut
 
-has revision_number => ( ro, required,
-    traits        => ['Getopt'],
+has revision_number => (
+    is            => 'ro',
     isa           => PositiveInt,
+    required      => 1,
+    traits        => ['Getopt'],
     cmd_aliases   => [qw(rev revnum rev_num revision_number)],
     documentation => 'commit revision number',
 );
@@ -38,9 +38,12 @@ L<SVN::Simple::Hook|SVN::Simple::Hook> consumers.
 
 =cut
 
-has _svn_filesystem => ( ro, required, lazy,
-    isa     => '_p_svn_fs_t',
-    default => sub { shift->repository->fs },
+has _svn_filesystem => (
+    is       => 'ro',
+    isa      => '_p_svn_fs_t',
+    required => 1,
+    lazy     => 1,
+    default  => sub { shift->repository->fs },
 );
 
 {
