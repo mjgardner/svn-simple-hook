@@ -17,10 +17,15 @@ returned from the C<< $root->paths_changed() >> method.
 
 =cut
 
-## no critic (RequireDotMatchAnything, RequireExtendedFormatting)
-## no critic (RequireLineBoundaryMatching)
-has svn_change =>
-    ( ro, required, isa => '_p_svn_fs_path_change_t', handles => qr// );
+has svn_change => ( ro, required,
+    isa     => '_p_svn_fs_path_change_t',
+    handles => [
+        grep { not $ARG ~~ [qw(new DESTROY)] }
+            map { $ARG->name }
+            Moose::Meta::Class->initialize('_p_svn_fs_path_change_t')
+            ->get_all_methods(),
+    ],
+);
 
 =attr path
 
