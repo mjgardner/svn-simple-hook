@@ -67,21 +67,24 @@ __END__
 
 =head1 DESCRIPTION
 
-This L<Moose::Role|Moose::Role> gives you access to the Subversion revision
-just committed for use in a post-commit hook.  It's designed for use with
-L<MooseX::App::Cmd::Command|MooseX::App::Cmd::Command> classes, so consult
-the main L<MooseX::App::Cmd documentation|MooseX::App::Cmd> for details
-on how to extend it to create your scripts.
+This L<Moose|Moose::Role> / L<Mouse|Mouse::Role> role gives you access to the
+Subversion revision just committed for use in a post-commit hook.  It's designed
+for use with
+L<MooseX|MooseX::App::Cmd::Command> /
+L<MouseX|MouseX::App::Cmd::Command>::App::Cmd::Command
+classes, so consult the main
+L<MooseX|MooseX::App::Cmd> / L<MouseX|MouseX::App::Cmd>::App::Cmd documentation
+for details on how to extend it to create your scripts.
 
 =head1 SYNOPSIS
 
     package MyHook::Cmd;
-    use Moose;
-    extends 'MooseX::App::Cmd';
+    use Any::Moose;
+    extends any_moose('X::App::Cmd');
 
     package MyHook::Cmd::Command::post_commit;
-    use Moose;
-    extends 'MooseX::App::Cmd::Command';
+    use Any::Moose;
+    extends any_moose('X::App::Cmd::Command');
     with 'SVN::Simple::Hook::PostCommit';
 
     sub execute {

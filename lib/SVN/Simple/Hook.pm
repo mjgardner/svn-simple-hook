@@ -139,7 +139,8 @@ an example.  This role exists solely to be composed into other roles.
 
 =head1 DESCRIPTION
 
-This is a collection of L<Moose::Role|Moose::Role>s that help you implement
-Subversion repository hooks by providing simple attribute access to relevant
-parts of the Subversion API.  This is a work in progress and the interface
-is extremely unstable at the moment.  You have been warned!
+This is a collection of roles for L<Moose|Moose::Role> and L<Mouse|Mouse::Role>
+that help you implement Subversion repository hooks by providing simple
+attribute access to relevant parts of the Subversion API.
+This is a work in progress and the interface is extremely unstable at the
+moment.  You have been warned!
