@@ -7,7 +7,7 @@ cpants kwalitee diff irc mailto metadata placeholders
 
 =head1 NAME
 
-SVN::Simple::Hook - Simple Moose-based framework for Subversion hooks
+SVN::Simple::Hook - Simple Moose/Mouse-based framework for Subversion hooks
 
 =head1 VERSION
 
