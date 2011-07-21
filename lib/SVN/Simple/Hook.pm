@@ -22,8 +22,7 @@ L<Directory|Path::Class::Dir> containing the Subversion repository.
 
 =cut
 
-has repos_path => (
-    ro, required, coerce,
+has repos_path => ( ro, required, coerce,
     traits        => ['Getopt'],
     isa           => Dir,
     cmd_aliases   => [qw(r repo repos repository repository_dir)],
@@ -37,8 +36,7 @@ call to the accessor.
 
 =cut
 
-has repository => (
-    ro, required, lazy,
+has repository => ( ro, required, lazy,
     isa      => '_p_svn_repos_t',
     init_arg => undef,
     ## no critic (ProhibitCallsToUnexportedSubs)
