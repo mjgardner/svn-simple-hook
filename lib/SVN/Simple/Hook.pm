@@ -1,6 +1,6 @@
 package SVN::Simple::Hook;
 
-# ABSTRACT: Simple Moose-based framework for Subversion hooks
+# ABSTRACT: Simple Moose/Mouse-based framework for Subversion hooks
 
 use English '-no_match_vars';
 use Any::Moose '::Role';
