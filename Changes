@@ -1,5 +1,7 @@
 {{$NEXT}}
-
+    Performance improvements: Can now use Mouse instead of Moose via Any::Moose,
+    now uses Const::Fast instead of Readonly
+    Documentation fixes
 0.215     2011-04-28 10:32:59 America/New_York
     add SVN::Core to prereqs, getting errors from testers
     no code changes
