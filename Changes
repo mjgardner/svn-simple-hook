@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+0.301     2011-07-21 18:12:55 America/New_York
     Documentation fixes
 0.300     2011-07-21 16:23:13 America/New_York
     Performance improvements: Can now use Mouse instead of Moose via Any::Moose,
