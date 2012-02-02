@@ -4,7 +4,8 @@ package SVN::Simple::Path_Change;
 
 use English '-no_match_vars';
 use Any::Moose;
-use Any::Moose 'X::Types::Path::Class' => [qw(Dir File)];
+use Any::Moose 'X::Types::' . any_moose() => ['Maybe'];
+use Any::Moose 'X::Types::Path::Class'    => [qw(Dir File)];
 use SVN::Core;
 use SVN::Fs;
 use namespace::autoclean;
@@ -30,14 +31,15 @@ has svn_change => (
 
 =attr path
 
-Either a L<Path::Class::Dir|Path::Class::Dir> or
+Undefined, or a L<Path::Class::Dir|Path::Class::Dir> or
 L<Path::Class::File|Path::Class::File> representing the changed entity.
 
 =cut
 
 has path => (
-    is       => 'ro',
-    isa      => Dir | File,    ## no critic (Bangs::ProhibitBitwiseOperators)
+    is => 'ro',
+    ## no critic (Bangs::ProhibitBitwiseOperators)
+    isa => Maybe [ Dir | File ],
     required => 1,
     coerce   => 1,
 );
