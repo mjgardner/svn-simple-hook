@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+0.303     2012-02-03 14:12:41 America/New_York
     Coerce undef rather than allow it as path attribute
 0.302     2012-02-02 17:13:58 America/New_York
     Allow undef for an SVN::Simple::Path_Change path attribute
