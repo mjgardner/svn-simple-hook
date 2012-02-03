@@ -1,5 +1,6 @@
 {{$NEXT}}
-
+    Fall back to most recently logged type of path if it's missing from
+    transaction and revision root
 0.303     2012-02-03 14:12:41 America/New_York
     Coerce undef rather than allow it as path attribute
 0.302     2012-02-02 17:13:58 America/New_York

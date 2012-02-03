@@ -6,7 +6,9 @@ use English '-no_match_vars';
 use Any::Moose '::Role';
 use Any::Moose 'X::Types::' . any_moose() => ['Str'];
 use Any::Moose 'X::Types::Path::Class'    => ['Dir'];
+use List::MoreUtils 'any';
 use Path::Class;
+use TryCatch;
 use SVN::Core;
 use SVN::Repos;
 use SVN::Fs;
@@ -104,13 +106,29 @@ sub _build_paths_changed {    ## no critic (ProhibitUnusedPrivateSubroutines)
     my $rev_root    = $fs->revision_root( $fs->youngest_rev );
     my $changed_ref = $root->paths_changed;
 
+    my %last_rev;
+    for my $revnum ( 0 .. $fs->youngest_rev ) {
+        try {
+            $self->repository->get_logs(
+                [ keys %{$changed_ref} ],
+                $revnum, $revnum, 1, 0,
+                sub {
+                    my @paths = keys %{ +shift };
+                    @last_rev{@paths} = (shift) x @paths;
+                },
+            );
+        };
+    }
+
     my %paths_changed;
     while ( my ( $path, $info_ref ) = each %{$changed_ref} ) {
         my $path_obj;
-        if ( $root->is_dir($path) or $rev_root->is_dir($path) ) {
+        my $hist_root = $fs->begin_txn( $last_rev{$path} )->root;
+
+        if ( any { $ARG->is_dir($path) } ( $root, $rev_root, $hist_root ) ) {
             $path_obj = dir($path);
         }
-        if ( $root->is_file($path) or $rev_root->is_file($path) ) {
+        if ( any { $ARG->is_file($path) } ( $root, $rev_root, $hist_root ) ) {
             $path_obj = file($path);
         }
 
