@@ -1,5 +1,7 @@
-{{$NEXT}}
+Revision history for SVN-Simple-Hook
 
+{{$NEXT}}
+    Require Alien::SVN as a prerequisite
 0.304     2012-02-03 17:04:49 America/New_York
     Fall back to most recently logged type of path if it's missing from
     transaction and revision root
