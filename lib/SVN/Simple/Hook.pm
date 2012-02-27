@@ -11,7 +11,7 @@ use Any::Moose 'X::Types::' . any_moose() => ['Str'];
 use Any::Moose 'X::Types::Path::Class'    => ['Dir'];
 use List::MoreUtils 'any';
 use Path::Class;
-use TryCatch;
+use Try::Tiny;
 use SVN::Core;
 use SVN::Repos;
 use SVN::Fs;
