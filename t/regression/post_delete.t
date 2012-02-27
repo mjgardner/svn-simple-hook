@@ -1,4 +1,5 @@
 #!perl
+use Modern::Perl;
 
 package My::Cmd;
 use Any::Moose;

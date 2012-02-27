@@ -1,7 +1,10 @@
+use utf8;
+use Modern::Perl;
+
 package SVN::Simple::Hook::PostCommit;
+use strict;
 
-# ABSTRACT: Role for Subversion post-commit hooks
-
+# VERSION
 use English '-no_match_vars';
 use Any::Moose '::Role';
 use Any::Moose 'X::Types::Common::Numeric' => ['PositiveInt'];
@@ -11,12 +14,6 @@ use SVN::Fs;
 use namespace::autoclean;
 with 'SVN::Simple::Hook';
 
-=attr revision_number
-
-Revision number created by the commit.
-
-=cut
-
 has revision_number => (
     is            => 'ro',
     isa           => PositiveInt,
@@ -25,18 +22,6 @@ has revision_number => (
     cmd_aliases   => [qw(rev revnum rev_num revision_number)],
     documentation => 'commit revision number',
 );
-
-=attr author
-
-The author of the current transaction as required by all
-L<SVN::Simple::Hook|SVN::Simple::Hook> consumers.
-
-=attr root
-
-The L<Subversion root|SVN::Fs/_p_svn_fs_root_t> node as required by all
-L<SVN::Simple::Hook|SVN::Simple::Hook> consumers.
-
-=cut
 
 has _svn_filesystem => (
     is       => 'ro',
@@ -63,7 +48,7 @@ has _svn_filesystem => (
 
 1;
 
-__END__
+# ABSTRACT: Role for Subversion post-commit hooks
 
 =head1 DESCRIPTION
 
@@ -105,3 +90,17 @@ for details on how to extend it to create your scripts.
 
     perl -MMyHook::Cmd -e 'MyHook::Cmd->run()' post_commit -r "$REPOS" --rev "$REV" || exit 1
     exit 0
+
+=attr revision_number
+
+Revision number created by the commit.
+
+=attr author
+
+The author of the current transaction as required by all
+L<SVN::Simple::Hook|SVN::Simple::Hook> consumers.
+
+=attr root
+
+The L<Subversion root|SVN::Fs/_p_svn_fs_root_t> node as required by all
+L<SVN::Simple::Hook|SVN::Simple::Hook> consumers.

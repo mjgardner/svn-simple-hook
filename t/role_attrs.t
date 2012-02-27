@@ -1,4 +1,5 @@
 #!perl
+use Modern::Perl;
 
 use English '-no_match_vars';
 use Test::Most;

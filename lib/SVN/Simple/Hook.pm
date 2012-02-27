@@ -1,7 +1,10 @@
+use utf8;
+use Modern::Perl;
+
 package SVN::Simple::Hook;
+use strict;
 
-# ABSTRACT: Simple Moose/Mouse-based framework for Subversion hooks
-
+# VERSION
 use English '-no_match_vars';
 use Any::Moose '::Role';
 use Any::Moose 'X::Types::' . any_moose() => ['Str'];
@@ -16,12 +19,6 @@ use SVN::Simple::Path_Change;
 use namespace::autoclean;
 with any_moose('X::Getopt');
 
-=attr repos_path
-
-L<Directory|Path::Class::Dir> containing the Subversion repository.
-
-=cut
-
 has repos_path => (
     is            => 'ro',
     isa           => Dir,
@@ -31,13 +28,6 @@ has repos_path => (
     required      => 1,
     coerce        => 1,
 );
-
-=attr repository
-
-Subversion L<repository object|SVN::Repos>.  Opened on first
-call to the accessor.
-
-=cut
 
 has repository => (
     is       => 'ro',
@@ -49,13 +39,6 @@ has repository => (
     default => sub { SVN::Repos::open( shift->repos_path->stringify() ) },
 );
 
-=attr author
-
-Author of the current revision or transaction.  Role consumers must provide a
-C<_build_author> method to set a default value.
-
-=cut
-
 has author => (
     is       => 'ro',
     isa      => Str,
@@ -65,13 +48,6 @@ has author => (
     required => 1,
 );
 
-=attr root
-
-L<Subversion root object|SVN::Fs/_p_svn_fs_root_t> from the repository.  Role
-consumers must provide a C<_build_root> method to set a default value.
-
-=cut
-
 has root => (
     is       => 'ro',
     isa      => '_p_svn_fs_root_t',
@@ -80,14 +56,6 @@ has root => (
     lazy     => 1,
     builder  => '_build_root',
 );
-
-=attr paths_changed
-
-A hash reference where the keys are paths in the L</root> and values are
-L<SVN::Simple::Path_Change|SVN::Simple::Path_Change> objects.  Enables hooks
-to access the changes that triggered them.
-
-=cut
 
 has paths_changed => (
     is       => 'ro',
@@ -142,7 +110,7 @@ sub _build_paths_changed {    ## no critic (ProhibitUnusedPrivateSubroutines)
 
 1;
 
-__END__
+# ABSTRACT: Simple Moose/Mouse-based framework for Subversion hooks
 
 =head1 SYNOPSIS
 
@@ -162,3 +130,28 @@ that help you implement Subversion repository hooks by providing simple
 attribute access to relevant parts of the Subversion API.
 This is a work in progress and the interface is extremely unstable at the
 moment.  You have been warned!
+
+=attr repos_path
+
+L<Directory|Path::Class::Dir> containing the Subversion repository.
+
+=attr repository
+
+Subversion L<repository object|SVN::Repos>.  Opened on first
+call to the accessor.
+
+=attr author
+
+Author of the current revision or transaction.  Role consumers must provide a
+C<_build_author> method to set a default value.
+
+=attr root
+
+L<Subversion root object|SVN::Fs/_p_svn_fs_root_t> from the repository.  Role
+consumers must provide a C<_build_root> method to set a default value.
+
+=attr paths_changed
+
+A hash reference where the keys are paths in the L</root> and values are
+L<SVN::Simple::Path_Change|SVN::Simple::Path_Change> objects.  Enables hooks
+to access the changes that triggered them.

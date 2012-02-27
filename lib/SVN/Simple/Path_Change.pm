@@ -1,7 +1,10 @@
+use utf8;
+use Modern::Perl;
+
 package SVN::Simple::Path_Change;
+use strict;
 
-# ABSTRACT: A class for easier manipulation of Subversion path changes
-
+# VERSION
 use English '-no_match_vars';
 use Any::Moose;
 use Any::Moose '::Util::TypeConstraints';
@@ -11,13 +14,6 @@ use Path::Class;
 use SVN::Core;
 use SVN::Fs;
 use namespace::autoclean;
-
-=attr svn_change
-
-The L<_p_svn_fs_path_change_t|SVN::Fs/_p_svn_fs_path_change_t> object as
-returned from the C<< $root->paths_changed() >> method.
-
-=cut
 
 has svn_change => (
     is       => 'ro',
@@ -34,13 +30,6 @@ has svn_change => (
 coerce Dir,  from Undef => via { dir(q{}) };
 coerce File, from Undef => via { file($ARG) };
 
-=attr path
-
-Undefined, or a L<Path::Class::Dir|Path::Class::Dir> or
-L<Path::Class::File|Path::Class::File> representing the changed entity.
-
-=cut
-
 has path => (
     is       => 'ro',
     isa      => Dir | File,    ## no critic (Bangs::ProhibitBitwiseOperators)
@@ -50,7 +39,7 @@ has path => (
 
 1;
 
-__END__
+# ABSTRACT: A class for easier manipulation of Subversion path changes
 
 =head1 SYNOPSIS
 
@@ -80,3 +69,13 @@ path it describes.
 All the methods supported by
 L<_p_svn_fs_path_change_t|SVN::Fs/_p_svn_fs_path_change_t> are delegated by and
 act on the L</svn_change> attribute.
+
+=attr svn_change
+
+The L<_p_svn_fs_path_change_t|SVN::Fs/_p_svn_fs_path_change_t> object as
+returned from the C<< $root->paths_changed() >> method.
+
+=attr path
+
+Undefined, or a L<Path::Class::Dir|Path::Class::Dir> or
+L<Path::Class::File|Path::Class::File> representing the changed entity.
