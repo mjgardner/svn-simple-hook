@@ -1,6 +1,8 @@
 Revision history for SVN-Simple-Hook
 
 {{$NEXT}}
+
+0.305     2012-02-27 11:18:40 America/New_York
     Require Alien::SVN as a prerequisite
     Code cleanup to simplify debugging and non-Dist::Zilla patchers
     No functional changes
