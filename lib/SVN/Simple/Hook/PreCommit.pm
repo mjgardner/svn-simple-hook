@@ -5,7 +5,6 @@ package SVN::Simple::Hook::PreCommit;
 use strict;
 
 # VERSION
-use English '-no_match_vars';
 use Any::Moose '::Role';
 use Any::Moose 'X::Types::' . any_moose() => ['Str'];
 use SVN::Core;
@@ -29,7 +28,7 @@ has transaction => (
     required => 1,
     lazy     => 1,
     init_arg => undef,
-    default => sub { $ARG[0]->repository->fs->open_txn( $ARG[0]->txn_name ) },
+    default  => sub { $_[0]->repository->fs->open_txn( $_[0]->txn_name ) },
 );
 
 {

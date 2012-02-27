@@ -5,7 +5,6 @@ package SVN::Simple::Hook::PostCommit;
 use strict;
 
 # VERSION
-use English '-no_match_vars';
 use Any::Moose '::Role';
 use Any::Moose 'X::Types::Common::Numeric' => ['PositiveInt'];
 use SVN::Core;

@@ -6,13 +6,12 @@ use Any::Moose;
 extends any_moose('X::App::Cmd');
 
 package My::Cmd::Command::post_commit;
-use English '-no_match_vars';
 use Any::Moose;
 extends any_moose('X::App::Cmd::Command');
 with 'SVN::Simple::Hook::PostCommit';
 
 sub execute {
-    my ( $self, $opt, $args ) = @ARG;
+    my ( $self, $opt, $args ) = @_;
 
     warn $self->author(), ' changed ',
         scalar keys %{ $self->paths_changed }, " paths\n";

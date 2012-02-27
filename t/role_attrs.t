@@ -1,9 +1,9 @@
 #!perl
 use Modern::Perl;
 
-use English '-no_match_vars';
 use Test::Most;
 use Const::Fast;
+use English '-no_match_vars';
 
 const my %ATTR => read_attr_hash(<<'END_DATA');
     SVN::Simple::Hook             repos_path author root paths_changed
@@ -30,12 +30,12 @@ TODO: { role_has_attrs_ok( $role, @{$attr_ref} ) }
 done_testing( keys(%ATTR) + keys(%ATTR_TODO) );
 
 sub read_attr_hash {
-    return map { $ARG->[0] => [ @{$ARG}[ 1 .. $#{$ARG} ] ] }
+    return map { $_->[0] => [ @{$_}[ 1 .. $#{$_} ] ] }
         map { [split] } split "\n", shift;
 }
 
 sub role_has_attrs_ok {
-    my ( $role, @attrs ) = @ARG;
+    my ( $role, @attrs ) = @_;
 
     eval "require $role; $role->import();";
     todo_skip "$role not implemented for attributes: @attrs", 1

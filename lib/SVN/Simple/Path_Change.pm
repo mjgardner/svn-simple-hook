@@ -5,7 +5,6 @@ package SVN::Simple::Path_Change;
 use strict;
 
 # VERSION
-use English '-no_match_vars';
 use Any::Moose;
 use Any::Moose '::Util::TypeConstraints';
 use Any::Moose 'X::Types::' . any_moose() => ['Undef'];
@@ -20,15 +19,15 @@ has svn_change => (
     isa      => '_p_svn_fs_path_change_t',
     required => 1,
     handles  => [
-        grep { not $ARG ~~ [qw(new DESTROY)] }
-            map { $ARG->name }
+        grep { not $_ ~~ [qw(new DESTROY)] }
+            map { $_->name }
             any_moose('::Meta::Class')->initialize('_p_svn_fs_path_change_t')
             ->get_all_methods(),
     ],
 );
 
 coerce Dir,  from Undef => via { dir(q{}) };
-coerce File, from Undef => via { file($ARG) };
+coerce File, from Undef => via { file($_) };
 
 has path => (
     is       => 'ro',

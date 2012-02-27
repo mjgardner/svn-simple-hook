@@ -5,7 +5,6 @@ package SVN::Simple::Hook;
 use strict;
 
 # VERSION
-use English '-no_match_vars';
 use Any::Moose '::Role';
 use Any::Moose 'X::Types::' . any_moose() => ['Str'];
 use Any::Moose 'X::Types::Path::Class'    => ['Dir'];
@@ -93,10 +92,10 @@ sub _build_paths_changed {    ## no critic (ProhibitUnusedPrivateSubroutines)
         my $path_obj;
         my $hist_root = $fs->begin_txn( $last_rev{$path} )->root;
 
-        if ( any { $ARG->is_dir($path) } ( $root, $rev_root, $hist_root ) ) {
+        if ( any { $_->is_dir($path) } ( $root, $rev_root, $hist_root ) ) {
             $path_obj = dir($path);
         }
-        if ( any { $ARG->is_file($path) } ( $root, $rev_root, $hist_root ) ) {
+        if ( any { $_->is_file($path) } ( $root, $rev_root, $hist_root ) ) {
             $path_obj = file($path);
         }
 
