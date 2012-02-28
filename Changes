@@ -1,6 +1,8 @@
 Revision history for SVN-Simple-Hook
 
 {{$NEXT}}
+
+0.306     2012-02-28 10:13:11 America/New_York
     Require SVN::Core "0.0.0" as well
 0.305     2012-02-27 11:18:40 America/New_York
     Require Alien::SVN as a prerequisite
