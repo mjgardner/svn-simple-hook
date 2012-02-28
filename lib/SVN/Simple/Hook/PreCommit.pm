@@ -4,7 +4,7 @@ use Modern::Perl;
 package SVN::Simple::Hook::PreCommit;
 use strict;
 
-our $VERSION = '0.305';    # VERSION
+our $VERSION = '0.306';    # VERSION
 use Any::Moose '::Role';
 use Any::Moose 'X::Types::' . any_moose() => ['Str'];
 use SVN::Core;
@@ -56,7 +56,7 @@ SVN::Simple::Hook::PreCommit - Role for Subversion pre-commit hooks
 
 =head1 VERSION
 
-version 0.305
+version 0.306
 
 =head1 SYNOPSIS
 

@@ -41,7 +41,7 @@ my %WriteMakefileArgs = (
     "MouseX::Types::Mouse" => 0,
     "MouseX::Types::Path::Class" => 0,
     "Path::Class" => 0,
-    "SVN::Core" => 0,
+    "SVN::Core" => "0.0.0",
     "SVN::Fs" => 0,
     "SVN::Repos" => 0,
     "Try::Tiny" => 0,
@@ -49,7 +49,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "utf8" => 0
   },
-  "VERSION" => "0.305",
+  "VERSION" => "0.306",
   "test" => {
     "TESTS" => "t/*.t t/regression/*.t"
   }
