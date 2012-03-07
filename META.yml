@@ -18,14 +18,14 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.30
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 4.300009, CPAN::Meta::Converter version 2.120530'
+generated_by: 'Dist::Zilla version 4.300009, CPAN::Meta::Converter version 2.120630'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
 name: SVN-Simple-Hook
 requires:
-  Alien::SVN: 1.6.12
+  Alien::SVN: v1.6.12
   Any::Moose: 0
   List::MoreUtils: 0
   Modern::Perl: 0
@@ -34,9 +34,6 @@ requires:
   MouseX::Types::Mouse: 0
   MouseX::Types::Path::Class: 0
   Path::Class: 0
-  SVN::Core: 0.0.0
-  SVN::Fs: 0
-  SVN::Repos: 0
   Try::Tiny: 0
   namespace::autoclean: 0
   perl: 5.010
@@ -46,7 +43,7 @@ resources:
   bugtracker: https://github.com/mjgardner/svn-simple-hook/issues
   homepage: http://metacpan.org/release/SVN-Simple-Hook/
   repository: git://github.com/mjgardner/svn-simple-hook.git
-version: 0.306
+version: 0.307
 x_Dist_Zilla:
   plugins:
     -
@@ -252,15 +249,15 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::GitHub::Meta
       name: '@GitHub/GitHub::Meta'
-      version: 0.14
+      version: 0.15
     -
       class: Dist::Zilla::Plugin::GitHub::Update
       name: '@GitHub/GitHub::Update'
-      version: 0.14
+      version: 0.15
     -
       class: Dist::Zilla::Plugin::InstallRelease
       name: InstallRelease
-      version: 0.007
+      version: 0.008
     -
       class: Dist::Zilla::Plugin::FinderCode
       name: ':InstallModules'

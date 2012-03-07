@@ -32,7 +32,7 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "SVN::Simple::Hook",
   "PREREQ_PM" => {
-    "Alien::SVN" => "1.6.12",
+    "Alien::SVN" => "v1.6.12",
     "Any::Moose" => 0,
     "List::MoreUtils" => 0,
     "Modern::Perl" => 0,
@@ -41,15 +41,12 @@ my %WriteMakefileArgs = (
     "MouseX::Types::Mouse" => 0,
     "MouseX::Types::Path::Class" => 0,
     "Path::Class" => 0,
-    "SVN::Core" => "0.0.0",
-    "SVN::Fs" => 0,
-    "SVN::Repos" => 0,
     "Try::Tiny" => 0,
     "namespace::autoclean" => 0,
     "strict" => 0,
     "utf8" => 0
   },
-  "VERSION" => "0.306",
+  "VERSION" => "0.307",
   "test" => {
     "TESTS" => "t/*.t t/regression/*.t"
   }

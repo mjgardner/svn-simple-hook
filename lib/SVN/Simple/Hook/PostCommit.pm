@@ -4,7 +4,7 @@ use Modern::Perl;
 package SVN::Simple::Hook::PostCommit;
 use strict;
 
-our $VERSION = '0.306';    # VERSION
+our $VERSION = '0.307';    # VERSION
 use Any::Moose '::Role';
 use Any::Moose 'X::Types::Common::Numeric' => ['PositiveInt'];
 use SVN::Core;
@@ -64,7 +64,7 @@ SVN::Simple::Hook::PostCommit - Role for Subversion post-commit hooks
 
 =head1 VERSION
 
-version 0.306
+version 0.307
 
 =head1 SYNOPSIS
 

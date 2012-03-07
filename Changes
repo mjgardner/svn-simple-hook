@@ -1,5 +1,8 @@
 Revision history for SVN-Simple-Hook
 
+0.307     2012-03-07 11:34:18 America/New_York
+    Nore fiddling with prereqs for CPANTesters
+    Add early compile-or-bail test to check for bad SVN::Core install
 0.306     2012-02-28 10:13:11 America/New_York
     Require SVN::Core "0.0.0" as well
 0.305     2012-02-27 11:18:40 America/New_York

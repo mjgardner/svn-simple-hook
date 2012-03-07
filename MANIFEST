@@ -13,6 +13,7 @@ lib/SVN/Simple/Hook/PostCommit.pm
 lib/SVN/Simple/Hook/PreCommit.pm
 lib/SVN/Simple/Path_Change.pm
 perlcritic.rc
+t/0-svn_core.t
 t/00-compile.t
 t/000-report-versions.t
 t/author-critic.t

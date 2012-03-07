@@ -4,7 +4,7 @@
       "Mark Gardner <mjgardner@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300009, CPAN::Meta::Converter version 2.120530",
+   "generated_by" : "Dist::Zilla version 4.300009, CPAN::Meta::Converter version 2.120630",
    "license" : [
       "perl_5"
    ],
@@ -30,9 +30,6 @@
             "MouseX::Types::Mouse" : "0",
             "MouseX::Types::Path::Class" : "0",
             "Path::Class" : "0",
-            "SVN::Core" : "v0.0.0",
-            "SVN::Fs" : "0",
-            "SVN::Repos" : "0",
             "Try::Tiny" : "0",
             "namespace::autoclean" : "0",
             "perl" : "5.010",
@@ -69,7 +66,7 @@
          "web" : "https://github.com/mjgardner/svn-simple-hook"
       }
    },
-   "version" : "0.306",
+   "version" : "0.307",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -326,17 +323,17 @@
          {
             "class" : "Dist::Zilla::Plugin::GitHub::Meta",
             "name" : "@GitHub/GitHub::Meta",
-            "version" : "0.14"
+            "version" : "0.15"
          },
          {
             "class" : "Dist::Zilla::Plugin::GitHub::Update",
             "name" : "@GitHub/GitHub::Update",
-            "version" : "0.14"
+            "version" : "0.15"
          },
          {
             "class" : "Dist::Zilla::Plugin::InstallRelease",
             "name" : "InstallRelease",
-            "version" : "0.007"
+            "version" : "0.008"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
