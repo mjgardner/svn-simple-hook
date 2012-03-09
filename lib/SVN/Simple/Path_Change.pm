@@ -4,7 +4,7 @@ use Modern::Perl;
 package SVN::Simple::Path_Change;
 use strict;
 
-our $VERSION = '0.307';    # VERSION
+our $VERSION = '0.308';    # VERSION
 use Any::Moose;
 use Any::Moose '::Util::TypeConstraints';
 use Any::Moose 'X::Types::' . any_moose() => ['Undef'];
@@ -55,7 +55,7 @@ SVN::Simple::Path_Change - A class for easier manipulation of Subversion path ch
 
 =head1 VERSION
 
-version 0.307
+version 0.308
 
 =head1 SYNOPSIS
 

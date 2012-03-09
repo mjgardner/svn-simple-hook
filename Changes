@@ -1,5 +1,7 @@
 Revision history for SVN-Simple-Hook
 
+0.308     2012-03-09 17:16:53 America/New_York
+    Another trial release, try to detect bad SVN::Core in Makefile.PL
 0.307     2012-03-07 11:34:18 America/New_York
     Nore fiddling with prereqs for CPANTesters
     Add early compile-or-bail test to check for bad SVN::Core install

@@ -21,7 +21,7 @@
       },
       "runtime" : {
          "requires" : {
-            "Alien::SVN" : "v1.6.12",
+            "Alien::SVN" : "0",
             "Any::Moose" : "0",
             "List::MoreUtils" : "0",
             "Modern::Perl" : "0",
@@ -66,7 +66,7 @@
          "web" : "https://github.com/mjgardner/svn-simple-hook"
       }
    },
-   "version" : "0.307",
+   "version" : "0.308",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -110,11 +110,6 @@
             "version" : "4.300009"
          },
          {
-            "class" : "Dist::Zilla::Plugin::MakeMaker",
-            "name" : "@Filter/MakeMaker",
-            "version" : "4.300009"
-         },
-         {
             "class" : "Dist::Zilla::Plugin::Manifest",
             "name" : "@Filter/Manifest",
             "version" : "4.300009"
@@ -133,6 +128,11 @@
             "class" : "Dist::Zilla::Plugin::UploadToCPAN",
             "name" : "@Filter/UploadToCPAN",
             "version" : "4.300009"
+         },
+         {
+            "class" : "inc::SVNMakeMaker",
+            "name" : "SVNMakeMaker",
+            "version" : null
          },
          {
             "class" : "Dist::Zilla::Plugin::AutoPrereqs",

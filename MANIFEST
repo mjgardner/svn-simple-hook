@@ -8,6 +8,7 @@ META.yml
 Makefile.PL
 README
 dist.ini
+inc/SVNMakeMaker.pm
 lib/SVN/Simple/Hook.pm
 lib/SVN/Simple/Hook/PostCommit.pm
 lib/SVN/Simple/Hook/PreCommit.pm
