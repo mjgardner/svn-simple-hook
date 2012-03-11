@@ -1,6 +1,8 @@
 Revision history for SVN-Simple-Hook
 
 {{$NEXT}}
+
+0.309     2012-03-11 16:35:36 America/New_York
     Better detection of Subversion Perl bindings
 0.308     2012-03-09 17:16:53 America/New_York
     TRIAL RELEASE: Try to detect bad SVN::Core in Makefile.PL
