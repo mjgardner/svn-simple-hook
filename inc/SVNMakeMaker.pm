@@ -6,6 +6,7 @@ use strict;
 
 # VERSION
 use Moose;
+use MooseX::MarkAsMethods autoclean => 1;
 extends 'Dist::Zilla::Plugin::MakeMaker::Awesome';
 
 override _build_MakeFile_PL_template => sub {
@@ -14,7 +15,7 @@ override _build_MakeFile_PL_template => sub {
     my $template = super();
     $template .= <<'END_TEMPLATE';
 eval {
-    eval { require Alien::SVN } and require SVN::Core;
+    eval { require Alien::SVN; 1 } and require SVN::Core; 1
 } or die 'botched Alien::SVN install detected, cannot continue';
 END_TEMPLATE
 
