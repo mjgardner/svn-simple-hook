@@ -1,12 +1,12 @@
-use Modern::Perl;
+use 5.010;
 use utf8;
 
 package inc::SVNMakeMaker;
 use strict;
+use warnings;
 
 # VERSION
 use Moose;
-use MooseX::MarkAsMethods autoclean => 1;
 extends 'Dist::Zilla::Plugin::MakeMaker::Awesome';
 
 override _build_MakeFile_PL_template => sub {
