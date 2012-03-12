@@ -31,11 +31,8 @@ has transaction => (
     default  => sub { $_[0]->repository->fs->open_txn( $_[0]->txn_name ) },
 );
 
-{
-    ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
-    sub _build_author { return shift->transaction->prop('svn:author') }
-    sub _build_root   { return shift->transaction->root() }
-}
+sub _build_author { return shift->transaction->prop('svn:author') }
+sub _build_root   { return shift->transaction->root() }
 
 1;
 

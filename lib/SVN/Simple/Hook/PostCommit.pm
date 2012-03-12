@@ -30,19 +30,15 @@ has _svn_filesystem => (
     default  => sub { shift->repository->fs },
 );
 
-{
-    ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
-    sub _build_author {
-        my $self = shift;
-        return $self->_svn_filesystem->revision_prop( $self->revision_number,
-            'svn:author' );
-    }
+sub _build_author {
+    my $self = shift;
+    return $self->_svn_filesystem->revision_prop( $self->revision_number,
+        'svn:author' );
+}
 
-    sub _build_root {
-        my $self = shift;
-        return $self->_svn_filesystem->revision_root(
-            $self->revision_number );
-    }
+sub _build_root {
+    my $self = shift;
+    return $self->_svn_filesystem->revision_root( $self->revision_number );
 }
 
 1;

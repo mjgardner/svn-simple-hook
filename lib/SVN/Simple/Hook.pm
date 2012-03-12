@@ -65,7 +65,7 @@ has paths_changed => (
     builder  => '_build_paths_changed',
 );
 
-sub _build_paths_changed {    ## no critic (ProhibitUnusedPrivateSubroutines)
+sub _build_paths_changed {
     my $self = shift;
     my $root = $self->root;
     my $fs   = $root->fs;
