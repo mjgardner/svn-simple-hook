@@ -4,7 +4,7 @@ use Modern::Perl;
 package SVN::Simple::Hook::PreCommit;
 use strict;
 
-our $VERSION = '0.309';    # VERSION
+our $VERSION = '0.310';    # VERSION
 use Any::Moose '::Role';
 use Any::Moose 'X::Types::' . any_moose() => ['Str'];
 use SVN::Core;
@@ -31,11 +31,8 @@ has transaction => (
     default  => sub { $_[0]->repository->fs->open_txn( $_[0]->txn_name ) },
 );
 
-{
-    ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
-    sub _build_author { return shift->transaction->prop('svn:author') }
-    sub _build_root   { return shift->transaction->root() }
-}
+sub _build_author { return shift->transaction->prop('svn:author') }
+sub _build_root   { return shift->transaction->root() }
 
 1;
 
@@ -56,7 +53,7 @@ SVN::Simple::Hook::PreCommit - Role for Subversion pre-commit hooks
 
 =head1 VERSION
 
-version 0.309
+version 0.310
 
 =head1 SYNOPSIS
 

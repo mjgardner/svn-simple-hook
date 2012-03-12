@@ -39,12 +39,15 @@ my %WriteMakefileArgs = (
     'MouseX::Types::Mouse' => '0',
     'MouseX::Types::Path::Class' => '0',
     'Path::Class' => '0',
+    'SVN::Core' => '0',
+    'SVN::Fs' => '0',
+    'SVN::Repos' => '0',
     'Try::Tiny' => '0',
     'namespace::autoclean' => '0',
     'strict' => '0',
     'utf8' => '0'
   },
-  'VERSION' => '0.309',
+  'VERSION' => '0.310',
   'test' => {
     'TESTS' => 't/*.t t/regression/*.t'
   }
@@ -70,5 +73,8 @@ delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
 WriteMakefile(%WriteMakefileArgs);
 
 eval {
-    eval { require Alien::SVN; 1 } and require SVN::Core; 1
+    require Alien::SVN;
+    require SVN::Core;
+    SVN::Core->import;
+    1;
 } or die 'botched Alien::SVN install detected, cannot continue';

@@ -4,7 +4,7 @@ use Modern::Perl;
 package SVN::Simple::Hook::PostCommit;
 use strict;
 
-our $VERSION = '0.309';    # VERSION
+our $VERSION = '0.310';    # VERSION
 use Any::Moose '::Role';
 use Any::Moose 'X::Types::Common::Numeric' => ['PositiveInt'];
 use SVN::Core;
@@ -30,19 +30,15 @@ has _svn_filesystem => (
     default  => sub { shift->repository->fs },
 );
 
-{
-    ## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
-    sub _build_author {
-        my $self = shift;
-        return $self->_svn_filesystem->revision_prop( $self->revision_number,
-            'svn:author' );
-    }
+sub _build_author {
+    my $self = shift;
+    return $self->_svn_filesystem->revision_prop( $self->revision_number,
+        'svn:author' );
+}
 
-    sub _build_root {
-        my $self = shift;
-        return $self->_svn_filesystem->revision_root(
-            $self->revision_number );
-    }
+sub _build_root {
+    my $self = shift;
+    return $self->_svn_filesystem->revision_root( $self->revision_number );
 }
 
 1;
@@ -64,7 +60,7 @@ SVN::Simple::Hook::PostCommit - Role for Subversion post-commit hooks
 
 =head1 VERSION
 
-version 0.309
+version 0.310
 
 =head1 SYNOPSIS
 

@@ -4,7 +4,7 @@ use Modern::Perl;
 package SVN::Simple::Hook;
 use strict;
 
-our $VERSION = '0.309';    # VERSION
+our $VERSION = '0.310';    # VERSION
 use Any::Moose '::Role';
 use Any::Moose 'X::Types::' . any_moose() => ['Str'];
 use Any::Moose 'X::Types::Path::Class'    => ['Dir'];
@@ -65,7 +65,7 @@ has paths_changed => (
     builder  => '_build_paths_changed',
 );
 
-sub _build_paths_changed {    ## no critic (ProhibitUnusedPrivateSubroutines)
+sub _build_paths_changed {
     my $self = shift;
     my $root = $self->root;
     my $fs   = $root->fs;
@@ -126,7 +126,7 @@ SVN::Simple::Hook - Simple Moose/Mouse-based framework for Subversion hooks
 
 =head1 VERSION
 
-version 0.309
+version 0.310
 
 =head1 SYNOPSIS
 

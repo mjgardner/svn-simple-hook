@@ -34,6 +34,9 @@ requires:
   MouseX::Types::Mouse: 0
   MouseX::Types::Path::Class: 0
   Path::Class: 0
+  SVN::Core: 0
+  SVN::Fs: 0
+  SVN::Repos: 0
   Try::Tiny: 0
   namespace::autoclean: 0
   perl: 5.010
@@ -43,7 +46,7 @@ resources:
   bugtracker: https://github.com/mjgardner/svn-simple-hook/issues
   homepage: http://metacpan.org/release/SVN-Simple-Hook/
   repository: git://github.com/mjgardner/svn-simple-hook.git
-version: 0.309
+version: 0.310
 x_Dist_Zilla:
   plugins:
     -
@@ -285,5 +288,5 @@ x_Dist_Zilla:
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
-      is_trial: 0
+      is_trial: 1
     version: 4.300009
