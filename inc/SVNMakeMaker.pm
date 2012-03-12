@@ -26,3 +26,19 @@ END_TEMPLATE
 __PACKAGE__->meta->make_immutable();
 no Moose;
 1;
+
+# ABSTRACT: Add check for SVN::Core problems to Makefile.PL
+
+=head1 SYNOPSIS
+
+In F<dist.ini>:
+
+   [=inc::SVNMakeMaker / SVNMakeMaker]
+
+=head1 DESCRIPTION
+
+This is a subclass of
+L<Dist::Zilla::MakeMaker::Awesome|Dist::Zilla::MakeMaker::Awesome>
+that checks if L<Alien::SVN|Alien::SVN> can be loaded, and if so tries
+to load L<SVN::Core|SVN::Core>.  If the latter fails then an exception
+is thrown indicating a botched C<Alien::SVN> installation.
