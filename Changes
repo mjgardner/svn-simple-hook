@@ -1,6 +1,8 @@
 Revision history for SVN-Simple-Hook
 
 {{$NEXT}}
+
+0.310     2012-03-12 13:43:44 America/New_York
     TRIAL RELEASE: Reintroduce SVN:: prerequisites from Perl bindings
     Require and import SVN::Core in Makefile.PL to stop more bad installs
 0.309     2012-03-11 16:35:36 America/New_York
