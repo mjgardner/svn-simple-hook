@@ -1,5 +1,8 @@
 Revision history for SVN-Simple-Hook
 
+0.311     2012-03-12 15:00:32 America/New_York
+    TRIAL RELEASE: Correct eval conditionals in Makefile.PL so people without
+    Alien::SVN at all don't bug out.
 0.310     2012-03-12 13:43:44 America/New_York
     TRIAL RELEASE: Reintroduce SVN:: prerequisites from Perl bindings
     Require and import SVN::Core in Makefile.PL to stop more bad installs

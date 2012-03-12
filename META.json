@@ -69,7 +69,7 @@
          "web" : "https://github.com/mjgardner/svn-simple-hook"
       }
    },
-   "version" : "0.310",
+   "version" : "0.311",
    "x_Dist_Zilla" : {
       "plugins" : [
          {

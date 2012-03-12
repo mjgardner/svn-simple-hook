@@ -47,7 +47,7 @@ my %WriteMakefileArgs = (
     'strict' => '0',
     'utf8' => '0'
   },
-  'VERSION' => '0.310',
+  'VERSION' => '0.311',
   'test' => {
     'TESTS' => 't/*.t t/regression/*.t'
   }
@@ -72,9 +72,7 @@ delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
 
 WriteMakefile(%WriteMakefileArgs);
 
-eval {
-    require Alien::SVN;
-    require SVN::Core;
-    SVN::Core->import;
-    1;
-} or die 'botched Alien::SVN install detected, cannot continue';
+if (eval {require Alien::SVN; 1}) {
+    eval {require SVN::Core; SVN::Core->import; 1}
+        or die 'botched Alien::SVN install detected, cannot continue';
+}

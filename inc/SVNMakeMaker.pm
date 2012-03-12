@@ -14,12 +14,10 @@ override _build_MakeFile_PL_template => sub {
 
     my $template = super();
     $template .= <<'END_TEMPLATE';
-eval {
-    require Alien::SVN;
-    require SVN::Core;
-    SVN::Core->import;
-    1;
-} or die 'botched Alien::SVN install detected, cannot continue';
+if (eval {require Alien::SVN; 1}) {
+    eval {require SVN::Core; SVN::Core->import; 1}
+        or die 'botched Alien::SVN install detected, cannot continue';
+}
 END_TEMPLATE
 
     return $template;
