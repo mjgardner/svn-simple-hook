@@ -9,5 +9,6 @@ before_install:
   - "cpanm Pod::Weaver::Plugin::Encoding"
   - "cpanm Pod::Weaver::Plugin::StopWords"
   - "cpanm Pod::Weaver::Section::Support"
+  - "git config --global github.user mjgardner"
 install: "dzil authordeps | xargs cpanm && dzil listdeps | xargs cpanm"
 script: "dzil test --release"
