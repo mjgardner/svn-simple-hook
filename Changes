@@ -1,7 +1,10 @@
 Revision history for SVN-Simple-Hook
 
 {{$NEXT}}
-
+    Better documentation for inc::SVNMakeMaker and its changes to Makefile.PL
+    Metadata for development prerequisites
+    Experimental support for Travis distributed build platform when developing
+    (http://travis-ci.org/)
 0.311     2012-03-12 15:00:32 America/New_York
     TRIAL RELEASE: Correct eval conditionals in Makefile.PL so people without
     Alien::SVN at all don't bug out.
