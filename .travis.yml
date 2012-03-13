@@ -6,5 +6,8 @@ perl:
 before_install:
   - "cpanm Dist::Zilla"
   - "cpanm Dist::Zilla::Plugin::MakeMaker::Awesome"
+  - "cpanm Pod::Weaver::Plugin::Encoding"
+  - "cpanm Pod::Weaver::Plugin::StopWords"
+  - "cpanm Pod::Weaver::Section::Support"
 install: "dzil authordeps | xargs cpanm && dzil listdeps | xargs cpanm"
 script: "dzil test --release"
