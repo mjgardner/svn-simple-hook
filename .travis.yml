@@ -3,6 +3,8 @@ perl:
   - "5.14"
   - "5.12"
   - "5.10"
-before_install: "cpanm Dist::Zilla"
+before_install:
+  - "cpanm Dist::Zilla"
+  - "cpanm Dist::Zilla::Plugin::MakeMaker::Awesome"
 install: "dzil authordeps | xargs cpanm && dzil listdeps | xargs cpanm"
 script: "dzil test --release"
