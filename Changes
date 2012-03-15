@@ -1,6 +1,8 @@
 Revision history for SVN-Simple-Hook
 
 {{$NEXT}}
+
+0.312     2012-03-15 12:53:58 America/New_York
     Better documentation for inc::SVNMakeMaker and its changes to Makefile.PL
     Support for Travis distributed build platform when developing
     (http://travis-ci.org/)
