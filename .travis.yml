@@ -18,7 +18,8 @@ before_install:
   - "sudo apt-get install libapr1 libapr1-dev libaprutil1 libaprutil1-dev libaprutil1-dbd-sqlite3 libneon27-gnutls libneon27-gnutls-dev"
   # install dist development dependencies
   - "dzil authordeps | xargs cpanm"
-  - "dzil build --in dev_reqs"
-  - "perl -MCPAN::Meta -e '$,=\"\\n\"; print CPAN::Meta->load_file(\"dev_reqs/META.json\")->effective_prereqs->requirements_for(\"develop\", \"requires\")->required_modules' | xargs cpanm"
+  - "export tmpbuild=`mktemp --directory`"
+  - "dzil build --in $tmpbuild"
+  - "perl -MCPAN::Meta -e '$,=\"\\n\"; print CPAN::Meta->load_file(\"$ENV{tmpbuild}/META.json\")->effective_prereqs->requirements_for(\"develop\", \"requires\")->required_modules' | xargs cpanm"
 install: "dzil listdeps | xargs cpanm --verbose"
 script: "dzil test --release"
