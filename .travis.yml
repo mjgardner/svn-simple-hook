@@ -18,6 +18,6 @@ before_install:
   - "cpanm ."
   - "popd"
   - "sudo apt-get update"
-  - "sudo apt-get install apr apr-util"
+  - "sudo apt-get install libapr1 libapr1-dev libaprutil1 libaprutil1-dev libaprutil1-dbd-sqlite3"
 install: "dzil authordeps | xargs cpanm && dzil listdeps | xargs cpanm --verbose"
 script: "dzil test --release"
