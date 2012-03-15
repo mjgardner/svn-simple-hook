@@ -7,8 +7,8 @@ use strict;
 # VERSION
 use Any::Moose;
 use Any::Moose '::Util::TypeConstraints';
-use Any::Moose 'X::Types::' . any_moose() => ['Undef'];
-use Any::Moose 'X::Types::Path::Class'    => [qw(Dir File)];
+use Any::Moose 'X::Types::Moose'       => ['Undef'];
+use Any::Moose 'X::Types::Path::Class' => [qw(Dir File)];
 use Path::Class;
 use SVN::Core;
 use SVN::Fs;

@@ -6,8 +6,8 @@ use strict;
 
 # VERSION
 use Any::Moose '::Role';
-use Any::Moose 'X::Types::' . any_moose() => ['Str'];
-use Any::Moose 'X::Types::Path::Class'    => ['Dir'];
+use Any::Moose 'X::Types::Moose'       => ['Str'];
+use Any::Moose 'X::Types::Path::Class' => ['Dir'];
 use List::MoreUtils 'any';
 use Path::Class;
 use Try::Tiny;
