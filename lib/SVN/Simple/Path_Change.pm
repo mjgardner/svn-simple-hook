@@ -4,11 +4,11 @@ use Modern::Perl;
 package SVN::Simple::Path_Change;
 use strict;
 
-our $VERSION = '0.311';    # VERSION
+our $VERSION = '0.312';    # VERSION
 use Any::Moose;
 use Any::Moose '::Util::TypeConstraints';
-use Any::Moose 'X::Types::' . any_moose() => ['Undef'];
-use Any::Moose 'X::Types::Path::Class'    => [qw(Dir File)];
+use Any::Moose 'X::Types::Moose'       => ['Undef'];
+use Any::Moose 'X::Types::Path::Class' => [qw(Dir File)];
 use Path::Class;
 use SVN::Core;
 use SVN::Fs;
@@ -55,7 +55,7 @@ SVN::Simple::Path_Change - A class for easier manipulation of Subversion path ch
 
 =head1 VERSION
 
-version 0.311
+version 0.312
 
 =head1 SYNOPSIS
 

@@ -35,8 +35,8 @@ my %WriteMakefileArgs = (
     'List::MoreUtils' => '0',
     'Modern::Perl' => '0',
     'MouseX::App::Cmd' => '0',
+    'MouseX::Types' => '0.06',
     'MouseX::Types::Common' => '0',
-    'MouseX::Types::Mouse' => '0',
     'MouseX::Types::Path::Class' => '0',
     'Path::Class' => '0',
     'SVN::Core' => '0',
@@ -47,7 +47,7 @@ my %WriteMakefileArgs = (
     'strict' => '0',
     'utf8' => '0'
   },
-  'VERSION' => '0.311',
+  'VERSION' => '0.312',
   'test' => {
     'TESTS' => 't/*.t t/regression/*.t'
   }

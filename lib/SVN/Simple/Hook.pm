@@ -4,10 +4,10 @@ use Modern::Perl;
 package SVN::Simple::Hook;
 use strict;
 
-our $VERSION = '0.311';    # VERSION
+our $VERSION = '0.312';    # VERSION
 use Any::Moose '::Role';
-use Any::Moose 'X::Types::' . any_moose() => ['Str'];
-use Any::Moose 'X::Types::Path::Class'    => ['Dir'];
+use Any::Moose 'X::Types::Moose'       => ['Str'];
+use Any::Moose 'X::Types::Path::Class' => ['Dir'];
 use List::MoreUtils 'any';
 use Path::Class;
 use Try::Tiny;
@@ -126,7 +126,7 @@ SVN::Simple::Hook - Simple Moose/Mouse-based framework for Subversion hooks
 
 =head1 VERSION
 
-version 0.311
+version 0.312
 
 =head1 SYNOPSIS
 

@@ -30,8 +30,8 @@ requires:
   List::MoreUtils: 0
   Modern::Perl: 0
   MouseX::App::Cmd: 0
+  MouseX::Types: 0.06
   MouseX::Types::Common: 0
-  MouseX::Types::Mouse: 0
   MouseX::Types::Path::Class: 0
   Path::Class: 0
   SVN::Core: 0
@@ -46,7 +46,7 @@ resources:
   bugtracker: https://github.com/mjgardner/svn-simple-hook/issues
   homepage: http://metacpan.org/release/SVN-Simple-Hook/
   repository: git://github.com/mjgardner/svn-simple-hook.git
-version: 0.311
+version: 0.312
 x_Dist_Zilla:
   plugins:
     -
@@ -112,6 +112,30 @@ x_Dist_Zilla:
           phase: runtime
           type: requires
       name: Prereqs
+      version: 4.300009
+    -
+      class: Dist::Zilla::Plugin::Prereqs
+      config:
+        Dist::Zilla::Plugin::Prereqs:
+          phase: develop
+          type: requires
+      name: DevelopRequires
+      version: 4.300009
+    -
+      class: Dist::Zilla::Plugin::Prereqs
+      config:
+        Dist::Zilla::Plugin::Prereqs:
+          phase: develop
+          type: recommends
+      name: DevelopRecommends
+      version: 4.300009
+    -
+      class: Dist::Zilla::Plugin::Prereqs
+      config:
+        Dist::Zilla::Plugin::Prereqs:
+          phase: test
+          type: recommends
+      name: TestRecommends
       version: 4.300009
     -
       class: Dist::Zilla::Plugin::NextRelease
@@ -288,5 +312,5 @@ x_Dist_Zilla:
   zilla:
     class: Dist::Zilla::Dist::Builder
     config:
-      is_trial: 1
+      is_trial: 0
     version: 4.300009

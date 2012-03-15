@@ -19,6 +19,26 @@
             "ExtUtils::MakeMaker" : "6.30"
          }
       },
+      "develop" : {
+         "recommends" : {
+            "Test::EOL" : "0"
+         },
+         "requires" : {
+            "Dist::Zilla" : "0",
+            "Dist::Zilla::Plugin::MakeMaker::Awesome" : "0",
+            "MooseX::App::Cmd" : "0.08",
+            "MooseX::Types" : "0",
+            "MooseX::Types::Common" : "0",
+            "MooseX::Types::Path::Class" : "0",
+            "Perl::Critic::Bangs" : "0",
+            "Perl::Critic::Lax" : "0",
+            "Perl::Critic::Pulp" : "0",
+            "Perl::Critic::StricterSubs" : "0",
+            "Pod::Weaver::Plugin::Encoding" : "0",
+            "Pod::Weaver::Plugin::StopWords" : "0",
+            "Pod::Weaver::Section::Support" : "0"
+         }
+      },
       "runtime" : {
          "requires" : {
             "Alien::SVN" : "0",
@@ -26,8 +46,8 @@
             "List::MoreUtils" : "0",
             "Modern::Perl" : "0",
             "MouseX::App::Cmd" : "0",
+            "MouseX::Types" : "0.06",
             "MouseX::Types::Common" : "0",
-            "MouseX::Types::Mouse" : "0",
             "MouseX::Types::Path::Class" : "0",
             "Path::Class" : "0",
             "SVN::Core" : "0",
@@ -41,6 +61,9 @@
          }
       },
       "test" : {
+         "recommends" : {
+            "Test::CPAN::Meta::JSON" : "0"
+         },
          "requires" : {
             "App::Cmd::Tester" : "0",
             "Carp" : "0",
@@ -57,7 +80,7 @@
          }
       }
    },
-   "release_status" : "testing",
+   "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/mjgardner/svn-simple-hook/issues"
@@ -69,7 +92,7 @@
          "web" : "https://github.com/mjgardner/svn-simple-hook"
       }
    },
-   "version" : "0.311",
+   "version" : "0.312",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -151,6 +174,39 @@
                }
             },
             "name" : "Prereqs",
+            "version" : "4.300009"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Prereqs",
+            "config" : {
+               "Dist::Zilla::Plugin::Prereqs" : {
+                  "phase" : "develop",
+                  "type" : "requires"
+               }
+            },
+            "name" : "DevelopRequires",
+            "version" : "4.300009"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Prereqs",
+            "config" : {
+               "Dist::Zilla::Plugin::Prereqs" : {
+                  "phase" : "develop",
+                  "type" : "recommends"
+               }
+            },
+            "name" : "DevelopRecommends",
+            "version" : "4.300009"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Prereqs",
+            "config" : {
+               "Dist::Zilla::Plugin::Prereqs" : {
+                  "phase" : "test",
+                  "type" : "recommends"
+               }
+            },
+            "name" : "TestRecommends",
             "version" : "4.300009"
          },
          {
@@ -372,7 +428,7 @@
       "zilla" : {
          "class" : "Dist::Zilla::Dist::Builder",
          "config" : {
-            "is_trial" : "1"
+            "is_trial" : "0"
          },
          "version" : "4.300009"
       }
