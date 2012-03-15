@@ -17,5 +17,7 @@ before_install:
   - "cd mousex-getopt"
   - "cpanm ."
   - "popd"
+  - "sudo apt-get update"
+  - "sudo apt-get install apr apr-util"
 install: "dzil authordeps | xargs cpanm && dzil listdeps | xargs cpanm --verbose"
 script: "dzil test --release"
