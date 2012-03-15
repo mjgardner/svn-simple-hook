@@ -17,5 +17,5 @@ before_install:
   - "cd mousex-getopt"
   - "cpanm ."
   - "popd"
-install: "dzil authordeps | xargs cpanm && dzil listdeps | xargs cpanm"
+install: "dzil authordeps | xargs cpanm && dzil listdeps | xargs cpanm --verbose"
 script: "dzil test --release"
