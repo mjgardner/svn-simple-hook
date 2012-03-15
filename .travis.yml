@@ -3,6 +3,7 @@ perl:
   - "5.14"
   - "5.12"
   - "5.10"
+env: PERL_CPANM_OPT="--notest --force"
 before_install:
   # bootstrap modules needed to manipulate dist
   - "cpanm Dist::Zilla"
@@ -12,14 +13,6 @@ before_install:
   - "cpanm Pod::Weaver::Section::Support"
   # needed for DZP::GitHub
   - "git config --global github.user mjgardner"
-  # install my fork of MouseX::Getopt
-  - "git clone git://github.com/mjgardner/mousex-getopt.git ../mousex-getopt"
-  - "pushd ../mousex-getopt"
-  - "dzil authordeps | xargs cpanm"
-  - "dzil build --in mousex-getopt"
-  - "cd mousex-getopt"
-  - "cpanm ."
-  - "popd"
   # install packages for Alien::SVN
   - "sudo apt-get update"
   - "sudo apt-get install libapr1 libapr1-dev libaprutil1 libaprutil1-dev libaprutil1-dbd-sqlite3 libneon27-gnutls libneon27-gnutls-dev"
