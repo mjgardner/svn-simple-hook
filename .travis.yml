@@ -4,12 +4,15 @@ perl:
   - "5.12"
   - "5.10"
 before_install:
+  # bootstrap modules needed to manipulate dist
   - "cpanm Dist::Zilla"
   - "cpanm Dist::Zilla::Plugin::MakeMaker::Awesome"
   - "cpanm Pod::Weaver::Plugin::Encoding"
   - "cpanm Pod::Weaver::Plugin::StopWords"
   - "cpanm Pod::Weaver::Section::Support"
+  # needed for DZP::GitHub
   - "git config --global github.user mjgardner"
+  # install my fork of MouseX::Getopt
   - "git clone git://github.com/mjgardner/mousex-getopt.git ../mousex-getopt"
   - "pushd ../mousex-getopt"
   - "dzil authordeps | xargs cpanm"
@@ -17,7 +20,14 @@ before_install:
   - "cd mousex-getopt"
   - "cpanm ."
   - "popd"
+  # install packages for Alien::SVN
   - "sudo apt-get update"
   - "sudo apt-get install libapr1 libapr1-dev libaprutil1 libaprutil1-dev libaprutil1-dbd-sqlite3 libneon27-gnutls libneon27-gnutls-dev"
-install: "dzil authordeps | xargs cpanm && dzil listdeps | xargs cpanm --verbose"
+  # install dist development dependencies
+  - "dzil authordeps | xargs cpanm"
+  - "dzil build --in dev_reqs"
+  - "pushd dev_reqs"
+  - "perl -MCPAN::Meta -e '$,=\"\\n\"; print CPAN::Meta->load_file(\"META.json\")->effective_prereqs->requirements_for(\"develop\", \"requires\")->required_modules'"
+  - "popd"
+install: "dzil listdeps | xargs cpanm --verbose"
 script: "dzil test --release"
