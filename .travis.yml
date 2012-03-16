@@ -1,3 +1,6 @@
+branches:
+  except:
+    - release_build/master
 language: perl
 perl:
   - "5.14"
