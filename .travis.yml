@@ -11,7 +11,6 @@ before_install:
   # bootstrap modules needed to manipulate dist
   - "cpanm Dist::Zilla"
   - "cpanm Dist::Zilla::Plugin::MakeMaker::Awesome"
-  - "cpanm Pod::Weaver::Plugin::Encoding"
   - "cpanm Pod::Weaver::Plugin::StopWords"
   - "cpanm Pod::Weaver::Section::Support"
   # needed for DZP::GitHub
