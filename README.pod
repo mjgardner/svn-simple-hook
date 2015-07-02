@@ -1,9 +1,9 @@
 =pod
 
+=encoding utf8
+
 =for :stopwords Mark Gardner GSI Commerce cpan testmatrix url annocpan anno bugtracker rt
 cpants kwalitee diff irc mailto metadata placeholders metacpan
-
-=encoding utf8
 
 =head1 NAME
 
@@ -11,7 +11,7 @@ SVN::Simple::Hook - Simple Moose/Mouse-based framework for Subversion hooks
 
 =head1 VERSION
 
-version 0.312
+version 0.313
 
 =head1 SYNOPSIS
 
@@ -104,7 +104,7 @@ CPANTS
 
 The CPANTS is a website that analyzes the Kwalitee ( code metrics ) of a distribution.
 
-L<http://cpants.perl.org/dist/overview/SVN-Simple-Hook>
+L<http://cpants.cpanauthors.org/dist/SVN-Simple-Hook>
 
 =item *
 
@@ -154,8 +154,9 @@ Mark Gardner <mjgardner@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by GSI Commerce.
+This software is copyright (c) 2015 by GSI Commerce.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
+=cut
