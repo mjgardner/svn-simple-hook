@@ -8,7 +8,7 @@ use strict;
 use Any::Moose '::Role';
 use Any::Moose 'X::Types::Moose'       => ['Str'];
 use Any::Moose 'X::Types::Path::Class' => ['Dir'];
-use List::MoreUtils 'any';
+use List::Util 1.33 'any';
 use Path::Class;
 use Try::Tiny;
 use SVN::Core;
