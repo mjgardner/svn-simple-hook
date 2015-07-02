@@ -9,21 +9,27 @@ use Any::Moose;
 use Any::Moose '::Util::TypeConstraints';
 use Any::Moose 'X::Types::Moose'       => ['Undef'];
 use Any::Moose 'X::Types::Path::Class' => [qw(Dir File)];
+use List::Util 1.33 'none';
 use Path::Class;
 use SVN::Core;
 use SVN::Fs;
 use namespace::autoclean;
 
+my @methods;
+for my $method ( map { $_->name }
+    any_moose('::Meta::Class')->initialize('_p_svn_fs_path_change_t')
+    ->get_all_methods() )
+{
+    if ( none { $method eq $_ } qw(new OFFSET) ) {
+        push @methods => $method;
+    }
+}
+
 has svn_change => (
     is       => 'ro',
     isa      => '_p_svn_fs_path_change_t',
     required => 1,
-    handles  => [
-        grep { not $_ ~~ [qw(new DESTROY)] }
-            map { $_->name }
-            any_moose('::Meta::Class')->initialize('_p_svn_fs_path_change_t')
-            ->get_all_methods(),
-    ],
+    handles  => \@methods,
 );
 
 coerce Dir,  from Undef => via { dir(q{}) };
